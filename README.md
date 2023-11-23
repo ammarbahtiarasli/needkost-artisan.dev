@@ -6,6 +6,8 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 ## NeedKost - Artisan.Dev
 
+platform yang menghubungkan antara pemilik kosan dengan calon penyewa dengan cara yang efisien dan nyaman, memudahkan calon penyewa dalam mencari dan memilih kosan yang sesuai dengan kebutuhan mereka tanpa harus melakukan kunjungan langsung, proses penyewaan yang lebih mudah dan transparan, Dengan adanya platform ini, pemilik kosan dapat menjangkau lebih banyak calon penyewa dari berbagai tempat, tidak hanya dari lingkungan sekitar saja.
+
 
 ## Dokumentasi First Install
 
@@ -53,7 +55,9 @@ Branch yang tersedia :
 - Salma
 - Anggi
 
-## Dokumentasi setiap mengerjakan
+<p align="center"><a href="https://ibb.co/kQ9vvts" target="_blank"><img src="https://ibb.co/kQ9vvts" width="400" alt="Laravel Logo"></a></p>
+
+## Dokumentasi Git Pull dan Git Push setiap mengerjakan
 
 Sebelum lanjut mengerjakan progress di masing-masing branch, kita git pull dulu :
 ```bash
