@@ -14,10 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// User
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
+//Pemilik Kos
+
+// Admin
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
