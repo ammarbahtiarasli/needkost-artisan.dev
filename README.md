@@ -55,7 +55,8 @@ Branch yang tersedia :
 - Salma
 - Anggi
 
-<p align="center"><a href="https://ibb.co/kQ9vvts" target="_blank"><img src="https://ibb.co/kQ9vvts" width="400" alt="Laravel Logo"></a></p>
+<img src="https://ibb.co/kQ9vvts" width="400" alt="branch image">
+![Alt text](<Screenshot 2023-11-23 164235.png>)
 
 ## Dokumentasi Git Pull dan Git Push setiap mengerjakan
 
