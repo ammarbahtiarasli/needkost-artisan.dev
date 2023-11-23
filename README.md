@@ -55,9 +55,6 @@ Branch yang tersedia :
 - Salma
 - Anggi
 
-<img src="https://ibb.co/kQ9vvts" width="400" alt="branch image">
-![Alt text](<Screenshot 2023-11-23 164235.png>)
-
 ## Dokumentasi Git Pull dan Git Push setiap mengerjakan
 
 Sebelum lanjut mengerjakan progress di masing-masing branch, kita git pull dulu :
@@ -77,7 +74,7 @@ Jika sudah mengerjakan, push ke github dengan perintah berikut :
 ```bash
 git init
 git add .
-git commit -m "task apa aja yang sudah dikerjakan"
+git commit -m "task apa saja yang sudah dikerjakan"
 git push
 ```
 
