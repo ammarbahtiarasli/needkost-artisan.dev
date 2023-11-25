@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+Route::get('/detail', function () {
+    return view('detail-kamar');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+
+
 
 //Pemilik Kos
 
