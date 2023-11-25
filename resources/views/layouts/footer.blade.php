@@ -1,4 +1,4 @@
-<footer class="bg-white dark:bg-gray-800">
+<footer class="mt-6 bg-white dark:bg-gray-800">
     <div class="w-full max-w-screen-xl p-8 py-6 mx-auto lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
