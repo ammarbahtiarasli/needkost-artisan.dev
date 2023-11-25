@@ -84,12 +84,220 @@
                         </a>
                     </div>
                 </section>
+                <section id="Kota Bandung">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Jakarta</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Kostan Pilihan di Kota Jakarta.</p>
+                    </div>
+                    <div
+                        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-3 lg:gap-x-20 lg:gap-y-24">
+                        <x-card />
+                        <x-card />
+                        <x-card />
+                    </div>
+                    <div class="flex justify-end mt-6 lg:mt-10">
+                        <a class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors bg-gray-200 border rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-gray-200/80 group"
+                            href="#"><span class="mr-6">Tampilkan lebih banyak</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
+                                <path
+                                    d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
+                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
 
     {{-- kota populer --}}
+    <div class="container py-6 mx-auto">
+        <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="space-y-10 sm:space-y-24">
+                <section id="rekomendasi">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Kostan yang dekat sama kamu.</p>
+                    </div>
+                    <div class="mt-8 md:flex md:-mx-4">
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
+    <div class="container py-6 mx-auto">
+        <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="space-y-10 sm:space-y-24">
+                <section id="rekomendasi">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Sekitar Kampus
+                        </h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Kostan yang dekat sama Kampus
+                            impian kamu.</p>
+                    </div>
+
+                    <div class="mt-8 md:flex md:-mx-4">
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                            style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">Games</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
 
     @include('layouts.footer')
 </x-guest-layout>
