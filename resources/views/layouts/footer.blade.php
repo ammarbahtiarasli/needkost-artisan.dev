@@ -1,9 +1,9 @@
-<footer class="mt-6 bg-white dark:bg-gray-800">
+<footer class="pt-3 bg-white dark:bg-gray-800">
     <div class="w-full max-w-screen-xl p-8 py-6 mx-auto lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
               <a href="https://flowbite.com/" class="flex items-center">
-                <span class="inline-block -rotate-1 animate-gradient-pulse rounded-xl ring-2 ring-primary/70 shadow-xl shadow-primary/[0.25] ml-1 bg-gradient-to-r from-background via-primary/10 to-background px-4 py-1.5 dark:text-gray-200 text-lg font-semibold tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-2xl lg:text-3xl hover:rotate-3 hover:transition">NeedKost</span>
+                <span class="inline-block -rotate-1 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 dark:text-gray-200 text-lg font-semibold tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-2xl lg:text-3xl hover:rotate-3 hover:transition">NeedKost</span>
               </a>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">

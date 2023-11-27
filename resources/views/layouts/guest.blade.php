@@ -32,6 +32,7 @@
     <main class="bg-gray-100 dark:bg-gray-900">
         {{ $slot }}
     </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>
