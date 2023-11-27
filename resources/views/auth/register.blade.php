@@ -1,8 +1,10 @@
 <x-guest-layout>
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0 dark:bg-gray-900">
         <div class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
+            <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Register</h2>
+            <p class="text-sm dark:text-gray-300 text-muted-foreground">Selamat datang di NeedKost.</p>
 
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" class="pt-6">
                 @csrf
 
                 <!-- Name -->
