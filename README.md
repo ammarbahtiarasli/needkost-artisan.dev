@@ -24,7 +24,8 @@ Jika ingin dikembangkan, bisa dengan menjalankan
 npm run dev
 ```
 
-Buat 1 file dengan nama `.env` kemudian silakan copy semua yang ada di dalam file `.env.example` ke dalam file `.env`. Kemudian buka terminal kembali untuk generate key baru.
+
+Buat 1 file dengan nama `.env` kemudian silakan copy semua yang ada di dalam file `.env.example` ke dalam file `.env`. Kemudian buka terminal kembali untuk generasi key baru.
 ```bash
 php artisan key:generate
 ```
@@ -63,7 +64,6 @@ git pull
 Setelah itu, pindah ke branch nya masing-masing :
 ```bash
 git checkout {{ ammar , radit, salma, anggi }}
-```
 
 Setelah itu, jalankan `php artisan serve` untuk memulai server laravel nya.
 dan jalankan juga `npm run dev` untuk rendering bagian front-end nya.
@@ -79,3 +79,4 @@ git push
 *jangan push langsung ke main, tapi push ke branch nya masing-masing.
 
 `Last Edited 25/11/23 @artisan.dev`
+

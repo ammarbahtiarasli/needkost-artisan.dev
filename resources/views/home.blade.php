@@ -114,52 +114,39 @@
     </div>
 
     {{-- kota populer --}}
-    <div class="pb-3 bg-sky-100/80 dark:bg-gray-800/30">
-        <div class="container py-6 mx-auto ">
-            <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-                <div class="space-y-10 sm:space-y-24">
-                    <section id="rekomendasi">
-                        <div class="mb-6">
-                            <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer
-                            </h2>
-                            <p class="text-sm dark:text-gray-300 text-muted-foreground">Kostan yang dekat sama kamu.</p>
-                        </div>
-                        <div class="mt-8 md:flex md:-mx-4">
-                            <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
-                                style="background-image: url('https://images.unsplash.com/photo-1613057263089-7a8c82f2825d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                                <div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-                                    <div class="max-w-xl px-10">
-                                        <h2 class="text-2xl font-semibold text-white">Bandung</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
-                                style="background-image: url('https://images.unsplash.com/photo-1555899434-94d1368aa7af?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                                <div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-                                    <div class="max-w-xl px-10">
-                                        <h2 class="text-2xl font-semibold text-white">Kajarta</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
-                                style="background-image: url('https://images.unsplash.com/photo-1687677347190-58c4ebf93bf6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                                <div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-                                    <div class="max-w-xl px-10">
-                                        <h2 class="text-2xl font-semibold text-white">Yogyakarta</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
-                                style="background-image: url('https://images.unsplash.com/photo-1699010239558-1e3c98b828d1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
-                                <div class="flex items-center justify-center h-full bg-gray-900 bg-opacity-50">
-                                    <div class="max-w-xl px-10">
-                                        <h2 class="text-2xl font-semibold text-white">Pangandaran</h2>
-                                    </div>
+    <div class="container py-6 mx-auto">
+        <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="space-y-10 sm:space-y-24">
+                <section id="rekomendasi">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari kost berdasarkan kota tujuan kamu.</p>
+                    </div>
+                    <div class="mt-8 md:flex md:-mx-4">
+                        @foreach ($kotas as $kota)
+
+                        <div class="w-full h-64 mt-8 overflow-hidden bg-center bg-cover rounded-md md:mx-4 md:mt-0 md:w-1/4"
+                        style="background-image: url('https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80')">
+                            <div class="flex items-center h-full bg-gray-900 bg-opacity-50">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-2xl font-semibold text-white">{{ $kota->nama_kota }}</h2>
+                                    <p class="mt-2 text-gray-400">Lorem ipsum dolor, sit amet consectetur adipisicing
+                                        elit. Tempore facere provident molestias ipsam sint voluptatum pariatur.</p>
+                                    <button
+                                        class="flex items-center mt-4 text-sm font-medium text-white uppercase rounded hover:underline focus:outline-none">
+                                        <span>Shop Now</span>
+                                        <svg class="w-5 h-5 mx-2" fill="none" stroke-linecap="round"
+                                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                            stroke="currentColor">
+                                            <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                        </svg>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </section>
-                </div>
+                        @endforeach
+                    </div>
+                </section>
             </div>
         </div>
     </div>

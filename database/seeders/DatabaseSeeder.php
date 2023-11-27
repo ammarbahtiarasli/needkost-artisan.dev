@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Kota;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +19,25 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Kota::create([
+            'nama_kota' => 'Bandung',
+        ]);
+
+        Kota::create([
+            'nama_kota' => 'Jakarta',
+        ]);
+
+        Kota::create([
+            'nama_kota' => 'Surabaya',
+        ]);
+
+        Kota::create([
+            'nama_kota' => 'Semarang',
+        ]);
+
+        Kota::create([
+            'nama_kota' => 'Yogyakarta',
+        ]);
     }
 }
