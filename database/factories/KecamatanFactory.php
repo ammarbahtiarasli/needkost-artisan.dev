@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kota>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Kecamatan>
  */
-class KotaFactory extends Factory
+class KecamatanFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,8 +17,8 @@ class KotaFactory extends Factory
     public function definition(): array
     {
         return [
+            'kota_id' => fake()->numberBetween(1, 10),
             'nama' => fake()->unique()->city(),
-            'gambar' => fake()->imageUrl(640, 480, 'city'),
         ];
     }
 }

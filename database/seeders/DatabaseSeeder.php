@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Fasilitas;
 use Illuminate\Database\Seeder;
 use App\Models\Kota;
 
@@ -20,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // Default Kota
         Kota::create([
             'nama_kota' => 'Bandung',
         ]);
@@ -38,6 +41,19 @@ class DatabaseSeeder extends Seeder
 
         Kota::create([
             'nama_kota' => 'Yogyakarta',
+        ]);
+
+        // Default Fasilitas
+        Fasilitas::create([
+            'nama_fasilitas' => 'Kamar Mandi Dalam',
+        ]);
+
+        Fasilitas::create([
+            'nama_fasilitas' => 'Internet',
+        ]);
+
+        Fasilitas::create([
+            'nama_fasilitas' => 'TV',
         ]);
     }
 }
