@@ -2,9 +2,13 @@
     <div class="w-full max-w-screen-xl p-8 py-6 mx-auto lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" class="flex items-center">
+              <a href="https://" class="flex items-center">
                 <span class="inline-block -rotate-1 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 dark:text-gray-200 text-lg font-semibold tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-2xl lg:text-3xl hover:rotate-3 hover:transition">NeedKost</span>
               </a>
+              <div class="container flex mt-12">
+                <img class="p-2" src="https://static-asset.mamikos.com/assets/bangul/others/get-it-on-playstore.svg?version=2.48.0" alt="Google Play">
+                <img class="p-2" src="https://static-asset.mamikos.com/assets/bangul/others/get-it-on-appstore.svg?version=2.48.0" alt="App Store">
+              </div>
           </div>
           <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-2">
               <div>
@@ -14,9 +18,11 @@
                           <a href="https://flowbite.com/" class="hover:underline">Beranda</a>
                       </li>
                       <li class="mb-3">
-                          <a href="https://tailwindcss.com/" class="hover:underline">Bandung</a>
+                          <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
                       </li>
-
+                      <li class="mb-3">
+                          <a href="https://tailwindcss.com/" class="hover:underline">Kota</a>
+                      </li>
                   </ul>
               </div>
               <div>
