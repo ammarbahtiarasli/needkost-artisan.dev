@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class role extends Model
+class Role extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    function user()
+    {
+        return $this->hasMany(User::class);
+    }
 }
