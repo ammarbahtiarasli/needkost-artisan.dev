@@ -49,6 +49,15 @@ Route::get('/manage-kota', function () {
 Route::get('/manage-user', function () {
     return view('dashboard.user.index');
 })->middleware(['auth', 'verified'])->name('kota');
+Route::get('/edit-kost', function () {
+    return view('dashboard.kost.edit');
+})->middleware(['auth', 'verified'])->name('edit-kosts');
+Route::get('/edit-kota', function () {
+    return view('dashboard.kota.edit');
+})->middleware(['auth', 'verified'])->name('edit-kota');
+Route::get('/edit-user', function () {
+    return view('dashboard.user.edit');
+})->middleware(['auth', 'verified'])->name('edit-user');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
