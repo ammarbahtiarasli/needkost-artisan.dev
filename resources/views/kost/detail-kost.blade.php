@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-slot name="header">
-        <h2 class="text-sm font-light leading-tight text-gray-800 dark:text-gray-200">
+        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
             {{ __('Beranda / Detail Kamar') }}
         </h2>
     </x-slot>
@@ -33,12 +33,23 @@
                     </div>
                 </div>
                 <div class="w-1/2">
-                    <div class="container p-6 mx-6 bg-white">
-                        <h2>Hello world</h2>
+                    <div class="container p-6 mx-6 bg-white rounded-lg">
+                        <span class="text-lg font-bold text-gray-900 dark:text-white">Rp.500.000/bulan</span>
+                        <div class="flex mb-3 gap-x-3">
+                            <x-text-input id="date" class="block w-1/2 mt-3" type="date" name="date"
+                                :value="old('date')" required autofocus autocomplete="username" />
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <x-select class="w-1/2 mt-3">
+                                <option value="test">test</option>
+                                <option value="test">test</option>
+                                <option value="test">test</option>
+                            </x-select>
+                        </div>
+                        <x-primary-button class="flex justify-center w-full h-10 p-3 mt-3">Ajukan Sewa</x-primary-button>
                     </div>
                 </div>
             </div>
-            <div class="container p-6 my-6 bg-white">
+            <div class="container p-6 my-6 bg-white rounded-lg">
                 <div class="sticky self-start hidden w-1/3 pb-6 space-y-8 lg:block lg:pb-12 top-28">
                     <div class="flex items-center">
                         <div class="md:hidden">
