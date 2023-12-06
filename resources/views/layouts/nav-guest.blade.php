@@ -1,7 +1,7 @@
 <div
     class="relative bg-gray-100 bg-center sm:flex sm:justify-center sm:items-center bg-dots-darker dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
-
 </div>
+
 
 
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 dark:bg-gray-800 dark:border-gray-700">
@@ -10,22 +10,25 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex items-center dark:text-gray-200 shrink-0">
-                    <a href="/">
-                        <x-application-logo class="block w-auto mr-3 text-gray-800 fill-current h-9 dark:text-gray-200" />
+                <div class="flex h-16 shrink-0 items-center">
+                    <a href="/" class="focus:outline-none focus:ring-0">
+                        <div class="text-foreground font-semibold text-2xl tracking-tighter dark:text-white">NeedKost_</div>
+                        <span class="sr-only">NeedKost</span>
                     </a>
-                    {{ __('NeedKost') }}
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="" active="request()->routeIs('home')">
+                    <x-nav-link href="/" active="request()->routeIs('home')">
                         {{ __('Beranda') }}
                     </x-nav-link>
-                    <x-nav-link>
+                    <x-nav-link href="/kota">
                         {{ __('Kota') }}
                     </x-nav-link>
-                    <x-nav-link>
+                    <x-nav-link href="/about">
+                        {{ __('Tentang Kami') }}
+                    </x-nav-link>
+                    <x-nav-link href="help">
                         {{ __('Pusat Bantuan') }}
                     </x-nav-link>
                 </div>

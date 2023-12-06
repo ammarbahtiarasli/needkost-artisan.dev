@@ -64,6 +64,7 @@ git pull
 Setelah itu, pindah ke branch nya masing-masing :
 ```bash
 git checkout {{ ammar , radit, salma, anggi }}
+```
 
 Setelah itu, jalankan `php artisan serve` untuk memulai server laravel nya.
 dan jalankan juga `npm run dev` untuk rendering bagian front-end nya.
@@ -79,4 +80,3 @@ git push
 *jangan push langsung ke main, tapi push ke branch nya masing-masing.
 
 `Last Edited 25/11/23 @artisan.dev`
-
