@@ -4,9 +4,10 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex items-center shrink-0">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block w-auto text-gray-800 fill-current h-9 dark:text-gray-200" />
+                <div class="flex items-center h-16 shrink-0">
+                    <a href="/" class="focus:outline-none focus:ring-0">
+                        <div class="text-2xl font-semibold tracking-tighter dark:text-white text-foreground">NeedKost_</div>
+                        <span class="sr-only">NeedKost</span>
                     </a>
                 </div>
 
