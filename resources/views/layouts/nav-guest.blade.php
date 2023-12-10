@@ -10,25 +10,25 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex h-16 shrink-0 items-center">
+                <div class="flex items-center h-16 shrink-0">
                     <a href="/" class="focus:outline-none focus:ring-0">
-                        <div class="text-foreground font-semibold text-2xl tracking-tighter dark:text-white">NeedKost_</div>
+                        <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_</div>
                         <span class="sr-only">NeedKost</span>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link href="/" active="request()->routeIs('home')">
+                    <x-nav-link  :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Beranda') }}
                     </x-nav-link>
-                    <x-nav-link href="/kota">
-                        {{ __('Kota') }}
+                    <x-nav-link  :href="route('lokasi')" :active="request()->routeIs('lokasi', 'nama-kota')">
+                        {{ __('Lokasi') }}
                     </x-nav-link>
-                    <x-nav-link href="/about">
+                    <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('Tentang Kami') }}
                     </x-nav-link>
-                    <x-nav-link href="help">
+                    <x-nav-link  :href="route('help')" :active="request()->routeIs('help')">
                         {{ __('Pusat Bantuan') }}
                     </x-nav-link>
                 </div>
@@ -57,6 +57,9 @@
                             </x-slot>
 
                             <x-slot name="content">
+                                <x-dropdown-link :href="route('dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-dropdown-link>
                                 <x-dropdown-link :href="route('profile.edit')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
@@ -64,7 +67,6 @@
                                 <!-- Authentication -->
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
-
                                     <x-dropdown-link :href="route('logout')"
                                         onclick="event.preventDefault();
                                                         this.closest('form').submit();">
@@ -75,7 +77,11 @@
                         </x-dropdown>
                     @else
                         <div class="p-6 text-right sm:top-0 sm:right-0">
-                                <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors bg-gray-200 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-gray-200/80 h-9">Login</a>
+                                <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors rounded-md bg-sky-200 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-sky-200/80 h-9">Login</a>
+                                @if (Route::has('register'))
+                        <a href="{{ route('register') }}"
+                        class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors bg-gray-200 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-gray-200/80 h-9">Register</a>
+                    @endif
                         @endauth
                     </div>
                 @endif
@@ -103,10 +109,13 @@
             <x-responsive-nav-link>
                 {{ __('Home') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link>
-                {{ __('Kota') }}
+            <x-responsive-nav-link  :href="route('lokasi')" :active="request()->routeIs('kota')">
+                {{ __('Lokasi') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
+                {{ __('Tentang Kami') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link  :href="route('help')" :active="request()->routeIs('help')">
                 {{ __('Pusat Bantuan') }}
             </x-responsive-nav-link>
         </div>
@@ -115,11 +124,6 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             @if (Route::has('login'))
                 @auth
-                    <div class="px-4">
-                        <div class="text-base font-medium text-gray-800 dark:text-gray-200">{{ __('name') }}</div>
-                        <div class="text-sm font-medium text-gray-500">{{ __('email') }}</div>
-                    </div>
-
                     <div class="mt-3 space-y-1">
                         <x-responsive-nav-link :href="route('profile.edit')">
                             {{ __('Profile') }}
@@ -142,7 +146,6 @@
                     <a href="{{ route('login') }}"
                         class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log
                         in</a>
-
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}"
                             class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>

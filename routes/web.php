@@ -16,23 +16,28 @@ use App\Http\Controllers\ProfileController;
 */
 
 // User
-Route::get('/', [HomeController::class, 'index']);
-
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/detail', function () {
     return view('kost.detail-kost');
-});
+})->name('detail');
+Route::get('/payment', function () {
+    return view('payment');
+})->name('payment');
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 Route::get('/help', function () {
     return view('help');
-});
-Route::get('/kota', function () {
+})->name('help');
+Route::get('/lokasi', function () {
     return view('kota.index');
-});
+})->name('lokasi');
+Route::get('/nama-kota', function () {
+    return view('kota.kota');
+})->name('nama-kota');
 Route::get('/username', function () {
     return view('profile-user');
-});
+})->name('profile');
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
@@ -45,10 +50,10 @@ Route::get('/create-kost', function () {
 })->middleware(['auth', 'verified'])->name('create-kosts');
 Route::get('/manage-kota', function () {
     return view('dashboard.kota.index');
-})->middleware(['auth', 'verified'])->name('kota');
+})->middleware(['auth', 'verified'])->name('kotas');
 Route::get('/manage-user', function () {
     return view('dashboard.user.index');
-})->middleware(['auth', 'verified'])->name('kota');
+})->middleware(['auth', 'verified'])->name('users');
 Route::get('/edit-kost', function () {
     return view('dashboard.kost.edit');
 })->middleware(['auth', 'verified'])->name('edit-kosts');
@@ -58,6 +63,7 @@ Route::get('/edit-kota', function () {
 Route::get('/edit-user', function () {
     return view('dashboard.user.edit');
 })->middleware(['auth', 'verified'])->name('edit-user');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
