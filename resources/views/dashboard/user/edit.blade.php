@@ -20,10 +20,31 @@
                 <form action="" method="POST">
                     @csrf
                     <div class="mb-4">
-                        <x-input-label for="nama" :value="__('Nama Kota')" />
+                        <x-input-label for="nama" :value="__('Nama')" />
                         <x-text-input id="nama" name="nama" type="text" class="block w-full mt-1" required
                             autofocus autocomplete="nama" />
                         <x-input-error class="mt-2" :messages="$errors->get('nama')" />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-input-label for="" :value="__('No HP')" />
+                        <x-text-input id="no_hp" name="no_hp" type="number" class="block w-full mt-1" required
+                            autocomplete="no_hp" />
+                        <x-input-error class="mt-2" :messages="$errors->get('no_hp')" />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-input-label for="email" :value="__('Email')" />
+                        <x-text-input id="email" name="email" type="text" class="block w-full mt-1" required
+                            autofocus autocomplete="email" />
+                        <x-input-error class="mt-2" :messages="$errors->get('email')" />
+                    </div>
+
+                    <div class="mb-4">
+                        <x-input-label for="photo" :value="__('Photo')" />
+                        <x-text-input id="photo" name="photo" type="text" class="block w-full mt-1" required
+                            autofocus autocomplete="photo" />
+                        <x-input-error class="mt-2" :messages="$errors->get('photo')" />
                     </div>
 
 

@@ -3,19 +3,19 @@
 namespace App\Models;
 
 use App\Models\Kost;
-use App\Models\User;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Kota;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Gender extends Model
+class Kecamatan extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    function user()
+    function kota()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsTo(Kota::class);
     }
 
     function kost()

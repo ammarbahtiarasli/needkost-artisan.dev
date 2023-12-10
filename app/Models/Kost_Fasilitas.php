@@ -3,23 +3,23 @@
 namespace App\Models;
 
 use App\Models\Kost;
-use App\Models\Kecamatan;
+use App\Models\Fasilitas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Kota extends Model
+class Kost_Fasilitas extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    function kecamatan()
+    public function kost()
     {
-        return $this->hasMany(Kecamatan::class);
+        return $this->belongsTo(Kost::class);
     }
 
-    function kost()
+    public function fasilitas()
     {
-        return $this->hasMany(Kost::class);
+        return $this->belongsTo(Fasilitas::class);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace App\Models;
 
-use App\Models\User;
+use App\Models\Kost_Fasilitas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Role extends Model
+class Fasilitas extends Model
 {
     use HasFactory;
 
     protected $guarded = ['id'];
 
-    function user()
+    function kost_fasilitas()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Kost_Fasilitas::class);
     }
 }
