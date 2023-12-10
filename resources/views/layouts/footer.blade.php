@@ -2,7 +2,7 @@
     <div class="w-full max-w-screen-xl p-8 py-6 mx-auto lg:py-8">
         <div class="md:flex md:justify-between">
           <div class="mb-6 md:mb-0">
-              <a href="https://" class="flex items-center">
+              <a href="#" class="flex items-center">
                 <span class="inline-block -rotate-1 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 dark:text-gray-200 text-lg font-semibold tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-2xl lg:text-3xl hover:rotate-3 hover:transition">NeedKost</span>
               </a>
               <div class="container flex mt-12">
@@ -15,13 +15,13 @@
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Navigasi</h2>
                   <ul class="font-medium text-gray-500 dark:text-gray-400">
                       <li class="mb-3">
-                          <a href="https://flowbite.com/" class="hover:underline">Beranda</a>
+                          <a :href="route('home')" :active="request()->routeIs('home')" class="hover:underline">Beranda</a>
                       </li>
                       <li class="mb-3">
                           <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
                       </li>
                       <li class="mb-3">
-                          <a href="https://tailwindcss.com/" class="hover:underline">Kota</a>
+                          <a :href="route('lokasi')" :active="request()->routeIs('lokasi')" class="hover:underline">Lokasi</a>
                       </li>
                   </ul>
               </div>
@@ -29,10 +29,10 @@
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Bantuan</h2>
                   <ul class="font-medium text-gray-500 dark:text-gray-400">
                       <li class="mb-3">
-                          <a href="#" class="hover:underline">Tentang Kami</a>
+                          <a href="/about" class="hover:underline">Tentang Kami</a>
                       </li>
                       <li>
-                        <a href="https://tailwindcss.com/" class="hover:underline">Pusat Bantuan</a>
+                        <a href="/help" class="hover:underline">Pusat Bantuan</a>
                     </li>
                   </ul>
               </div>

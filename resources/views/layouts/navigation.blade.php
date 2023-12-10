@@ -16,14 +16,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link>
+                    <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts')">
                         {{ __('Kamar Kost') }}
                     </x-nav-link>
-                    <x-nav-link>
-                        {{ __('User') }}
+                    <x-nav-link :href="route('kotas')" :active="request()->routeIs('kotas')">
+                        {{ __('Lokasi') }}
                     </x-nav-link>
-                    <x-nav-link>
-                        {{ __('Kota') }}
+                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                        {{ __('Pengguna') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -51,7 +51,6 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -80,6 +79,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts')">
+                {{ __('Kamar Kost') }}
+            </x-nav-link>
+            <x-nav-link :href="route('kotas')" :active="request()->routeIs('kotas')">
+                {{ __('Lokasi') }}
+            </x-nav-link>
+            <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                {{ __('Pengguna') }}
+            </x-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->

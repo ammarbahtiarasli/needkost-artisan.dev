@@ -21,7 +21,7 @@
                     </x-slot>
                 </x-sections>
                 <div class="container flex justify-end">
-                    <x-primary-button>Lihat semua</x-primary-button>
+                    <x-primary-a href="/nama-kota">Lihat semua</x-primary-a>
                 </div>
 
                 <x-sections id="Kost Kota Kajarta">
@@ -60,7 +60,7 @@
                     </div>
                 </section>
                 <div class="container flex justify-center">
-                    <x-primary-button>Lihat semua kota</x-primary-button>
+                    <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>
                 </div>
             </div>
         </div>
