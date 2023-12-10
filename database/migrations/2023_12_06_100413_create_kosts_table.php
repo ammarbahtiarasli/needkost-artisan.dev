@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('kosts', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('nama');
-            $table->string('no_hp');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('alamat');
+            $table->text('deskripsi');
+            $table->integer('harga_per_bulan');
+            $table->integer('kamar_tersedia');
+            $table->foreignId('id_user');
             $table->foreignId('id_gender');
-            $table->foreignId('id_role');
-            $table->rememberToken();
+            $table->foreignId('id_kecamatan');
+            $table->foreignId('id_kota');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('kosts');
     }
 };
