@@ -13,8 +13,10 @@ class DashboardUserController extends Controller
      */
     public function index()
     {
+        $users = User::query()->with('role')->get();
+        // $users = User::whereNot('id', auth()->user()->id)->get();
         return view('dashboard.user.index', [
-            'users' => User::whereNot('id', auth()->user()->id)->get()
+            'users' => $users
         ]);
     }
 

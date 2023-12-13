@@ -14,6 +14,6 @@ class Photo extends Model
 
     function kost()
     {
-        return $this->belongsTo(Kost::class);
+        return $this->belongsTo(Kost::class, 'id_kost');
     }
 }

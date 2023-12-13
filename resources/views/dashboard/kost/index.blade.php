@@ -81,7 +81,9 @@
                                     {{ $kost->alamat }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    AC, Kamar Mandi Dalam, Wifi
+                                    @foreach ($kost->fasilitas as $fasilitas)
+                                        {{ $fasilitas->nama }}
+                                    @endforeach
                                 </td>
                                 <td class="px-6 py-4">
                                     Rp. {{ number_format($kost->harga_per_bulan, 2) }}
