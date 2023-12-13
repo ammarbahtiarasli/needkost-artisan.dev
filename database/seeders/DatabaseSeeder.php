@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Kost;
 use App\Models\Kota;
 use App\Models\Role;
 use App\Models\User;
@@ -170,6 +171,27 @@ class DatabaseSeeder extends Seeder
             'no_hp' => '081234567890',
             'id_gender' => 1,
             'id_role' => 1,
+        ]);
+        User::create([
+            'nama' => 'Radhitya',
+            'email' => 'radit@gmail.com',
+            'password' => 'radit1234',
+            'no_hp' => '080987654321',
+            'id_gender' => 1,
+            'id_role' => 2,
+        ]);
+
+        Kost::create([
+            'slug' => 'kost-radhitya',
+            'nama' => 'Kost Radhitya',
+            'alamat' => 'Jl. Radhitya No. 1',
+            'deskripsi' => 'Kost ini sangat nyaman',
+            'harga_per_bulan' => 1000000,
+            'kamar_tersedia' => 20,
+            'id_user' => 1,
+            'id_kota' => 1,
+            'id_kecamatan' => 1,
+            'id_gender' => 1,
         ]);
     }
 }
