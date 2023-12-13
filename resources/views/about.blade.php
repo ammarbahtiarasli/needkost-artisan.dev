@@ -42,9 +42,59 @@
             </div>
         </div>
     </div>
+    <div class="container py-6 mx-auto">
+        <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="w-1/2">
+            </div>
+
+            <div class="w-1/2">
+                <a href="#" class="block max-w-md py-6">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Informasi Data Kos
+                        Yang Lengkap </h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">NeedKost memanfaatkan teknologi dengan
+                        mengelola dan menyajikan daftar kos dengan penjelasan fasilitas secara terperinci dan dilengkapi
+                        dengan foto serta detail dari setiap kos. Kami memiliki tim Mamichecker, yang tugasnya mengecek
+                        dan membuat profil setiap properti. Temukan properti dengan tanda Mamichecker sebagai properti
+                        yang sudah dicek oleh tim kami!
+                    </p>
+                </a>
+            </div>
 
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#1f2937" fill-opacity="1" d="M0,64L80,90.7C160,117,320,171,480,202.7C640,235,800,245,960,224C1120,203,1280,149,1360,122.7L1440,96L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
+        </div>
+    </div>
 
-    @include('layouts.footer')
+
+    <div class="container py-6 mx-auto">
+        <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="container w-1/2">
+                <a href="#" class="block max-w-md py-6">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Penghubung Pemilik dan Pencari Kos </h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">NeesKost telah menghubungkan lebih dari 110 ribu pemilik kos dengan 6-8 juta pencari kos setiap bulannya, untuk memberikan akomodasi yang lebih baik. Inovasi yang kami lakukan bertujuan untuk memberikan kenyamanan dan kemudahan bagi penyewa dan pemilik kos.
+                    </p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container py-6 mx-auto">
+        <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="w-1/2">
+            </div>
+
+            <div class="w-1/2">
+                <a href="#" class="block max-w-md py-6">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Data Kos Seluruh Indonesia </h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Saat ini kami memiliki lebih dari 2 juta kamar kos yang tersebar di lebih dari 140 kota di seluruh Indonesia. NeedKost berusaha untuk bisa terus menyajikan data ketersediaan kamar yang akurat, agar calon penghuni mendapatkan kemudahan dalam pencarian kos.
+                    </p>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+
+            @include('layouts.footer')
 </x-guest-layout>
