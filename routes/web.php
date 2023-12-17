@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Dashboard\DashboardKostController;
-use App\Http\Controllers\Dashboard\DashboardUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Dashboard\DashboardKostController;
+use App\Http\Controllers\Dashboard\DashboardKotaController;
+use App\Http\Controllers\Dashboard\DashboardUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,7 @@ Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/manage-kosts', [DashboardKostController::class, 'index'])->middleware(['auth', 'verified'])->name('kosts');
-Route::get('/manage-kota', function () {
-    return view('dashboard.kota.index');
-})->middleware(['auth', 'verified'])->name('kotas');
+Route::get('/manage-kota', [DashboardKotaController::class, 'index'])->middleware(['auth', 'verified'])->name('kotas');
 Route::get('/manage-user', [DashboardUserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
 Route::get('/create-kost', function () {
     return view('dashboard.kost.create');
