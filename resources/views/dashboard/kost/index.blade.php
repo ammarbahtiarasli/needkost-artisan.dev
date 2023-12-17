@@ -9,7 +9,7 @@
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="container mb-6">
-                <x-primary-button x-data="" href="#">
+                <x-primary-button x-data="" :href="route('create-kost')" >
                     {{ __('Tambah Kamar Kost') }}
                 </x-primary-button>
             </div>
@@ -92,8 +92,9 @@
                                     Rp. {{ number_format($kost->harga_per_bulan, 2) }}
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <x-warning-button x-data=""
-                                        href="">{{ __('Edit') }}</x-warning-button>
+                                    <x-warning-button x-data="" href="">
+                                        {{ __('Edit') }}
+                                    </x-warning-button>
                                     <form action="" method="post" class="inline-block">
                                         @csrf
                                         @method('DELETE')

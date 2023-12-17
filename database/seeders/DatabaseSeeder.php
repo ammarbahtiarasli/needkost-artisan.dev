@@ -173,6 +173,7 @@ class DatabaseSeeder extends Seeder
             'id_gender' => 1,
             'id_role' => 1,
         ]);
+
         User::create([
             'nama' => 'Radhitya',
             'email' => 'radit@gmail.com',
@@ -194,6 +195,8 @@ class DatabaseSeeder extends Seeder
             'id_kecamatan' => 1,
             'id_gender' => 1,
         ]);
+
+
 
         KostFasilitas::create([
             'id_kost' => 1,

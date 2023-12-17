@@ -47,7 +47,7 @@ Route::get('/dashboard', function () {
 Route::get('/manage-kosts', [DashboardKostController::class, 'index'])->middleware(['auth', 'verified'])->name('kosts');
 Route::get('/create-kost', function () {
     return view('dashboard.kost.create');
-})->middleware(['auth', 'verified'])->name('create-kosts');
+})->middleware(['auth', 'verified'])->name('create-kost');
 Route::get('/manage-kota', function () {
     return view('dashboard.kota.index');
 })->middleware(['auth', 'verified'])->name('kotas');
