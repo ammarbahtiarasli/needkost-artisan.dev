@@ -53,7 +53,7 @@
                         @foreach ($kotas as $kota)
                             <x-kota-card>
                                 <x-slot name="nama_kota">
-                                   Kost {{ $kota->nama_kota }}
+                                   Kost {{ $kota->nama }}
                                 </x-slot>
                             </x-kota-card>
                         @endforeach
