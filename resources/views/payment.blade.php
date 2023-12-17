@@ -38,11 +38,12 @@
                 <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                     {{ __('') }}
                 </h2>
-                <img class="h-56 max-w-full mb-3 rounded-lg"
+                <img class="h-56 max-w-full mt-8 mb-3 rounded-lg"
                 src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
                 <dl class="max-w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                     <div class="flex flex-col pb-3">
-                        <dd class="text-xl font-semibold">C03 Residence, Cidadap , Kota Bandung.</dd>
+                        <dd class="text-xl font-semibold">C03 Residence</dd>
+                        <p>Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
                     </div>
                     <div class="flex flex-col py-3">
                         <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Tanggal mulai sewa</dt>

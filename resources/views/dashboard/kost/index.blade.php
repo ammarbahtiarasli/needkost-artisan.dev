@@ -9,9 +9,9 @@
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="container mb-6">
-                <x-primary-button x-data="" href="#">
+                <x-primary-a x-data="" href="/create-kost">
                     {{ __('Tambah Kamar Kost') }}
-                </x-primary-button>
+                </x-primary-a>
             </div>
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="flex p-6 text-gray-900 dark:text-gray-100">
@@ -62,12 +62,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 0; $i < 6; $i++)
+                        @for ($i = 0; $i < 5; $i++)
                             <tr
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th class="p-4">
                                     <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
-                                        class="w-16 max-w-full max-h-full md:w-32" alt="image">
+                                        class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -83,14 +83,36 @@
                                     Rp. 1.500.000
                                 </td>
                                 <td class="px-6 py-4 text-right">
-                                    <x-warning-button x-data=""
-                                        href="">{{ __('Edit') }}</x-warning-button>
-                                    <form action="" method="post" class="inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <x-danger-button x-data=""
-                                            onclick="confirm('Kamar Kost ini akan dihapus ?');">{{ __('Delete') }}</x-danger-button>
-                                    </form>
+                                        <x-dropdown align="right" width="48">
+                                            <x-slot name="trigger">
+                                                <button
+                                                    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-600 transition duration-150 ease-in-out border border-transparent rounded-md bg-sky-200/80 dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
+                                                    <div>Detail</div>
+
+                                                    <div class="ms-1">
+                                                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 20 20">
+                                                            <path fill-rule="evenodd"
+                                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                    </div>
+                                                </button>
+
+                                            </x-slot>
+
+                                            <x-slot name="content">
+                                                <x-dropdown-link :href="route('kost.show')">
+                                                    {{ __('Lihat') }}
+                                                </x-dropdown-link>
+                                                <x-dropdown-link :href="route('kost.edit')">
+                                                    {{ __('Edit') }}
+                                                </x-dropdown-link>
+                                                <x-dropdown-link :href="route('kost.delete')">
+                                                    {{ __('Hapus') }}
+                                                </x-dropdown-link>
+                                            </x-slot>
+                                        </x-dropdown>
                                 </td>
                             </tr>
                         @endfor

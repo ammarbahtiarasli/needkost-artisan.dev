@@ -8,6 +8,9 @@
 
     <title>{{ config('app.name', 'Laravel') }} - Sewa Kost Online</title>
 
+    {{-- icon --}}
+    <link rel="icon" href="{{ asset('needkost.ico') }}" type="image/x-icon" />
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
@@ -32,7 +35,6 @@
     <main class="bg-gray-100 dark:bg-gray-900">
         {{ $slot }}
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 </body>
 
 </html>

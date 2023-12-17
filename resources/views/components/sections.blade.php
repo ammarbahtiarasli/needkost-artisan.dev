@@ -4,7 +4,7 @@
         <p class="text-sm dark:text-gray-300 text-muted-foreground">{{ $subjudul}}</p>
     </div>
     <div
-        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-20 lg:gap-y-24">
+        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
         @for ($i = 0; $i < 3; $i++)
         <x-card>
             <x-slot name="jenis">

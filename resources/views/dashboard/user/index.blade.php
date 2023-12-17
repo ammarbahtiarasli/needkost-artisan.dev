@@ -77,14 +77,8 @@
                                 Admin
                             </td>
                             <td class="px-6 py-4">
-                                <x-warning-button x-data=""
-                                    href="">{{ __('Edit') }}</x-warning-button>
-                                <form action="" method="post" class="inline-block">
-                                    @csrf
-                                    @method('DELETE')
-                                    <x-danger-button x-data=""
-                                        onclick="confirm('Kamar Kost ini akan dihapus ?');">{{ __('Delete') }}</x-danger-button>
-                                </form>
+                                <x-sky-button
+                                        href="">{{ __('Detail') }}</x-sky-button>
                             </td>
                         </tr>
                     </tbody>

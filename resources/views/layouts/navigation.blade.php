@@ -16,7 +16,7 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts')">
+                    <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts','create-kost','edit-kost')">
                         {{ __('Kamar Kost') }}
                     </x-nav-link>
                     <x-nav-link :href="route('kotas')" :active="request()->routeIs('kotas')">
