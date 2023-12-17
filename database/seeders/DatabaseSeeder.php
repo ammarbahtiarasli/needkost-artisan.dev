@@ -11,6 +11,7 @@ use App\Models\User;
 use App\Models\Gender;
 use App\Models\Fasilitas;
 use App\Models\Kecamatan;
+use App\Models\KostFasilitas;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -192,6 +193,16 @@ class DatabaseSeeder extends Seeder
             'id_kota' => 1,
             'id_kecamatan' => 1,
             'id_gender' => 1,
+        ]);
+
+        KostFasilitas::create([
+            'id_kost' => 1,
+            'id_fasilitas' => 1,
+        ]);
+
+        KostFasilitas::create([
+            'id_kost' => 1,
+            'id_fasilitas' => 3,
         ]);
     }
 }

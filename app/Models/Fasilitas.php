@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Kost_Fasilitas;
+use App\Models\KostFasilitas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -14,6 +14,6 @@ class Fasilitas extends Model
 
     function kost_fasilitas()
     {
-        return $this->hasMany(Kost_Fasilitas::class);
+        return $this->hasMany(KostFasilitas::class);
     }
 }

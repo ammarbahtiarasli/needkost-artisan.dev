@@ -81,8 +81,11 @@
                                     {{ $kost->alamat }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    @foreach ($kost->fasilitas as $fasilitas)
-                                        {{ $fasilitas->nama }}
+                                    @foreach ($kostFasilitas as $fasilitas)
+                                    @if ($loop->iteration > 1)
+                                        ,
+                                    @endif
+                                    {{ $fasilitas->fasilitas->nama }}
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4">

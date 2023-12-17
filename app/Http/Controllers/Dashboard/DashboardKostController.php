@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Models\Kost;
 use Illuminate\Http\Request;
+use App\Models\KostFasilitas;
+use App\Http\Controllers\Controller;
 
 class DashboardKostController extends Controller
 {
@@ -13,8 +14,10 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
+        $kost = Kost::where('id_user', auth()->user()->id)->get();
         return view('dashboard.kost.index', [
-            'kosts' => Kost::where('id_user', auth()->user()->id)->get()
+            'kosts' => $kost,
+            'kostFasilitas' => KostFasilitas::all(),
         ]);
     }
 
