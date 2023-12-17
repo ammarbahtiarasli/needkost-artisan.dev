@@ -7,7 +7,7 @@ use App\Models\Kecamatan;
 use App\Models\Kota;
 use App\Models\Gender;
 use App\Models\Photo;
-use App\Models\Kost_Fasilitas;
+use App\Models\KostFasilitas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -17,33 +17,33 @@ class Kost extends Model
 
     protected $guarded = ['id'];
 
-    function user()
+    public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'id_user');
     }
 
-    function kecamatan()
+    public function kecamatan()
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Kecamatan::class, 'id_kecamatan');
     }
 
-    function kota()
+    public function kota()
     {
-        return $this->belongsTo(Kota::class);
+        return $this->belongsTo(Kota::class, 'id_kota');
     }
 
-    function gender()
+    public function gender()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Gender::class, 'id_gender');
     }
 
-    function photo()
+    public function photo()
     {
         return $this->hasMany(Photo::class);
     }
 
-    function kost_fasilitas()
+    public function kostFasilitas()
     {
-        return $this->hasMany(Kost_Fasilitas::class);
+        return $this->hasMany(KostFasilitas::class);
     }
 }

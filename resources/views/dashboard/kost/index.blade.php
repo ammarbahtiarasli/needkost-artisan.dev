@@ -9,9 +9,9 @@
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="container mb-6">
-                <x-primary-a x-data="" href="/create-kost">
+                <x-primary-button x-data="" :href="route('create-kost')" >
                     {{ __('Tambah Kamar Kost') }}
-                </x-primary-a>
+                </x-primary-button>
             </div>
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="flex p-6 text-gray-900 dark:text-gray-100">
@@ -38,6 +38,9 @@
                         </form>
                     </div>
                 </div>
+
+                @if ($kosts->count() > 0)
+
                 <table class="min-w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -62,7 +65,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @for ($i = 0; $i < 5; $i++)
+                        @foreach ($kosts as $kost)
                             <tr
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <th class="p-4">
@@ -71,16 +74,21 @@
                                 </th>
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    C03 Residence
+                                    {{ $kost->nama }}
                                 </th>
                                 <td class="px-6 py-4">
-                                    Jl. Cisitu Lama No. 3, Bandung
+                                    {{ $kost->alamat }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    AC, Kamar Mandi Dalam, Wifi
+                                    @foreach ($kostFasilitas as $fasilitas)
+                                    @if ($loop->iteration > 1)
+                                        ,
+                                    @endif
+                                    {{ $fasilitas->fasilitas->nama }}
+                                    @endforeach
                                 </td>
                                 <td class="px-6 py-4">
-                                    Rp. 1.500.000
+                                    Rp. {{ number_format($kost->harga_per_bulan, 2) }}
                                 </td>
                                 <td class="px-6 py-4 text-right">
                                         <x-dropdown align="right" width="48">
@@ -115,13 +123,16 @@
                                         </x-dropdown>
                                 </td>
                             </tr>
-                        @endfor
+
+                        @endforeach
                     </tbody>
                 </table>
+                @else
                 {{-- pagination laravel --}}
                 <div class="p-6 font-semibold text-center text-rose-500">
                     {{ __('Data Kamar Kost tidak ada.') }}
                 </div>
+                @endif
             </div>
         </div>
     </div>

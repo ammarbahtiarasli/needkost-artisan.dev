@@ -1,21 +1,24 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
+use App\Models\Kost;
+use Illuminate\Http\Request;
 use App\Models\KostFasilitas;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreKostFasilitasRequest;
-use App\Http\Requests\UpdateKostFasilitasRequest;
 
-
-class KostFasilitasController extends Controller
+class DashboardKostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $kost = Kost::where('id_user', auth()->user()->id)->get();
+        return view('dashboard.kost.index', [
+            'kosts' => $kost,
+            'kostFasilitas' => KostFasilitas::all(),
+        ]);
     }
 
     /**
@@ -29,7 +32,7 @@ class KostFasilitasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKostFasilitasRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +40,7 @@ class KostFasilitasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(KostFasilitas $kost_Fasilitas)
+    public function show(Kost $kost)
     {
         //
     }
@@ -45,7 +48,7 @@ class KostFasilitasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(KostFasilitas $kost_Fasilitas)
+    public function edit(Kost $kost)
     {
         //
     }
@@ -53,7 +56,7 @@ class KostFasilitasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKostFasilitasRequest $request, KostFasilitas $kost_Fasilitas)
+    public function update(Request $request, Kost $kost)
     {
         //
     }
@@ -61,7 +64,7 @@ class KostFasilitasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KostFasilitas $kost_Fasilitas)
+    public function destroy(Kost $kost)
     {
         //
     }

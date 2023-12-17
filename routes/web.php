@@ -3,9 +3,15 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+
 use App\Http\Controllers\KostController;
 use App\Http\Controllers\KotaController;
 use App\Http\Controllers\KecamatanController;
+
+use App\Http\Controllers\Dashboard\DashboardKostController;
+use App\Http\Controllers\Dashboard\DashboardKotaController;
+use App\Http\Controllers\Dashboard\DashboardUserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +38,11 @@ Route::get('/{username}', [HomeController::class, 'profile'])->name('profile');
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/manage-kosts', [DashboardKostController::class, 'index'])->middleware(['auth', 'verified'])->name('kosts');
+Route::get('/manage-kota', [DashboardKotaController::class, 'index'])->middleware(['auth', 'verified'])->name('kotas');
+Route::get('/manage-user', [DashboardUserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
+
 
 // Route untuk kamar kost
 Route::middleware('auth')->group(function () {

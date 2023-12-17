@@ -13,7 +13,8 @@ class KecamatanController extends Controller
      */
     public function index()
     {
-        //
+        $kecamatan = Kecamatan::all();
+        return view('kecamatan.index', compact('kecamatan'));
     }
 
     /**
@@ -21,7 +22,7 @@ class KecamatanController extends Controller
      */
     public function create()
     {
-        //
+        return view('kecamatan.create');
     }
 
     /**
@@ -29,7 +30,13 @@ class KecamatanController extends Controller
      */
     public function store(StoreKecamatanRequest $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+        ]);
+
+        Kecamatan::create($request->all());
+
+        return redirect()->route('kecamatan.index')->with('success', 'Kecamatan berhasil ditambahkan!');
     }
 
     /**
@@ -37,7 +44,7 @@ class KecamatanController extends Controller
      */
     public function show(Kecamatan $kecamatan)
     {
-        //
+        return view('kecamatan.show', compact('kecamatan'));
     }
 
     /**
@@ -45,7 +52,7 @@ class KecamatanController extends Controller
      */
     public function edit(Kecamatan $kecamatan)
     {
-        //
+        return view('kecamatan.edit', compact('kecamatan'));
     }
 
     /**
@@ -53,7 +60,13 @@ class KecamatanController extends Controller
      */
     public function update(UpdateKecamatanRequest $request, Kecamatan $kecamatan)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+        ]);
+
+        $kecamatan->update($request->all());
+
+        return redirect()->route('kecamatan.index')->with('success', 'Kecamatan berhasil diperbarui!');
     }
 
     /**
@@ -61,6 +74,8 @@ class KecamatanController extends Controller
      */
     public function destroy(Kecamatan $kecamatan)
     {
-        //
+        $kecamatan->delete();
+
+        return redirect()->route('kecamatan.index')->with('success', 'Kecamatan berhasil dihapus!');
     }
 }

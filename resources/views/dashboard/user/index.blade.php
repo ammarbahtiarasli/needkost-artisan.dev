@@ -34,6 +34,8 @@
                         </form>
                     </div>
                 </div>
+
+                @if ($users->count() > 0)
                 <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
@@ -55,37 +57,47 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($users as $user)
                         <tr
-                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <th scope="row"
-                                class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                                <img class="w-10 h-10 rounded-full"
-                                    src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-                                    alt="Jese image">
-                                <div class="ps-3">
-                                    <div class="text-base font-semibold">Admin</div>
-                                    <div class="font-normal text-gray-500">admin@needkost.com</div>
-                                </div>
-                            </th>
-                            <td class="px-6 py-4">
-                                +6278923782
-                            </td>
-                            <td class="px-6 py-4">
-                                Laki-laki
-                            </td>
-                            <td class="px-6 py-4">
-                                Admin
-                            </td>
-                            <td class="px-6 py-4">
-                                <x-sky-button
-                                        href="">{{ __('Detail') }}</x-sky-button>
-                            </td>
-                        </tr>
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row"
+                            class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10 rounded-full"
+                                src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                                alt="Jese image">
+                            <div class="ps-3">
+                                <div class="text-base font-semibold">{{ $user->nama }}</div>
+                                <div class="font-normal text-gray-500">{{ $user->email }}</div>
+                            </div>
+                        </th>
+                        <td class="px-6 py-4">
+                            {{ $user->no_hp }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $user->gender->nama }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $user->role->nama }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <x-warning-button x-data=""
+                                href="">{{ __('Edit') }}</x-warning-button>
+                            <form action="" method="post" class="inline-block">
+                                @csrf
+                                @method('DELETE')
+                                <x-danger-button x-data=""
+                                    onclick="confirm('Kamar Kost ini akan dihapus ?');">{{ __('Delete') }}</x-danger-button>
+                            </form>
+                        </td>
+                    </tr>
+                        @endforeach
                     </tbody>
                 </table>
+                @else
                 <div class="p-6 font-semibold text-center text-rose-500">
                     {{ __('Data Pengguna tidak ada.') }}
                 </div>
+                @endif
             </div>
         </div>
     </div>
