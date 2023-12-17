@@ -16,11 +16,11 @@
                     <div class="grid grid-cols-4 gap-4">
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/2635038/pexels-photo-2635038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
+                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="container p-6 my-6 bg-white rounded-lg">
-                <div class="sticky self-start hidden w-full pb-6 space-y-8 lg:block lg:pb-12 top-28">
+                <div class="w-full pb-6 space-y-8 lg:block lg:pb-12 top-28">
                     <div>
                         <div class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Dikelola oleh :</div>
                         <a class="flex group" href="#" target="_blank" rel="noopener noreferrer">
@@ -135,9 +135,24 @@
                                     WiFi
                                 </li>
                             </ul>
+                            <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Lokasi dan Lingkungan sekitar :
+                            </h2>
+                            <div class="">
+                                <p> Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
+                                    <iframe class="w-full mt-3 rounded-lg h-96" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid" loading="lazy"></iframe>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="mb-6">
+                <x-sections id="Kost Kota Bandung">
+                    <x-slot name="judul">
+                        Kamu mungkin menyukai kamar lainnya
+                    </x-slot>
+                    <x-slot name="subjudul">
+                    </x-slot>
+                </x-sections>
             </div>
         </div>
     </div>

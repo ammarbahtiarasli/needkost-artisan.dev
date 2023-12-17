@@ -11,7 +11,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center h-16 shrink-0">
-                    <a href="/" class="focus:outline-none focus:ring-0">
+                    <a href="/dashboard" class="focus:outline-none focus:ring-0">
                         <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_</div>
                         <span class="sr-only">NeedKost</span>
                     </a>

@@ -82,7 +82,6 @@
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="w-1/2">
             </div>
-
             <div class="w-1/2">
                 <a href="#" class="block max-w-md py-6">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Data Kos Seluruh Indonesia </h5>
@@ -90,11 +89,9 @@
                     </p>
                 </a>
             </div>
-
-
         </div>
     </div>
 
 
-            @include('layouts.footer')
+    @include('layouts.footer')
 </x-guest-layout>

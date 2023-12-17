@@ -11,10 +11,10 @@
                 Lorem ipsum dolor sit amet consectetur.</p>
         </x-slot>
         <x-slot name="button">
-            <x-primary-a class="bg-sky-800/80" :href="route('nama-kota')" :active="request()->routeIs('nama-kota')">Cidadap</x-primary-a>
-            <x-primary-a class="bg-sky-800/80">Sukajadi</x-primary-a>
-            <x-primary-a class="bg-sky-800/80">Lembang</x-primary-a>
-            <x-primary-a class="bg-sky-800/80">Andir</x-primary-a>
+            <x-primary-a class="mx-1 bg-sky-800/80" :href="route('nama-kota')" :active="request()->routeIs('nama-kota')">Cidadap</x-primary-a>
+            <x-primary-a class="mx-1 bg-sky-800/80">Sukajadi</x-primary-a>
+            <x-primary-a class="mx-1 bg-sky-800/80">Lembang</x-primary-a>
+            <x-primary-a class="mx-1 bg-sky-800/80">Andir</x-primary-a>
         </x-slot>
     </x-head-minimal>
     <x-slot name="header">

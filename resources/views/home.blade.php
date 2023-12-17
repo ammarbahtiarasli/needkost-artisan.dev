@@ -21,7 +21,7 @@
                     </x-slot>
                 </x-sections>
                 <div class="container flex justify-end">
-                    <x-primary-a href="/nama-kota">Lihat semua</x-primary-a>
+                    <x-primary-a class="bg-sky-800/80" href="/nama-kota">Lihat semua</x-primary-a>
                 </div>
 
                 <x-sections id="Kost Kota Kajarta">
@@ -33,7 +33,7 @@
                     </x-slot>
                 </x-sections>
                 <div class="container flex justify-end">
-                    <x-primary-button>Lihat semua</x-primary-button>
+                    <x-primary-a class="bg-sky-800/80">Lihat semua</x-primary-a>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
     {{-- kota populer --}}
     <div class="container py-6 mx-auto">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-            <div class="space-y-10 sm:space-y-10">
+            <div class="space-y-8 sm:space-y-8">
                 <section id="rekomendasi">
                     <div class="mb-6">
                         <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer</h2>
