@@ -45,16 +45,16 @@ Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/manage-kosts', [DashboardKostController::class, 'index'])->middleware(['auth', 'verified'])->name('kosts');
-Route::get('/create-kost', function () {
-    return view('dashboard.kost.create');
-})->middleware(['auth', 'verified'])->name('create-kost');
 Route::get('/manage-kota', function () {
     return view('dashboard.kota.index');
 })->middleware(['auth', 'verified'])->name('kotas');
 Route::get('/manage-user', [DashboardUserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
+Route::get('/create-kost', function () {
+    return view('dashboard.kost.create');
+})->middleware(['auth', 'verified'])->name('create-kost');
 Route::get('/edit-kost', function () {
     return view('dashboard.kost.edit');
-})->middleware(['auth', 'verified'])->name('edit-kosts');
+})->middleware(['auth', 'verified'])->name('edit-kost');
 Route::get('/edit-kota', function () {
     return view('dashboard.kota.edit');
 })->middleware(['auth', 'verified'])->name('edit-kota');
