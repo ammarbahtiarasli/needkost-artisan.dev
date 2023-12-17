@@ -1,4 +1,14 @@
 <x-guest-layout>
+    @if (session()->has('error'))
+        <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden transition bg-red-200 shadow-sm dark:bg-gray-800 sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __(session('error')) }}
+                </div>
+            </div>
+        </div>
+    @endif
+
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0 dark:bg-gray-900">
         <div class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
             <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Login</h2>
@@ -6,7 +16,7 @@
 
             {{-- API Login --}}
             <div class="container flex justify-center pt-6 text-center align-items-center">
-                <button type="button"
+                <a href="/auth/github/redirect"
                     class="text-white bg-gray-700 hover:bg-gray-900/90 focus:ring-4 focus:outline-none focus:ring-gray-900/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-[#050708]/30 me-2 mb-2">
                     <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 20 20">
@@ -15,8 +25,8 @@
                             clip-rule="evenodd" />
                     </svg>
                     Sign in with Github
-                </button>
-                <button type="button"
+                </a>
+                <a href="/auth/google/redirect"
                     class="text-white bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#4285F4]/55 me-2 mb-2">
                     <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 18 19">
@@ -25,7 +35,7 @@
                             clip-rule="evenodd" />
                     </svg>
                     Sign in with Google
-                </button>
+                </a>
             </div>
             <p class="flex justify-center pt-3 text-center dark:text-gray-300">Atau</p>
 
@@ -39,7 +49,7 @@
                 <div>
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block w-full mt-1" type="email" name="email"
-                        :value="old('email')" required autofocus autocomplete="username" />
+                        :value="old('email')" required autofocus autocomplete="email" placeholder="user@needkost.id" />
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
