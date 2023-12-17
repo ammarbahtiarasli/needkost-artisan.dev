@@ -39,12 +39,12 @@ class User extends Authenticatable
 
     public function role()
     {
-        return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class, 'id_role');
     }
 
     public function gender()
     {
-        return $this->belongsTo(Gender::class);
+        return $this->belongsTo(Gender::class, 'id_gender');
     }
 
     public function kost()

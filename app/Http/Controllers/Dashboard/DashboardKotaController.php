@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\KostFasilitas;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreKostFasilitasRequest;
-use App\Http\Requests\UpdateKostFasilitasRequest;
+use App\Models\Kota;
+use Illuminate\Http\Request;
 
-
-class KostFasilitasController extends Controller
+class DashboardKotaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        return view('dashboard.kota.index', [
+            'kotas' => Kota::all()
+        ]);
     }
 
     /**
@@ -29,7 +29,7 @@ class KostFasilitasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKostFasilitasRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -37,7 +37,7 @@ class KostFasilitasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(KostFasilitas $kost_Fasilitas)
+    public function show(Kota $kota)
     {
         //
     }
@@ -45,7 +45,7 @@ class KostFasilitasController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(KostFasilitas $kost_Fasilitas)
+    public function edit(Kota $kota)
     {
         //
     }
@@ -53,7 +53,7 @@ class KostFasilitasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKostFasilitasRequest $request, KostFasilitas $kost_Fasilitas)
+    public function update(Request $request, Kota $kota)
     {
         //
     }
@@ -61,7 +61,7 @@ class KostFasilitasController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KostFasilitas $kost_Fasilitas)
+    public function destroy(Kota $kota)
     {
         //
     }

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Dashboard\DashboardKostController;
+use App\Http\Controllers\Dashboard\DashboardKotaController;
+use App\Http\Controllers\Dashboard\DashboardUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,21 +45,15 @@ Route::get('/username', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/manage-kosts', function () {
-    return view('dashboard.kost.index');
-})->middleware(['auth', 'verified'])->name('kosts');
+Route::get('/manage-kosts', [DashboardKostController::class, 'index'])->middleware(['auth', 'verified'])->name('kosts');
+Route::get('/manage-kota', [DashboardKotaController::class, 'index'])->middleware(['auth', 'verified'])->name('kotas');
+Route::get('/manage-user', [DashboardUserController::class, 'index'])->middleware(['auth', 'verified'])->name('users');
 Route::get('/create-kost', function () {
     return view('dashboard.kost.create');
-})->middleware(['auth', 'verified'])->name('create-kosts');
-Route::get('/manage-kota', function () {
-    return view('dashboard.kota.index');
-})->middleware(['auth', 'verified'])->name('kotas');
-Route::get('/manage-user', function () {
-    return view('dashboard.user.index');
-})->middleware(['auth', 'verified'])->name('users');
+})->middleware(['auth', 'verified'])->name('create-kost');
 Route::get('/edit-kost', function () {
     return view('dashboard.kost.edit');
-})->middleware(['auth', 'verified'])->name('edit-kosts');
+})->middleware(['auth', 'verified'])->name('edit-kost');
 Route::get('/edit-kota', function () {
     return view('dashboard.kota.edit');
 })->middleware(['auth', 'verified'])->name('edit-kota');

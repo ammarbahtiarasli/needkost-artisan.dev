@@ -7,7 +7,7 @@ use App\Models\Fasilitas;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Kost_Fasilitas extends Model
+class KostFasilitas extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,11 @@ class Kost_Fasilitas extends Model
 
     public function kost()
     {
-        return $this->belongsTo(Kost::class);
+        return $this->belongsTo(Kost::class, 'id_kost');
     }
 
     public function fasilitas()
     {
-        return $this->belongsTo(Fasilitas::class);
+        return $this->belongsTo(Fasilitas::class, 'id_fasilitas');
     }
 }
