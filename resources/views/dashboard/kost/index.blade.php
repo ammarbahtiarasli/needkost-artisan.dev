@@ -9,9 +9,9 @@
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="container mb-6">
-                <x-primary-button x-data="" :href="route('create-kost')" >
+                <x-primary-a x-data="" :href="route('kost.create')" >
                     {{ __('Tambah Kamar Kost') }}
-                </x-primary-button>
+                </x-primary-a>
             </div>
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="flex p-6 text-gray-900 dark:text-gray-100">
@@ -40,8 +40,7 @@
                 </div>
 
                 @if ($kosts->count() > 0)
-
-                <table class="min-w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-16 py-3">
@@ -65,6 +64,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach ($kosts as $kost)
                             <tr
                                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -96,7 +96,6 @@
                                                 <button
                                                     class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-600 transition duration-150 ease-in-out border border-transparent rounded-md bg-sky-200/80 dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
                                                     <div>Detail</div>
-
                                                     <div class="ms-1">
                                                         <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
                                                             viewBox="0 0 20 20">
@@ -106,35 +105,35 @@
                                                         </svg>
                                                     </div>
                                                 </button>
-
                                             </x-slot>
-
-                                            <x-slot name="content">
-                                                <x-dropdown-link :href="route('kost.show')">
+                                            <x-slot name="content" class="z-99">
+                                                <x-dropdown-link :href="route('kost.show',1)">
                                                     {{ __('Lihat') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.edit')">
+                                                <x-dropdown-link :href="route('kost.edit',1)">
                                                     {{ __('Edit') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.delete')">
+                                                <x-dropdown-link :href="route('kost.destroy',1)">
                                                     {{ __('Hapus') }}
                                                 </x-dropdown-link>
                                             </x-slot>
                                         </x-dropdown>
                                 </td>
                             </tr>
-
                         @endforeach
                     </tbody>
                 </table>
                 @else
-                {{-- pagination laravel --}}
                 <div class="p-6 font-semibold text-center text-rose-500">
                     {{ __('Data Kamar Kost tidak ada.') }}
                 </div>
                 @endif
+
+                {{-- pagination --}}
+                <div class="p-8">
+                    {{ $kosts->links() }}
+                </div>
             </div>
         </div>
     </div>
-
 </x-app-layout>

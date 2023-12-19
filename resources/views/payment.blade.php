@@ -57,7 +57,8 @@
                         <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Total Pembayaran</dt>
                         <dd class="text-lg font-semibold">Rp. 2.400.000</dd>
                     </div>
-                    <x-primary-button class="flex justify-center w-full h-10 p-3 mt-4 bg-sky-800/80">Bayar sekarang</x-primary-button>
+                    <x-primary-button class="flex justify-center w-full h-10 p-3 mt-4">Bayar sekarang
+                    </x-primary-button>
                 </dl>
 
             </div>

@@ -14,7 +14,7 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
-        $kost = Kost::where('id_user', auth()->user()->id)->get();
+        $kost = Kost::where('id_user', auth()->user()->id)->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
             'kostFasilitas' => KostFasilitas::all(),
@@ -26,7 +26,7 @@ class DashboardKostController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.kost.create');
     }
 
     /**
@@ -42,7 +42,7 @@ class DashboardKostController extends Controller
      */
     public function show(Kost $kost)
     {
-        //
+        return view('dashboard.kost.show', compact('kost'));
     }
 
     /**
@@ -50,7 +50,6 @@ class DashboardKostController extends Controller
      */
     public function edit(Kost $kost)
     {
-        //
     }
 
     /**
@@ -66,6 +65,8 @@ class DashboardKostController extends Controller
      */
     public function destroy(Kost $kost)
     {
-        //
+        $kost = Kost::find($kost->id);
+        $kost->delete();
+        return redirect()->route('kost.index')->with('success', 'Kamar Kost berhasil dihapus');
     }
 }
