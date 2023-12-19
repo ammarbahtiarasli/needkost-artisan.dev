@@ -3,38 +3,41 @@
     <div class="container py-6 mx-auto">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="space-y-10 sm:space-y-10">
-                <x-sections id="rekomendasi">
-                    <x-slot name="judul">
-                        Rekomendasi Kost
-                    </x-slot>
-                    <x-slot name="subjudul">
-                        Rekomendasi Kostan buat kamu.
-                    </x-slot>
-                </x-sections>
 
-                <x-sections id="Kost Kota Bandung">
-                    <x-slot name="judul">
-                        Kost Kota Bandung
-                    </x-slot>
-                    <x-slot name="subjudul">
-                        234 Kostan di Kota Bandung.
-                    </x-slot>
-                </x-sections>
+                <section>
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Judul</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Subjudul</p>
+                    </div>
+                    <div
+                        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+                        @for ($i = 0; $i < 3; $i++)
+                        <x-card>
+                            <x-slot name="jenis">
+                                Campur
+                            </x-slot>
+                            <x-slot name="nama">
+                                C03 Residence
+                            </x-slot>
+                            <x-slot name="alamat">
+                                Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115
+                            </x-slot>
+                            <x-slot name="fasilitas">
+                                AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam
+                            </x-slot>
+                            <x-slot name="harga">
+                                Rp.500.000
+                            </x-slot>
+                        </x-card>
+                        @endfor
+                    </div>
+                </section>
+
+
                 <div class="container flex justify-end">
                     <x-primary-a class="bg-sky-800/80" href="/nama-kota">Lihat semua</x-primary-a>
                 </div>
 
-                <x-sections id="Kost Kota Kajarta">
-                    <x-slot name="judul">
-                        Kost Kota Kajarta
-                    </x-slot>
-                    <x-slot name="subjudul">
-                        234 Kostan di Kota Kajarta.
-                    </x-slot>
-                </x-sections>
-                <div class="container flex justify-end">
-                    <x-primary-a class="bg-sky-800/80">Lihat semua</x-primary-a>
-                </div>
             </div>
         </div>
     </div>

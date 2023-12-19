@@ -35,9 +35,9 @@ class KostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kost $kost)
+    public function detail(Kost $kost)
     {
-        //
+        return view('kost.detail-kost', compact('kost'));
     }
 
     /**
@@ -62,5 +62,20 @@ class KostController extends Controller
     public function destroy(Kost $kost)
     {
         //
+    }
+
+    public function lokasi()
+    {
+        return view('kota.index');
+    }
+
+    public function kota()
+    {
+        return view('kota.kota-detail');
+    }
+
+    public function payment()
+    {
+        return view('payment');
     }
 }

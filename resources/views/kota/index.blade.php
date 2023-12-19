@@ -11,7 +11,7 @@
                 deleniti possimus minus.</p>
         </x-slot>
         <x-slot name="button">
-            <x-primary-a class="mx-1 bg-sky-800/80" :href="route('nama-kota')" :active="request()->routeIs('nama-kota')">Bandung</x-primary-a>
+            <x-primary-a class="mx-1 bg-sky-800/80" :href="route('kota','bandung')" :active="request()->routeIs('nama-kota')">Bandung</x-primary-a>
             <x-primary-a class="mx-1 bg-sky-800/80">Jakarta</x-primary-a>
             <x-primary-a class="mx-1 bg-sky-800/80">Surabaya</x-primary-a>
             <x-primary-a class="mx-1 bg-sky-800/80">Yogyakarta</x-primary-a>

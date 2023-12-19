@@ -11,7 +11,8 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Informasi Kamar
                         Kost</h3>
-                    <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Pastikan informasi kamar kost sesuai dan tidak melanggar kebijakan.</p>
+                    <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Pastikan informasi kamar kost
+                        sesuai dan tidak melanggar kebijakan.</p>
                 </div>
             </div>
 
@@ -122,7 +123,7 @@
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />
                     </div>
 
-                    <x-danger-button href="/manage-kosts" class="me-1">Batal</x-danger-button>
+                    <x-danger-button :href="route('kost.index')" class="me-1">Batal</x-danger-button>
                     <x-primary-button>{{ __('Simpan') }}</x-primary-button>
                 </form>
             </div>

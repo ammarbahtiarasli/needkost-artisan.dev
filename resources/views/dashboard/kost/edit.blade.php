@@ -14,8 +14,6 @@
                 </div>
             </div>
 
-
-
             <div class="container p-8 mx-auto mt-5 bg-white dark:bg-gray-800">
                 <form action="" method="POST">
                     @csrf

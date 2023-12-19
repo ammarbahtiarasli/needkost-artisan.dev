@@ -35,7 +35,7 @@
                 <div class="w-1/2 ms-6">
                     <div class="container h-full p-6 bg-white rounded-lg">
                         <span
-                        class="bg-emerald-100/80 text-emerald-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-emerald-700 dark:text-gray-300">Campur</span>
+                        class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Campur</span>
                         <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Kos Aman Jaya,
                             Cidadap, Kota Bandung.</h1>
                         <h4 class="mb-1 text-lg font-semibold text-red-500 dark:text-white">Diskon 100rb

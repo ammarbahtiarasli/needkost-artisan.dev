@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center h-16 shrink-0">
-                    <a href="/" class="focus:outline-none focus:ring-0">
+                    <a :href="route('dashboard')" class="focus:outline-none focus:ring-0">
                         <div class="text-2xl font-semibold tracking-tighter dark:text-white text-foreground">NeedKost_</div>
                         <span class="sr-only">NeedKost</span>
                     </a>
@@ -16,13 +16,13 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts','create-kost','edit-kost')">
+                    <x-nav-link :href="route('kost.index')" :active="request()->routeIs('kost.index','kost.create','kost.show','kost.edit')">
                         {{ __('Kamar Kost') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kotas')" :active="request()->routeIs('kotas')">
+                    <x-nav-link :href="route('kota.index')" :active="request()->routeIs('kota.index','kota.create','kota.show','kota.edit')">
                         {{ __('Lokasi') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+                    <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index','user.show')">
                         {{ __('Pengguna') }}
                     </x-nav-link>
                 </div>
@@ -33,7 +33,7 @@
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out bg-white border border-transparent rounded-md dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->nama }}</div>
 
                             <div class="ms-1">
                                 <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -47,7 +47,6 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -79,15 +78,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            <x-nav-link :href="route('kosts')" :active="request()->routeIs('kosts')">
+            <x-responsive-nav-link :href="route('kost.index')" :active="request()->routeIs('kost.index','kost.create','kost.show','kost.edit')">
                 {{ __('Kamar Kost') }}
-            </x-nav-link>
-            <x-nav-link :href="route('kotas')" :active="request()->routeIs('kotas')">
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('kota.index')" :active="request()->routeIs('kota.index','kota.create','kota.show','kota.edit')">
                 {{ __('Lokasi') }}
-            </x-nav-link>
-            <x-nav-link :href="route('users')" :active="request()->routeIs('users')">
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index','user.show')">
                 {{ __('Pengguna') }}
-            </x-nav-link>
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
