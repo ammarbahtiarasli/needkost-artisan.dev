@@ -89,6 +89,19 @@
                     </div>
 
                     <div class="mb-4">
+                        <x-input-label for="deskripsi" :value="__('Jenis Kelamin*')" />
+                            <input id="1" type="checkbox" value=""
+                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="1"
+                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
+                            <input id="2" type="checkbox" value=""
+                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="2"
+                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
+                        <x-input-error class="mt-2" :messages="$errors->get('fasilitas')" />
+                    </div>
+
+                    <div class="mb-4">
                         <x-input-label for="deskripsi" :value="__('Fasilitas*')" />
                         @for ($i = 0; $i < 5; $i++)
                             <input id="default-checkbox" type="checkbox" value=""
@@ -113,7 +126,7 @@
                                             d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                     </svg>
                                     <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                                            class="font-semibold">Click to upload</span> or drag and drop</p>
+                                            class="font-semibold">Click to upload</span></p>
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
                                         800x400px)</p>
                                 </div>

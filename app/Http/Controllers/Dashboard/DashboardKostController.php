@@ -50,6 +50,7 @@ class DashboardKostController extends Controller
      */
     public function edit(Kost $kost)
     {
+        return view('dashboard.kost.edit', compact('kost'));
     }
 
     /**
