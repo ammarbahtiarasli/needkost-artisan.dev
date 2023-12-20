@@ -28,103 +28,6 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // Default Kota
-        Kota::create([
-            'nama' => 'Bandung',
-        ]);
-
-        Kota::create([
-            'nama' => 'Jakarta',
-        ]);
-
-        Kota::create([
-            'nama' => 'Surabaya',
-        ]);
-
-        Kota::create([
-            'nama' => 'Semarang',
-        ]);
-
-        Kota::create([
-            'nama' => 'Yogyakarta',
-        ]);
-
-        // Default Kecamatan
-        Kecamatan::create([
-            'nama' => 'Coblong',
-            'id_kota' => 1,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Sukajadi',
-            'id_kota' => 1,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Cidadap',
-            'id_kota' => 1,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Gambir',
-            'id_kota' => 2,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Menteng',
-            'id_kota' => 2,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Senen',
-            'id_kota' => 2,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Gubeng',
-            'id_kota' => 3,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Tegalsari',
-            'id_kota' => 3,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Sawahan',
-            'id_kota' => 3,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Semarang Selatan',
-            'id_kota' => 4,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Semarang Timur',
-            'id_kota' => 4,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Semarang Tengah',
-            'id_kota' => 4,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Gondokusuman',
-            'id_kota' => 5,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Danurejan',
-            'id_kota' => 5,
-        ]);
-
-        Kecamatan::create([
-            'nama' => 'Gedongtengen',
-            'id_kota' => 5,
-        ]);
-
         // Default Fasilitas
         Fasilitas::create([
             'nama' => 'Kamar Mandi Dalam',
@@ -191,8 +94,8 @@ class DatabaseSeeder extends Seeder
             'harga_per_bulan' => 1000000,
             'kamar_tersedia' => 20,
             'id_user' => 1,
-            'id_kota' => 1,
-            'id_kecamatan' => 1,
+            'kota' => 'Jakarta',
+            'kecamatan' => 'Jakarta Selatan',
             'id_gender' => 1,
         ]);
 

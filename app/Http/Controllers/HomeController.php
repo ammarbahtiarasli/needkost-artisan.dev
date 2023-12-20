@@ -12,9 +12,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', [
-            "kotas" => Kota::paginate(4)
-        ]);
+        return view('home', []);
     }
 
     /**

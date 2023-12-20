@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('kamar_tersedia');
             $table->foreignId('id_user');
             $table->foreignId('id_gender');
-            $table->foreignId('id_kecamatan');
-            $table->foreignId('id_kota');
+            $table->string('kota');
+            $table->string('kecamatan');
             $table->timestamps();
         });
     }
