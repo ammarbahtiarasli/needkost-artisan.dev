@@ -22,17 +22,16 @@
                         <dl
                             class="max-w-full text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
                             <div class="flex flex-col pb-3">
-                                <dd class="text-lg font-semibold">C03 Residence</dd>
-                                <p>Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115
-                                </p>
+                                <dd class="text-lg font-semibold">{{ $kost->nama }}</dd>
+                                <p>{{ $kost->alamat }}</p>
                             </div>
                             <div class="flex flex-col py-3">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Deskripsi</dt>
-                                <p class="font-semibold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aliquid perferendis, voluptatem delectus dignissimos omnis ex adipisci harum, fugit laboriosam quidem saepe natus ad dolorum ea ipsa dolores et recusandae qui.</p>
+                                <p class="font-semibold">{{ $kost->deskripsi }}</p>
                             </div>
                             <div class="flex flex-col pt-3">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Harga perbulan</dt>
-                                <dd class="text-lg font-semibold">Rp. 2.400.000</dd>
+                                <dd class="text-lg font-semibold">Rp. {{ number_format($kost->harga_per_bulan, 2) }}</dd>
                             </div>
                         </dl>
                         <x-warning-button :href="route('kost.index')" class="mt-6">Kembali</x-warning-button>
