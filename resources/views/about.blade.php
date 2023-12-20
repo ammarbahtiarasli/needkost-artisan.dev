@@ -12,8 +12,7 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Aplikasi Pencari Kos
                         No.1 di Indonesia </h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">Cari kos yang akurat dan terpercaya kini
-                        semakin mudah. Sejak didirikan pada 11 November 2015,
-                        NeedKost telah berkembang hingga menjadi aplikasi pencari kos no. 1 di Indonesia
+                        semakin mudah, yang di akui sebagai terbaik di Indonesia.
                     </p>
                 </a>
             </div>
@@ -51,11 +50,8 @@
                 <a href="#" class="block max-w-md py-6">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Informasi Data Kos
                         Yang Lengkap </h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">NeedKost memanfaatkan teknologi dengan
-                        mengelola dan menyajikan daftar kos dengan penjelasan fasilitas secara terperinci dan dilengkapi
-                        dengan foto serta detail dari setiap kos. Kami memiliki tim Mamichecker, yang tugasnya mengecek
-                        dan membuat profil setiap properti. Temukan properti dengan tanda Mamichecker sebagai properti
-                        yang sudah dicek oleh tim kami!
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Hidup lebih praktis di Kost kami!Setiap kamar dilengkapi dengan tempat tidur nyaman,
+                        koneksi internet cepat, dan kebersihan yang terjaga. Lokasi strategis kami memberikan akses mudah ke pusat kota dan fasilitas umum
                     </p>
                 </a>
             </div>
@@ -70,7 +66,9 @@
             <div class="container w-1/2">
                 <a href="#" class="block max-w-md py-6">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Penghubung Pemilik dan Pencari Kos </h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">NeesKost telah menghubungkan lebih dari 110 ribu pemilik kos dengan 6-8 juta pencari kos setiap bulannya, untuk memberikan akomodasi yang lebih baik. Inovasi yang kami lakukan bertujuan untuk memberikan kenyamanan dan kemudahan bagi penyewa dan pemilik kos.
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Kami menghubungkan pemilik kost dengan pencari kost dalam satu platform
+                        yang mudah di gunakan. Dengan berbagai pilihan dan fitur pencarian canggih. Anda dapat menemukan dan berkomunikasi
+                        langsung dengan pemilik kost yang sesuai dengan preferensi anda.
                     </p>
                 </a>
             </div>
@@ -85,7 +83,10 @@
             <div class="w-1/2">
                 <a href="#" class="block max-w-md py-6">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Data Kos Seluruh Indonesia </h5>
-                    <p class="font-normal text-gray-700 dark:text-gray-400">Saat ini kami memiliki lebih dari 2 juta kamar kos yang tersebar di lebih dari 140 kota di seluruh Indonesia. NeedKost berusaha untuk bisa terus menyajikan data ketersediaan kamar yang akurat, agar calon penghuni mendapatkan kemudahan dalam pencarian kos.
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Selamat datang di pusat informasi kost terlengkap
+                        di indonesia jelajahi ribuan kost dari berbagai kota. Dengan data lengkap tentang harga, Fasilitas, dan lokasi
+                        kami membantu Anda menemukan hunian ideal tanpa ribet. Mulai petualangan pencarian kost Anda sekarang dan temukan
+                        kenyamanan di setiap sudut Indonesia.
                     </p>
                 </a>
             </div>
