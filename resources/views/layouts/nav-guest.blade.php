@@ -11,6 +11,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center h-16 shrink-0">
+                    <img class="h-8 w-8" src="https://i.ibb.co/z5WVDkq/01-CF2-C8-E-1-DB4-44-AD-8002-69759-A990-EFE.png" alt="">
                     <a href="/dashboard" class="focus:outline-none focus:ring-0">
                         <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_</div>
                         <span class="sr-only">NeedKost</span>

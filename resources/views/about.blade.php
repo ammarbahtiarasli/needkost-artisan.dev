@@ -12,7 +12,7 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Aplikasi Pencari Kos
                         No.1 di Indonesia </h5>
                     <p class="font-normal text-gray-700 dark:text-gray-400">Cari kos yang akurat dan terpercaya kini
-                        semakin mudah, yang di akui sebagai terbaik di Indonesia.
+                        semakin mudah, yang di akui sebagai terbaik di Indonesia
                     </p>
                 </a>
             </div>
@@ -71,6 +71,10 @@
                         langsung dengan pemilik kost yang sesuai dengan preferensi anda.
                     </p>
                 </a>
+
+            </div>
+            <div class="container justify-end w-1/2">
+                <img class="h-20 w-20" src="https://i.ibb.co/z5WVDkq/01-CF2-C8-E-1-DB4-44-AD-8002-69759-A990-EFE.png" alt="">
             </div>
         </div>
     </div>
