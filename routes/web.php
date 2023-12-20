@@ -31,6 +31,9 @@ Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback'])
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/help', [HomeController::class, 'help'])->name('help');
+Route::get('/riwayat-sewa', function () {
+    return view('riwayat');
+});
 
 // Route untuk kamar kost
 Route::get('/kost', [KostController::class, 'index'])->name('kost.index');
@@ -93,5 +96,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__ . '/auth.php';
