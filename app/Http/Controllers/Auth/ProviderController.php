@@ -20,23 +20,19 @@ class ProviderController extends Controller
         try {
             $SocialUser = Socialite::driver($provider)->user();
             $user = User::where('email', $SocialUser->email)->first();
-            if ($user) {
+
+            if ($user !== null) {
                 Auth::login($user);
                 return to_route('dashboard')->with('success', 'Login berhasil.');
             }
-            $user = User::updateOrCreate([
-                'provider_id' => $SocialUser->id,
-                'provider' => $provider,
-            ], [
-                'name' => $SocialUser->name,
-                'username' => User::generateUsername($SocialUser->nickname),
+            $user = User::create([
+                'nama' => $SocialUser->name,
                 'email' => $SocialUser->email,
-                'password' => 12345678,
-                'provider' => $provider,
-                'provider_id' => $SocialUser->id,
-                'provider_token' => $SocialUser->token,
-                'email_verified_at' => now()
+                'password' => '12345678',
+                'id_gender' => 1,
+                'id_role' => 1,
             ]);
+
             Auth::login($user);
             return to_route('dashboard')->with('success', 'Login berhasil, silahkan lengkapi data diri anda.');
         } catch (\Exception $e) {

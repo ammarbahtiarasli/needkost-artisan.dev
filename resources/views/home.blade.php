@@ -53,13 +53,13 @@
                             kamu.</p>
                     </div>
                     <div class="mt-8 mb-4 md:flex md:-mx-4">
-                        @foreach ($kotas as $kota)
+                        @for ($i = 0; $i < 4; $i++)
                             <x-kota-card>
                                 <x-slot name="nama_kota">
-                                   Kost {{ $kota->nama }}
+                                   Kost
                                 </x-slot>
                             </x-kota-card>
-                        @endforeach
+                        @endfor
                     </div>
                 </section>
                 <div class="container flex justify-center">
