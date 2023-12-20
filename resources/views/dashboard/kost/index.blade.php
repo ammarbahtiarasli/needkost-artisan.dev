@@ -106,16 +106,20 @@
                                                     </div>
                                                 </button>
                                             </x-slot>
-                                            <x-slot name="content" class="z-99">
-                                                <x-dropdown-link :href="route('kost.show',1)">
+                                            <x-slot name="content" class="z-50">
+                                                <x-dropdown-link :href="route('kost.show',5)">
                                                     {{ __('Lihat') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.edit',1)">
+                                                <x-dropdown-link :href="route('kost.edit',5)">
                                                     {{ __('Edit') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.destroy',1)">
-                                                    {{ __('Hapus') }}
-                                                </x-dropdown-link>
+                                                {{-- <form method="POST" action="{{ route('kost.destroy',7) }}"> --}}
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <x-dropdown-link-button>
+                                                        {{ __('Hapus') }}
+                                                    </x-dropdown-link-button>
+                                                {{-- </form> --}}
                                             </x-slot>
                                         </x-dropdown>
                                 </td>

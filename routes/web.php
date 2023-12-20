@@ -53,7 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/kost/{kost}', [DashboardKostController::class, 'show'])->name('kost.show');
     Route::get('/kost/edit/{kost}', [DashboardKostController::class, 'edit'])->name('kost.edit');
     Route::put('/kost', [DashboardKostController::class, 'update'])->name('kost.update');
-    Route::delete('/kost/{kost}', [DashboardKostController::class, 'destroy'])->name('kost.destroy');
+    Route::delete('/kost/delete/{kost}', [DashboardKostController::class, 'destroy'])->name('kost.destroy');
 });
 
 // Route untuk dashboard Lokasi
