@@ -3,13 +3,16 @@
         <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
             {{ __('Riwayat Sewa') }}
         </h2>
+        <div class="container flex justify-end">
+            <x-primary-a class="bg-sky-800/80" href="/nama-kota">Lihat semua</x-primary-a>
+        </div>
     </x-slot>
 
-<div class="max-w-2xl mx-auto bg-white p-4 rounded shadow flex">
+<div class="max-w-8xl mx-auto bg-white p-4 rounded shadow flex">
 <!-- component -->
 <!-- This is an example component -->
-    <div class="max-w-2xl mx-auto">
-    
+    <div class="max-w-8xl mx-auto flex px-5">
+      <div class="px-5">
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 my-5">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -51,6 +54,8 @@
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
+      </div>
+      <div class="px-5">
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 my-5">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -92,6 +97,8 @@
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
+      </div>
+      <div class="px-5">
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 my-5">
             <a href="#">
                 <img class="rounded-t-lg" src="https://flowbite.com/docs/images/blog/image-1.jpg" alt="">
@@ -133,10 +140,7 @@
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
-
-        <div class="flex justify-center w-full h-25 p-3 my-5">
-            <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Lihat semua riwayat</button>
-        </div>
+      </div>
     </div>
 </div>
 
