@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\PaginatedResourceResponse;
 use Illuminate\Support\Facades\Http;
 use App\Models\Kost;
+use App\Models\Kota;
+use App\Models\Provinsi;
 
 class DashboardLokasiController extends Controller
 {
@@ -15,32 +17,11 @@ class DashboardLokasiController extends Controller
      */
     public function index()
     {
-        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json')->json();
-        // dd($provinsi);
-        return view('dashboard.lokasi.index', compact('provinsi'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        $provinsi = Provinsi::all();
+        $kota = Kota::paginate(6);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(lokasi $lokasi)
-    {
-        //
+        // dd($kota);
+        return view('dashboard.lokasi.index', compact('provinsi', 'kota'));
     }
 }

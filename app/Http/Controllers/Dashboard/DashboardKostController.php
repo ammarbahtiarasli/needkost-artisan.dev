@@ -7,6 +7,8 @@ use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use App\Models\KostFasilitas;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreKostRequest;
+use App\Http\Requests\UpdateKostRequest;
 
 class DashboardKostController extends Controller
 {
@@ -41,28 +43,27 @@ class DashboardKostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreKostRequest $request)
     {
-        $req = $request->all();
-        if (count($req['check']) > 1) {
+        if (count($request['check']) > 1) {
             $gender = 3;
         } else {
-            $gender = $req['check'][0];
+            $gender = $request['check'][0];
         }
         $kostBaru = Kost::create([
-            'nama' => $req['nama'],
-            'slug' => str_replace(' ', '-', strtolower($req['nama'])),
-            'kota' => $req['kota'],
-            'kecamatan' => $req['kecamatan'],
-            'alamat' => $req['alamat'],
-            'deskripsi' => $req['deskripsi'],
-            'harga_per_bulan' => $req['harga_perbulan'],
-            'kamar_tersedia' => $req['kamar_tersedia'],
+            'nama' => $request['nama'],
+            'slug' => str_replace(' ', '-', strtolower($request['nama'])),
+            'kota' => $request['kota'],
+            'kecamatan' => $request['kecamatan'],
+            'alamat' => $request['alamat'],
+            'deskripsi' => $request['deskripsi'],
+            'harga_per_bulan' => $request['harga_perbulan'],
+            'kamar_tersedia' => $request['kamar_tersedia'],
             'id_gender' => $gender,
             'id_user' => auth()->user()->id,
         ]);
 
-        foreach ($req['fasilitas'] as $fasilitas) {
+        foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
                 'id_kost' => $kostBaru->id,
                 'id_fasilitas' => $fasilitas,
@@ -93,28 +94,27 @@ class DashboardKostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kost $kost)
+    public function update(UpdateKostRequest $request, Kost $kost)
     {
-        $req = $request->all();
-        if (count($req['check']) > 1) {
+        if (count($request['check']) > 1) {
             $gender = 3;
         } else {
-            $gender = $req['check'][0];
+            $gender = $request['check'][0];
         }
         $kost->update([
-            'nama' => $req['nama'],
-            'kota' => $req['kota'],
-            'kecamatan' => $req['kecamatan'],
-            'alamat' => $req['alamat'],
-            'deskripsi' => $req['deskripsi'],
-            'harga_per_bulan' => $req['harga_perbulan'],
-            'kamar_tersedia' => $req['kamar_tersedia'],
+            'nama' => $request['nama'],
+            'kota' => $request['kota'],
+            'kecamatan' => $request['kecamatan'],
+            'alamat' => $request['alamat'],
+            'deskripsi' => $request['deskripsi'],
+            'harga_per_bulan' => $request['harga_perbulan'],
+            'kamar_tersedia' => $request['kamar_tersedia'],
             'id_gender' => $gender,
         ]);
 
         KostFasilitas::where('id_kost', $kost->id)->delete();
 
-        foreach ($req['fasilitas'] as $fasilitas) {
+        foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
                 'id_kost' => $kost->id,
                 'id_fasilitas' => $fasilitas,
