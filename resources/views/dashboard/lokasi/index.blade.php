@@ -56,24 +56,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 3; $i++)
+                            @foreach ($provinsi as  $p)
                                 <tr
                                     class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                     <th class="p-4">
                                         <img src="https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                                             class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
                                     </th>
+
                                     <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Bandung
+                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    {{ Str::ucfirst($p['name']) }}
                                     </th>
                                     <td class="px-6 py-4 text-right">
                                         <x-sky-button
-                                            href="">{{ __('Detail') }}</x-sky-button>
+                                        href="">{{ __('Detail') }}</x-sky-button>
                                     </td>
-                                    </td>
-                                </tr>
-                            @endfor
+                                </td>
+                            </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                     <div class="p-6 font-semibold text-center text-rose-500">

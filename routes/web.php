@@ -9,6 +9,7 @@ use App\Http\Controllers\KotaController;
 use App\Http\Controllers\KecamatanController;
 use App\Http\Controllers\Dashboard\DashboardKostController;
 use App\Http\Controllers\Dashboard\DashboardKotaController;
+use App\Http\Controllers\Dashboard\DashboardLokasiController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 
 
@@ -36,8 +37,8 @@ Route::get('/help', [HomeController::class, 'help'])->name('help');
 Route::get('/kost', [KostController::class, 'index'])->name('kost.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
 Route::get('/lokasi', [KostController::class, 'lokasi'])->name('lokasi');
-Route::get('/lokasi/{kota}', [KostController::class, 'kota'])->name('kota');
-Route::get('/lokasi/{kecamatan}', [KostController::class, 'kecamatan'])->name('kecamatan');
+Route::get('/lokasi/kota/{kota}', [KostController::class, 'kota'])->name('kota');
+Route::get('/lokasi/kota/{kecamatan}', [KostController::class, 'kecamatan'])->name('kecamatan');
 Route::get('/payment', [KostController::class, 'payment'])->name('payment');
 
 // Dashboard
@@ -57,25 +58,9 @@ Route::middleware('auth')->group(function () {
 });
 
 // Route untuk dashboard Lokasi
-// Kota
 Route::middleware('auth')->group(function () {
-    Route::get('/kota', [KotaController::class, 'index'])->name('kota.index');
-    Route::get('/kota/create', [KotaController::class, 'create'])->name('kota.create');
-    Route::post('/kota', [KotaController::class, 'store'])->name('kota.store');
-    Route::get('/kota/{kota}', [KotaController::class, 'show'])->name('kota.show');
-    Route::get('/kota/edit/{kota}', [KotaController::class, 'edit'])->name('kota.edit');
-    Route::put('/kota', [KotaController::class, 'update'])->name('kota.update');
-    Route::delete('/kota/{kota}', [KotaController::class, 'destroy'])->name('kota.destroy');
-});
-// Kecamatan
-Route::middleware('auth')->group(function () {
-    Route::get('/kecamatan', [KecamatanController::class, 'index'])->name('kecamatan.index');
-    Route::get('/kecamatan/create', [KecamatanController::class, 'create'])->name('kecamatan.create');
-    Route::post('/kecamatan', [KecamatanController::class, 'store'])->name('kecamatan.store');
-    Route::get('/kecamatan/{kecamatan}', [KecamatanController::class, 'show'])->name('kecamatan.show');
-    Route::get('/kecamatan/edit/{kecamatan}', [KecamatanController::class, 'edit'])->name('kecamatan.edit');
-    Route::put('/kecamatan', [KecamatanController::class, 'update'])->name('kecamatan.update');
-    Route::delete('/kecamatan/{kecamatan}', [KecamatanController::class, 'destroy'])->name('kecamatan.destroy');
+    Route::get('/lokasi/table', [DashboardLokasiController::class, 'index'])->name('lokasi.index');
+    Route::get('/lokasi/detail/{lokasi}', [DashboardLokasiController::class, 'show'])->name('lokasi.show');
 });
 
 // Route untuk Pengguna

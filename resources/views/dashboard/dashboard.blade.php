@@ -42,7 +42,7 @@
                 class="p-6 text-gray-900 bg-white border rounded-lg shadow-sm dark:text-gray-200 dark:border-0 dark:bg-gray-800">
                 <h4 class="font-mono text-xl">69</h4><small class="block mt-4 text-sm text-muted-foreground">Lokasi
                     Kota</small>
-                <x-detail-long-button :href="route('kota.index')">Detail</x-detail-long-button>
+                <x-detail-long-button :href="route('lokasi.index')">Detail</x-detail-long-button>
             </div>
             <div
                 class="p-6 text-gray-900 bg-white border rounded-lg shadow-sm dark:text-gray-200 dark:border-0 dark:bg-gray-800">
