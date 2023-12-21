@@ -17,7 +17,7 @@
             </div>
 
             <div class="container p-8 mx-auto mt-5 bg-white sm:rounded-lg dark:bg-gray-800">
-                <form action="" method="POST">
+                <form action="{{ route('kost.store') }}" method="POST">
                     @csrf
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
@@ -49,18 +49,18 @@
                             <x-select id="kota" name="kota" class="block w-full mt-1">
                                 <option value="Pilih kota" selected disabled>Pilih Kota</option>
                                 <option value="Bandung">Bandung</option>
-                                <option value="Kajarta">Kajarta</option>
+                                <option value="Jakarta">Jakarta</option>
                             </x-select>
-                            <x-input-error class="mt-2" :messages="$errors->get('alamat')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('kota')" />
                         </div>
                         <div class="mb-4">
-                            <x-input-label for="alamat" :value="__('Kecamatan*')" />
-                            <x-select id="kota" name="kota" class="block w-full mt-1">
+                            <x-input-label for="kecamatan" :value="__('Kecamatan*')" />
+                            <x-select id="kecamatan" name="kecamatan" class="block w-full mt-1">
                                 <option value="Pilih Kecamatan" selected disabled>Pilih Kecamatan</option>
                                 <option value="Cidadap">Cidadap</option>
                                 <option value="Sukajadi">Sukajadi</option>
                             </x-select>
-                            <x-input-error class="mt-2" :messages="$errors->get('alamat')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('kecamatan')" />
                         </div>
                     </div>
 
@@ -90,11 +90,11 @@
 
                     <div class="mb-4">
                         <x-input-label for="deskripsi" :value="__('Jenis Kelamin*')" />
-                            <input id="1" type="checkbox" value=""
+                            <input id="1" type="checkbox" name="check[]" value="1"
                                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="1"
                                 class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
-                            <input id="2" type="checkbox" value=""
+                            <input id="2" type="checkbox" name="check[]" value="2"
                                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="2"
                                 class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
@@ -103,13 +103,13 @@
 
                     <div class="mb-4">
                         <x-input-label for="deskripsi" :value="__('Fasilitas*')" />
-                        @for ($i = 0; $i < 5; $i++)
-                            <input id="default-checkbox" type="checkbox" value=""
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="default-checkbox"
-                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Default
-                                Fasilitas</label>
-                        @endfor
+                        @foreach ($fasilitas as $fasilit)
+                        <input id="default-checkbox" type="checkbox" name="fasilitas[]" value="{{ $fasilit->id }}"
+                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="default-checkbox" class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                {{ $fasilit->nama }}
+                            </label>
+                        @endforeach
                         <x-input-error class="mt-2" :messages="$errors->get('fasilitas')" />
                     </div>
 

@@ -50,13 +50,14 @@ Route::get('/dashboard', function () {
 
 // Route untuk dashboard kamar kost
 Route::middleware('auth')->group(function () {
-    Route::get('/kost', [DashboardKostController::class, 'index'])->name('kost.index');
-    Route::get('/kost/create', [DashboardKostController::class, 'create'])->name('kost.create');
-    Route::post('/kost', [DashboardKostController::class, 'store'])->name('kost.store');
-    Route::get('/kost/{kost}', [DashboardKostController::class, 'show'])->name('kost.show');
-    Route::get('/kost/edit/{kost}', [DashboardKostController::class, 'edit'])->name('kost.edit');
-    Route::put('/kost', [DashboardKostController::class, 'update'])->name('kost.update');
-    Route::delete('/kost/delete/{kost}', [DashboardKostController::class, 'destroy'])->name('kost.destroy');
+    // Route::get('/kost', [DashboardKostController::class, 'index'])->name('kost.index');
+    // Route::get('/kost/create', [DashboardKostController::class, 'create'])->name('kost.create');
+    // Route::post('/kost', [DashboardKostController::class, 'store'])->name('kost.store');
+    // Route::get('/kost/{kost}', [DashboardKostController::class, 'show'])->name('kost.show');
+    // Route::get('/kost/edit/{kost}', [DashboardKostController::class, 'edit'])->name('kost.edit');
+    // Route::put('/kost/update', [DashboardKostController::class, 'update'])->name('kost.update');
+    // Route::delete('/kost/delete/{kost}', [DashboardKostController::class, 'destroy'])->name('kost.destroy');
+    Route::resource('kost', DashboardKostController::class);
 });
 
 // Route untuk dashboard Lokasi
@@ -83,13 +84,13 @@ Route::middleware('auth')->group(function () {
 
 // Route untuk Pengguna
 Route::middleware('auth')->group(function () {
-    Route::get('/user', [ProfileController::class, 'index'])->name('user.index');
-    // Route::get('/user/create', [ProfileController::class, 'create'])->name('user.create');
-    Route::post('/user', [ProfileController::class, 'store'])->name('user.store');
-    Route::get('/user/{user}', [ProfileController::class, 'show'])->name('user.show');
-    // Route::get('/user/edit/{user}', [ProfileController::class, 'edit'])->name('user.edit');
-    // Route::put('/user', [ProfileController::class, 'update'])->name('user.update');
-    Route::delete('/user/{user}', [ProfileController::class, 'destroy'])->name('user.destroy');
+    Route::get('/user', [DashboardUserController::class, 'index'])->name('user.index');
+    // Route::get('/user/create', [DashboardUserController::class, 'create'])->name('user.create');
+    Route::post('/user', [DashboardUserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}', [DashboardUserController::class, 'show'])->name('user.show');
+    // Route::get('/user/edit/{user}', [DashboardUserController::class, 'edit'])->name('user.edit');
+    // Route::put('/user', [DashboardUserController::class, 'update'])->name('user.update');
+    Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

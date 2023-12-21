@@ -81,10 +81,14 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     @foreach ($kostFasilitas as $fasilitas)
+
+
+                                    @if ($fasilitas->id_kost == $kost->id)
                                     @if ($loop->iteration > 1)
-                                        ,
+                                    ,
                                     @endif
-                                    {{ $fasilitas->fasilitas->nama }}
+                                        {{ $fasilitas->fasilitas->nama }}
+                                    @endif
                                     @endforeach
                                 </td>
                                 <td class="px-6 py-4">
@@ -107,19 +111,19 @@
                                                 </button>
                                             </x-slot>
                                             <x-slot name="content" class="z-50">
-                                                <x-dropdown-link :href="route('kost.show',5)">
+                                                <x-dropdown-link :href="route('kost.show', $kost->id ) " >
                                                     {{ __('Lihat') }}
                                                 </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.edit',5)">
+                                                <x-dropdown-link :href="route('kost.edit', $kost->id ) " >
                                                     {{ __('Edit') }}
                                                 </x-dropdown-link>
-                                                {{-- <form method="POST" action="{{ route('kost.destroy',7) }}"> --}}
+                                                <form method="POST" action="{{ route('kost.destroy', $kost->id) }}">
                                                     @csrf
                                                     @method('DELETE')
                                                     <x-dropdown-link-button>
                                                         {{ __('Hapus') }}
                                                     </x-dropdown-link-button>
-                                                {{-- </form> --}}
+                                                </form>
                                             </x-slot>
                                         </x-dropdown>
                                 </td>
@@ -134,7 +138,7 @@
                 @endif
 
                 {{-- pagination --}}
-                <div class="p-8">
+                <div class="p-16">
                     {{ $kosts->links() }}
                 </div>
             </div>

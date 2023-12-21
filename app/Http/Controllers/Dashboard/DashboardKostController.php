@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Kost;
+use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use App\Models\KostFasilitas;
 use App\Http\Controllers\Controller;
@@ -14,10 +15,12 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
+
+        $fasilitas = KostFasilitas::all();
         $kost = Kost::where('id_user', auth()->user()->id)->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
-            'kostFasilitas' => KostFasilitas::all(),
+            'kostFasilitas' => $fasilitas,
         ]);
     }
 
@@ -26,7 +29,13 @@ class DashboardKostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.kost.create');
+        $fasilitas = Fasilitas::all();
+        return view(
+            'dashboard.kost.create',
+            [
+                'fasilitas' => $fasilitas,
+            ]
+        );
     }
 
     /**
@@ -34,7 +43,33 @@ class DashboardKostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $req = $request->all();
+        if (count($req['check']) > 1) {
+            $gender = 3;
+        } else {
+            $gender = $req['check'][0];
+        }
+        $kostBaru = Kost::create([
+            'nama' => $req['nama'],
+            'slug' => str_replace(' ', '-', strtolower($req['nama'])),
+            'kota' => $req['kota'],
+            'kecamatan' => $req['kecamatan'],
+            'alamat' => $req['alamat'],
+            'deskripsi' => $req['deskripsi'],
+            'harga_per_bulan' => $req['harga_perbulan'],
+            'kamar_tersedia' => $req['kamar_tersedia'],
+            'id_gender' => $gender,
+            'id_user' => auth()->user()->id,
+        ]);
+
+        foreach ($req['fasilitas'] as $fasilitas) {
+            KostFasilitas::create([
+                'id_kost' => $kostBaru->id,
+                'id_fasilitas' => $fasilitas,
+            ]);
+        }
+
+        return to_route('kost.index')->with('success', 'Kamar Kost berhasil ditambahkan');
     }
 
     /**
@@ -50,7 +85,9 @@ class DashboardKostController extends Controller
      */
     public function edit(Kost $kost)
     {
-        return view('dashboard.kost.edit', compact('kost'));
+        $fasilitas = Fasilitas::all();
+        $kostFasilitas = KostFasilitas::all();
+        return view('dashboard.kost.edit', compact('kost', 'kostFasilitas', 'fasilitas'));
     }
 
     /**
@@ -58,7 +95,33 @@ class DashboardKostController extends Controller
      */
     public function update(Request $request, Kost $kost)
     {
-        //
+        $req = $request->all();
+        if (count($req['check']) > 1) {
+            $gender = 3;
+        } else {
+            $gender = $req['check'][0];
+        }
+        $kost->update([
+            'nama' => $req['nama'],
+            'kota' => $req['kota'],
+            'kecamatan' => $req['kecamatan'],
+            'alamat' => $req['alamat'],
+            'deskripsi' => $req['deskripsi'],
+            'harga_per_bulan' => $req['harga_perbulan'],
+            'kamar_tersedia' => $req['kamar_tersedia'],
+            'id_gender' => $gender,
+        ]);
+
+        KostFasilitas::where('id_kost', $kost->id)->delete();
+
+        foreach ($req['fasilitas'] as $fasilitas) {
+            KostFasilitas::create([
+                'id_kost' => $kost->id,
+                'id_fasilitas' => $fasilitas,
+            ]);
+        }
+
+        return to_route('kost.index')->with('success', 'Kamar Kost berhasil dirubah');
     }
 
     /**
