@@ -45,11 +45,10 @@
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.500.000/bulan</p>
-                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                    <span class="font-normal text-gray-600 text-base">/bulan</span>
+                </p>
+                <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 my-5">
@@ -87,11 +86,10 @@
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.500.000/bulan</p>
-                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                    <span class="font-normal text-gray-600 text-base">/bulan</span>
+                </p>
+                <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
         <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 my-5">
@@ -129,12 +127,15 @@
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.500.000/bulan</p>
-                <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2 text-center inline-flex items-center  dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Read more
-                <svg class="-mr-1 ml-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </a>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                    <span class="font-normal text-gray-600 text-base">/bulan</span>
+                </p>
+                <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
+        </div>
+
+        <div class="flex justify-center w-full h-25 p-3 my-5">
+            <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Lihat semua riwayat</button>
         </div>
     </div>
 </div>
