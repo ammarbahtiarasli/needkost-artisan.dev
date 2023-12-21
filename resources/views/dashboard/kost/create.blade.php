@@ -26,14 +26,6 @@
                                 required autofocus autocomplete="nama" placeholder="C03 Residence" />
                             <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                         </div>
-
-                        <div class="mb-4">
-                            <x-input-label for="slug" :value="__('Slug')" />
-                            <x-text-input id="slug" name="slug" type="text"
-                                class="block w-full mt-1 bg-gray-200/80" disabled autocomplete="slug"
-                                placeholder="c03-residence" />
-                            <x-input-error class="mt-2" :messages="$errors->get('slug')" />
-                        </div>
                     </div>
 
                     <div class="mb-4">
@@ -46,8 +38,8 @@
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
                             <x-input-label for="kota" :value="__('Kota*')" />
-                            <x-select id="kota" name="kota" class="block w-full mt-1">
-                                <option value="Pilih kota" selected disabled>Pilih Kota</option>
+                            <x-select id="kota" name="kota" class="block w-full mt-1" required>
+                                <option selected disabled>Pilih Kota</option>
                                 <option value="Bandung">Bandung</option>
                                 <option value="Jakarta">Jakarta</option>
                             </x-select>
@@ -55,8 +47,8 @@
                         </div>
                         <div class="mb-4">
                             <x-input-label for="kecamatan" :value="__('Kecamatan*')" />
-                            <x-select id="kecamatan" name="kecamatan" class="block w-full mt-1">
-                                <option value="Pilih Kecamatan" selected disabled>Pilih Kecamatan</option>
+                            <x-select id="kecamatan" name="kecamatan" class="block w-full mt-1" required>
+                                <option selected disabled>Pilih Kecamatan</option>
                                 <option value="Cidadap">Cidadap</option>
                                 <option value="Sukajadi">Sukajadi</option>
                             </x-select>
@@ -89,7 +81,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="deskripsi" :value="__('Jenis Kelamin*')" />
+                        <x-input-label for="check" :value="__('Jenis Kelamin*')" />
                             <input id="1" type="checkbox" name="check[]" value="1"
                                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="1"
@@ -98,11 +90,11 @@
                                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                             <label for="2"
                                 class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
-                        <x-input-error class="mt-2" :messages="$errors->get('fasilitas')" />
+                        <x-input-error class="mt-2" :messages="$errors->get('check')" />
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="deskripsi" :value="__('Fasilitas*')" />
+                        <x-input-label for="fasilitas" :value="__('Fasilitas*')" />
                         @foreach ($fasilitas as $fasilit)
                         <input id="default-checkbox" type="checkbox" name="fasilitas[]" value="{{ $fasilit->id }}"
                         class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">

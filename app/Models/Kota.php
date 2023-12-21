@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\Kost;
-use App\Models\Kecamatan;
+use App\Models\Provinsi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -11,11 +11,9 @@ class Kota extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id'];
-
-    function kecamatan()
+    public function provinsi()
     {
-        return $this->hasMany(Kecamatan::class);
+        return $this->belongsTo(Provinsi::class, 'id_provinsi');
     }
 
     function kost()

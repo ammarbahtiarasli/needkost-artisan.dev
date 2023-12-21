@@ -10,9 +10,10 @@ use App\Models\Role;
 use App\Models\User;
 use App\Models\Gender;
 use App\Models\Fasilitas;
-use App\Models\Kecamatan;
+use App\Models\Provinsi;
 use App\Models\KostFasilitas;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Http;
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,6 +28,31 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+        // Default Provinsi
+        $provinsi = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json')->json();
+        foreach ($provinsi as $p) {
+            Provinsi::create([
+                'id' => $p['id'],
+                'nama' => $p['name'],
+            ]);
+        }
+
+        // Default Kota
+        $kota = [];
+        foreach ($provinsi as $p) {
+            $link = 'https://emsifa.github.io/api-wilayah-indonesia/api/regencies/' . $p['id'] . '.json';
+            $kota[$p['name']] = Http::get($link)->json();
+
+            foreach ($kota[$p['name']] as $k) {
+                Kota::create([
+                    'id' => $k['id'],
+                    'nama' => $k['name'],
+                    'id_provinsi' => $p['id'],
+                ]);
+            }
+        }
 
         // Default Fasilitas
         Fasilitas::create([
@@ -94,12 +120,10 @@ class DatabaseSeeder extends Seeder
             'harga_per_bulan' => 1000000,
             'kamar_tersedia' => 20,
             'id_user' => 1,
-            'kota' => 'Jakarta',
-            'kecamatan' => 'Jakarta Selatan',
+            'provinsi' => 'Jawa Barat',
+            'kota' => 'Bandung',
             'id_gender' => 1,
         ]);
-
-
 
         KostFasilitas::create([
             'id_kost' => 1,

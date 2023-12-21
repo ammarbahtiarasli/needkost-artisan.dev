@@ -41,6 +41,8 @@
                             </form>
                         </div>
                     </div>
+
+                    @if (count($provinsi) > 0)
                     <table class="min-w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -57,17 +59,16 @@
                         </thead>
                         <tbody>
                             @foreach ($provinsi as  $p)
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="p-4">
-                                        <img src="https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                            class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
-                                    </th>
+                            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th class="p-4">
+                                    <img src="https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
+                                </th>
 
-                                    <th scope="row"
-                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                    {{ Str::ucfirst($p['name']) }}
-                                    </th>
+                                <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ Str::ucfirst($p['nama']) }}
+                                </th>
                                     <td class="px-6 py-4 text-right">
                                         <x-sky-button
                                         href="">{{ __('Detail') }}</x-sky-button>
@@ -78,9 +79,12 @@
 
                         </tbody>
                     </table>
+
+                    @else
                     <div class="p-6 font-semibold text-center text-rose-500">
                         {{ __('Data Kota tidak ada.') }}
                     </div>
+                    @endif
                 </div>
                 <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                     <div class="flex p-6 text-gray-900 dark:text-gray-100">
@@ -105,6 +109,7 @@
                             </form>
                         </div>
                     </div>
+                    @if (count($kota) > 0)
                     <table class="min-w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
@@ -117,27 +122,29 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @for ($i = 0; $i < 3; $i++)
+                            @foreach ($kota as  $k)
                                 <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        Cidadap
-                                    </th>
-                                    <td class="px-6 py-4 text-right">
-                                        <x-sky-button
-                                        href="">{{ __('Detail') }}</x-sky-button>
-                                        </form>
-                                    </td>
-                                    </td>
-                                </tr>
-                            @endfor
-                        </tbody>
-                    </table>
-                    <div class="p-6 font-semibold text-center text-rose-500">
-                        {{ __('Data Kecamatan tidak ada.') }}
-                    </div>
-                </div>
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ Str::ucfirst($k['nama']) }}
+                            </th>
+                            <td class="px-6 py-4 text-right">
+                                <x-sky-button
+                                href="">{{ __('Detail') }}</x-sky-button>
+                            </form>
+                        </td>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        @else
+        <div class="p-6 font-semibold text-center text-rose-500">
+            {{ __('Data Kecamatan tidak ada.') }}
+        </div>
+        @endif
+    </div>
             </div>
 
         </div>

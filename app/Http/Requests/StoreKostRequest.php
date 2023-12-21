@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreKostRequest extends FormRequest
@@ -11,7 +12,7 @@ class StoreKostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,14 @@ class StoreKostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nama' => 'required',
+            'kota' => 'required',
+            'kecamatan' => 'required',
+            'alamat' => 'required',
+            'deskripsi' => 'required',
+            'harga_perbulan' => 'required',
+            'kamar_tersedia' => 'required',
+            'check' => 'required',
         ];
     }
 }
