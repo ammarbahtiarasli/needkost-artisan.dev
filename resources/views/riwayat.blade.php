@@ -30,16 +30,8 @@
 						<span class="text-gray-500 font-normal">(76 reviews)</span>
 					</p>
 				</div>
-				<div class="">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-500 my-2" viewBox="0 0 20 20"
-						fill="currentColor">
-						<path fill-rule="evenodd"
-							d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-							clip-rule="evenodd" />
-					</svg>
-				</div>
 				<div class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block mx-2 my-2">
-					Superhost
+					Rekomendasi
                 </div>
 			</div>
             <div class="p-5">
@@ -47,10 +39,20 @@
                     <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">CO3 Residence</h5>
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Desember 2023
+                    <span class="font-normal text-gray-600 text-base">/tangal mulai</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Januari 2024
+                    <span class="font-normal text-gray-600 text-base">/tanggal berakhir</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.750.000
                     <span class="font-normal text-gray-600 text-base">/bulan</span>
                 </p>
+                <div class="relative">
+                    <div class="absolute top-0 right-0">
+                        <div class="bg-gray-100 px-8 py-2 rounded-full text-xs font-medium text-gray-800 hidden md:block transition duration-300 mx-2 my-2">Aktif</div>
+                    </div>
+                </div>
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
@@ -73,16 +75,8 @@
 						<span class="text-gray-500 font-normal">(76 reviews)</span>
 					</p>
 				</div>
-				<div class="">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-500 my-2" viewBox="0 0 20 20"
-						fill="currentColor">
-						<path fill-rule="evenodd"
-							d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-							clip-rule="evenodd" />
-					</svg>
-				</div>
 				<div class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block mx-2 my-2">
-					Superhost
+					Rekomendasi
                 </div>
 			</div>
             <div class="p-5">
@@ -90,10 +84,20 @@
                     <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">CO3 Residence</h5>
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Desember 2023
+                    <span class="font-normal text-gray-600 text-base">/tangal mulai</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Januari 2024
+                    <span class="font-normal text-gray-600 text-base">/tanggal berakhir</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.750.000
                     <span class="font-normal text-gray-600 text-base">/bulan</span>
                 </p>
+                <div class="relative">
+                    <div class="absolute top-0 right-0">
+                        <div class="bg-gray-100 px-8 py-2 rounded-full text-xs font-medium text-gray-800 hidden md:block transition duration-300 mx-2 my-2">Aktif</div>
+                    </div>
+                </div>
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
@@ -116,16 +120,8 @@
 						<span class="text-gray-500 font-normal">(76 reviews)</span>
 					</p>
 				</div>
-				<div class="">
-					<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-pink-500 my-2" viewBox="0 0 20 20"
-						fill="currentColor">
-						<path fill-rule="evenodd"
-							d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-							clip-rule="evenodd" />
-					</svg>
-				</div>
 				<div class="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block mx-2 my-2">
-					Superhost
+					Rekomendasi
                 </div>
 			</div>
             <div class="p-5">
@@ -133,10 +129,20 @@
                     <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">CO3 Residence</h5>
                 </a>
                 <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam</p>
-                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.700.000
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Desember 2023
+                    <span class="font-normal text-gray-600 text-base">/tangal mulai</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">17 Januari 2024
+                    <span class="font-normal text-gray-600 text-base">/tanggal berakhir</span>
+                </p>
+                <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Rp.750.000
                     <span class="font-normal text-gray-600 text-base">/bulan</span>
                 </p>
+                <div class="relative">
+                    <div class="absolute top-0 right-0">
+                        <div class="bg-gray-100 px-8 py-2 rounded-full text-xs font-medium text-gray-800 hidden md:block transition duration-300 mx-2 my-2">Aktif</div>
+                    </div>
+                </div>
                 <button class="text-lg block font-semibold py-2 px-6 text-dark-100 hover:text-white bg-green-400 rounded-lg shadow hover:shadow-md transition duration-300">Pesan lagi</button>
             </div>
         </div>
