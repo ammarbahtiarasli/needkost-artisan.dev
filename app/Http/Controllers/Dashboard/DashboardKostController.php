@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Kost;
+use App\Models\Kota;
+use App\Models\Provinsi;
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use App\Models\KostFasilitas;
@@ -32,10 +34,14 @@ class DashboardKostController extends Controller
     public function create()
     {
         $fasilitas = Fasilitas::all();
+        $provinsi = Provinsi::all();
+        $kota = Kota::all();
         return view(
             'dashboard.kost.create',
             [
                 'fasilitas' => $fasilitas,
+                'provinsi' => $provinsi,
+                'kota' => $kota,
             ]
         );
     }
@@ -53,8 +59,8 @@ class DashboardKostController extends Controller
         $kostBaru = Kost::create([
             'nama' => $request['nama'],
             'slug' => str_replace(' ', '-', strtolower($request['nama'])),
-            'kota' => $request['kota'],
-            'kecamatan' => $request['kecamatan'],
+            'id_kota' => $request['kota'],
+            'id_provinsi' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
@@ -88,7 +94,9 @@ class DashboardKostController extends Controller
     {
         $fasilitas = Fasilitas::all();
         $kostFasilitas = KostFasilitas::all();
-        return view('dashboard.kost.edit', compact('kost', 'kostFasilitas', 'fasilitas'));
+        $kota = Kota::all();
+        $provinsi = Provinsi::all();
+        return view('dashboard.kost.edit', compact('kost', 'kostFasilitas', 'fasilitas', 'kota', 'provinsi'));
     }
 
     /**
@@ -103,8 +111,8 @@ class DashboardKostController extends Controller
         }
         $kost->update([
             'nama' => $request['nama'],
-            'kota' => $request['kota'],
-            'kecamatan' => $request['kecamatan'],
+            'id_kota' => $request['kota'],
+            'id_provinsi' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],

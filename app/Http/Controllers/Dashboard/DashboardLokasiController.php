@@ -19,7 +19,16 @@ class DashboardLokasiController extends Controller
     {
 
         $provinsi = Provinsi::all();
-        $kota = Kota::paginate(6);
+        $kota = null;
+
+        // dd($kota);
+        return view('dashboard.lokasi.index', compact('provinsi', 'kota'));
+    }
+
+    public function perProvinsi(Request $request)
+    {
+        $provinsi = Provinsi::all();
+        $kota = Kota::where('id_provinsi', $request->provinsi)->get();
 
         // dd($kota);
         return view('dashboard.lokasi.index', compact('provinsi', 'kota'));

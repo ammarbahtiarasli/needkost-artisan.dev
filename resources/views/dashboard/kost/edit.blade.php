@@ -41,8 +41,11 @@
                             <x-input-label for="provinsi" :value="__('Provinsi *')" />
                             <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
                                 <option disabled>Pilih provinsi</option>
-                                <option value="Bandung">Bandung</option>
-                                <option value="Jakarta">Jakarta</option>
+                                @foreach ($provinsi as $prov)
+                                    <option value="{{ $prov->id }}"
+                                        {{ $kost->id_provinsi == $prov->id ? 'selected' : '' }}>{{ $prov->nama }}
+                                    </option>
+                                @endforeach
                             </x-select>
                             <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
                         </div>
@@ -50,8 +53,11 @@
                             <x-input-label for="kota" :value="__('Kota/Kab *')" />
                             <x-select id="kota" name="kota" class="block w-full mt-1">
                                 <option disabled>Pilih kota</option>
-                                <option value="Cidadap">Cidadap</option>
-                                <option value="Sukajadi">Sukajadi</option>
+                                @foreach ($kota as $kot)
+                                    <option value="{{ $kot->id }}"
+                                        {{ $kost->id_kota == $kot->id ? 'selected' : '' }}>{{ $kot->nama }}
+                                    </option>
+                                @endforeach
                             </x-select>
                             <x-input-error class="mt-2" :messages="$errors->get('kota')" />
                         </div>

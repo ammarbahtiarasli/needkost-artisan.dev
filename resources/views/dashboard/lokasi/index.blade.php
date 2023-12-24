@@ -54,7 +54,7 @@
                                             {{ Str::ucfirst($p['nama']) }}
                                         </th>
                                         <td class="px-6 py-4 text-right">
-                                            <x-sky-button href="">{{ __('Detail') }}</x-sky-button>
+                                            <x-sky-button :href=" route('lokasi.provinsi', $p->id) ">{{ __('Detail') }}</x-sky-button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -75,7 +75,7 @@
                                 setiap Provinsi</p>
                         </div>
                     </div>
-                    @if (count($kota) > 0)
+                    @if ($kota != null)
                         <table class="min-w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -87,19 +87,19 @@
                             </thead>
                             <tbody>
                                 @foreach ($kota as $k)
-                                    <tr
-                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th scope="row"
-                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ Str::ucfirst($k['nama']) }}
-                                        </th>
-                                    </tr>
+                                <tr
+                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                {{ Str::ucfirst($k['nama']) }}
+                                </th>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     @else
                         <div class="p-6 font-semibold text-center text-rose-500">
-                            {{ __('Data Kota/Kab tidak ada.') }}
+                            {{ __('Pilih Provinsi terlebih dahulu.') }}
                         </div>
                     @endif
                 </div>

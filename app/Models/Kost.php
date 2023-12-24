@@ -22,9 +22,9 @@ class Kost extends Model
         return $this->belongsTo(User::class, 'id_user');
     }
 
-    public function kecamatan()
+    public function provinsi()
     {
-        return $this->belongsTo(Kecamatan::class, 'id_kecamatan');
+        return $this->belongsTo(Provinsi::class, 'id_provinsi');
     }
 
     public function kota()
