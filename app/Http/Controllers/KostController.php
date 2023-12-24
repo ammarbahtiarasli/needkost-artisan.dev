@@ -37,6 +37,7 @@ class KostController extends Controller
      */
     public function detail(Kost $kost)
     {
+        $kost = Kost::find($kost->id);
         return view('kost.detail-kost', compact('kost'));
     }
 

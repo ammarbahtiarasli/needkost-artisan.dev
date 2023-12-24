@@ -24,8 +24,11 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Beranda') }}
                     </x-nav-link>
+                    <x-nav-link>
+                        {{ __('Kamar Kost') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('lokasi')" :active="request()->routeIs('lokasi', 'provinsi', 'kota')">
-                        {{ __('Lokasi') }}
+                        {{ __('Berdasarkan Lokasi') }}
                     </x-nav-link>
                     <x-nav-link :href="route('about')" :active="request()->routeIs('about')">
                         {{ __('Tentang Kami') }}
@@ -81,7 +84,7 @@
                             </x-slot>
                         </x-dropdown>
                     @else
-                        <div class="p-6 text-right sm:top-0 sm:right-0">
+                        <div class="py-6 text-right sm:top-0 sm:right-0">
                             <a href="{{ route('login') }}"
                                 class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors rounded-md bg-sky-200 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-sky-200/80 h-9">Masuk</a>
                             {{-- @if (Route::has('register'))

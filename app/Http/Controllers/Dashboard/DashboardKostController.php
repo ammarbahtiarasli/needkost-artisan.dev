@@ -17,9 +17,10 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
-
         $fasilitas = KostFasilitas::all();
-        $kost = Kost::where('id_user', auth()->user()->id)->paginate(6);
+        $kost = Kost::query()
+            ->where('id_user', auth()->user()->id)
+            ->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
             'kostFasilitas' => $fasilitas,
