@@ -32,7 +32,7 @@ class DashboardLokasiController extends Controller
     public function perProvinsi(Request $request)
     {
         $provinsi = Provinsi::all();
-        $kota = Kota::where('id_provinsi', $request->provinsi)->get();
+        $kota = Kota::where('provinsi_id', $request->provinsi)->get();
 
         // dd($kota);
         return view('dashboard.lokasi.index', compact('provinsi', 'kota'));

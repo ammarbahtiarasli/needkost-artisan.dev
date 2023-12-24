@@ -32,7 +32,6 @@ class DashboardKostController extends Controller
 
         return view('dashboard.kost.index', [
             'kosts' => $kost,
-            // 'kostFasilitas' => $fasilitas,
         ]);
     }
 
