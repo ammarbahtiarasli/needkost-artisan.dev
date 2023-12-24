@@ -74,7 +74,7 @@
 
             </div>
             <div class="container justify-end w-1/2">
-                <img class="h-20 w-20" src="https://i.ibb.co/z5WVDkq/01-CF2-C8-E-1-DB4-44-AD-8002-69759-A990-EFE.png" alt="">
+                <img class="h-29 w-29" src="https://i.ibb.co/z5WVDkq/01-CF2-C8-E-1-DB4-44-AD-8002-69759-A990-EFE.png" alt="">
             </div>
         </div>
     </div>
@@ -93,6 +93,7 @@
                         kenyamanan di setiap sudut Indonesia.
                     </p>
                 </a>
+                <img class="h-29 w-29" src="https://i.pinimg.com/564x/d3/b7/c1/d3b7c10201510848f5bcf86e51b83ed6.jpg" alt="">
             </div>
         </div>
     </div>

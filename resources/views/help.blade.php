@@ -37,6 +37,29 @@
             </div>
         </div>
     </div>
+    <div class="space-y-10 sm:space-y-14">
+        <h1
+            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
+            Akun pemilik</h1>
+    </div>
+    <div class="space-y-10 sm:space-y-14">
+        <img class="h-8 w-8" src="https://i.pinimg.com/originals/ee/79/2b/ee792b23230f5071ba8a105cddc592af.jpg" alt="">
+        <h1
+            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
+            Lupa Password?</h1>
+    </div>
+    <div class="space-y-10 sm:space-y-14">
+        <h1
+            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
+            Panduan Keamanan</h1>
+    </div>
+    <div class="space-y-10 sm:space-y-14">
+        <img class="h-8 w-8" src="https://i.pinimg.com/564x/9d/24/0c/9d240c635b387997e32ddb20a9e36f9f.jpg" alt="">
+        <h1
+            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
+            Bagaimana Transaksi Saya Aman Di NeedKost?</h1>
+    </div>
+
 
     @include('layouts.footer')
 </x-guest-layout>
