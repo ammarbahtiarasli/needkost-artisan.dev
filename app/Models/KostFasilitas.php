@@ -15,11 +15,11 @@ class KostFasilitas extends Model
 
     public function kost()
     {
-        return $this->belongsTo(Kost::class, 'id_kost');
+        return $this->belongsTo(Kost::class, 'kost_id');
     }
 
     public function fasilitas()
     {
-        return $this->belongsTo(Fasilitas::class, 'id_fasilitas');
+        return $this->belongsTo(Fasilitas::class, 'fasilitas_id');
     }
 }

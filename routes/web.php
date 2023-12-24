@@ -10,6 +10,7 @@ use App\Http\Controllers\Dashboard\DashboardKostController;
 use App\Http\Controllers\Dashboard\DashboardLokasiController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------

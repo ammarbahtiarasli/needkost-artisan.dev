@@ -19,31 +19,31 @@ class Kost extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'id_user');
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function provinsi()
     {
-        return $this->belongsTo(Provinsi::class, 'id_provinsi');
+        return $this->belongsTo(Provinsi::class, 'provinsi_id');
     }
 
     public function kota()
     {
-        return $this->belongsTo(Kota::class, 'id_kota');
+        return $this->belongsTo(Kota::class, 'kode_kota');
     }
 
     public function gender()
     {
-        return $this->belongsTo(Gender::class, 'id_gender');
+        return $this->belongsTo(Gender::class, 'gender_id');
     }
 
     public function photo()
     {
-        return $this->hasMany(Photo::class);
+        return $this->belongsToMany(Photo::class, 'kost_photos', 'kost_id');
     }
 
-    public function kostFasilitas()
+    public function fasilitas()
     {
-        return $this->hasMany(KostFasilitas::class);
+        return $this->belongsToMany(Fasilitas::class, KostFasilitas::class, 'kost_id');
     }
 }

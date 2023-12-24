@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('kotas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->foreignId('id_provinsi');
+            $table->foreignId('provinsi_id');
             $table->timestamps();
         });
     }

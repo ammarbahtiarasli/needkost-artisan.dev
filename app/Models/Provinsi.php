@@ -11,6 +11,11 @@ class Provinsi extends Model
 
     public function kota()
     {
-        return $this->hasMany(Kota::class, 'id_provinsi');
+        return $this->hasMany(Kota::class);
+    }
+
+    public function kost()
+    {
+        return $this->hasMany(Kost::class);
     }
 }

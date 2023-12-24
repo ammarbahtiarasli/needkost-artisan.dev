@@ -12,8 +12,8 @@ class Fasilitas extends Model
 
     protected $guarded = ['id'];
 
-    function kost_fasilitas()
+    function kost()
     {
-        return $this->hasMany(KostFasilitas::class);
+        return $this->belongsToMany(Kost::class, KostFasilitas::class, 'fasilitas_id');
     }
 }
