@@ -64,16 +64,6 @@ class KostController extends Controller
         //
     }
 
-    public function lokasi()
-    {
-        return view('kota.index');
-    }
-
-    public function kota()
-    {
-        return view('kota.kota-detail');
-    }
-
     public function payment()
     {
         return view('payment');

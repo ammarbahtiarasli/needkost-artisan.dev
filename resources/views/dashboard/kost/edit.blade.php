@@ -20,103 +20,96 @@
                 <form action="{{ route('kost.update', $kost->id) }}" method="POST">
                     @method('PUT')
                     @csrf
-
-                    <div class="grid grid-cols-2 gap-4">
-
-                        <div class="mb-4">
-                            <x-input-label for="nama" :value="__('Kamar Kost*')" />
-                            <x-text-input id="nama" name="nama" type="text" value="{{ $kost->nama }}" class="block w-full mt-1"
-                                required autofocus autocomplete="nama" placeholder="C03 Residence" />
-                            <x-input-error class="mt-2" :messages="$errors->get('nama')" />
-                        </div>
-
-                        <div class="mb-4">
-                            <x-input-label for="slug" :value="__('Slug')" />
-                            <x-text-input id="slug" name="slug" value="{{ $kost->slug }}" type="text"
-                                class="block w-full mt-1 bg-gray-200/80" disabled autocomplete="slug"
-                                placeholder="c03-residence" />
-                            <x-input-error class="mt-2" :messages="$errors->get('slug')" />
-                        </div>
+                    <div class="mb-4">
+                        <x-input-label for="nama" :value="__('Kamar Kost *')" />
+                        <x-text-input id="nama" name="nama" type="text" value="{{ $kost->nama }}"
+                            class="block w-full mt-1" required autofocus autocomplete="nama"
+                            placeholder="C03 Residence" />
+                        <x-input-error class="mt-2" :messages="$errors->get('nama')" />
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="deskripsi" :value="__('Deskripsi*')" />
-                        <x-textarea-input-edit id="deskripsi" name="deskripsi" type="textarea" value="{{ $kost->deskripsi }}" class="block w-full mt-1"
-                            required autocomplete="deskripsi" placeholder="Deskripsikan kamar kost kamu">{{ $kost->deskripsi }}</x-textarea-input-edit>
+                        <x-input-label for="deskripsi" :value="__('Deskripsi')" />
+                        <x-textarea-input-edit id="deskripsi" name="deskripsi" type="textarea"
+                            value="{{ $kost->deskripsi }}" class="block w-full mt-1" required autocomplete="deskripsi"
+                            placeholder="Deskripsikan kamar kost kamu">{{ $kost->deskripsi }}</x-textarea-input-edit>
                         <x-input-error class="mt-2" :messages="$errors->get('deskripsi')" />
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
-                            <x-input-label for="kota" :value="__('Kota*')" />
-                            <x-select id="kota" name="kota" class="block w-full mt-1" required>
-                                <option disabled>Pilih Kota</option>
+                            <x-input-label for="provinsi" :value="__('Provinsi *')" />
+                            <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
+                                <option disabled>Pilih provinsi</option>
                                 <option value="Bandung">Bandung</option>
                                 <option value="Jakarta">Jakarta</option>
                             </x-select>
-                            <x-input-error class="mt-2" :messages="$errors->get('kota')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
                         </div>
                         <div class="mb-4">
-                            <x-input-label for="kecamatan" :value="__('Kecamatan*')" />
-                            <x-select id="kecamatan" name="kecamatan" class="block w-full mt-1">
-                                <option disabled>Pilih Kecamatan</option>
+                            <x-input-label for="kota" :value="__('Kota/Kab *')" />
+                            <x-select id="kota" name="kota" class="block w-full mt-1">
+                                <option disabled>Pilih kota</option>
                                 <option value="Cidadap">Cidadap</option>
                                 <option value="Sukajadi">Sukajadi</option>
                             </x-select>
-                            <x-input-error class="mt-2" :messages="$errors->get('kecamatan')" />
+                            <x-input-error class="mt-2" :messages="$errors->get('kota')" />
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="alamat" :value="__('Alamat*')" />
+                        <x-input-label for="alamat" :value="__('Alamat *')" />
                         <x-textarea-input-edit id="alamat" name="alamat" type="textarea" class="block w-full mt-1"
-                            required autocomplete="alamat" placeholder="Jl. Kapten abdul hamid no 86" value="{{ $kost->alamat }}">{{ $kost->alamat }}</x-textarea-input-edit>
+                            required autocomplete="alamat" placeholder="Jl. Kapten abdul hamid no 86"
+                            value="{{ $kost->alamat }}">{{ $kost->alamat }}</x-textarea-input-edit>
                         <x-input-error class="mt-2" :messages="$errors->get('alamat')" />
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="mb-4">
-                            <x-input-label for="kamar_tersedia" :value="__('Kamar tersedia*')" />
-                            <x-text-input id="kamar_tersedia" name="kamar_tersedia" value="{{ $kost->kamar_tersedia }}" type="number"
-                                class="block w-full mt-1" required autofocus autocomplete="kamar_tersedia"
-                                placeholder="6 Kamar" />
+                            <x-input-label for="kamar_tersedia" :value="__('Kamar tersedia *')" />
+                            <x-text-input id="kamar_tersedia" name="kamar_tersedia" value="{{ $kost->kamar_tersedia }}"
+                                type="number" class="block w-full mt-1" required autofocus
+                                autocomplete="kamar_tersedia" placeholder="6 Kamar" />
                             <x-input-error class="mt-2" :messages="$errors->get('kamar_tersedia')" />
                         </div>
                         <div class="mb-4">
-                            <x-input-label for="harga_perbulan" :value="__('Harga perbulan*')" />
-                            <x-text-input id="harga_perbulan" name="harga_perbulan" value="{{ $kost->harga_per_bulan }}" type="number"
-                                class="block w-full mt-1" required autofocus autocomplete="harga_perbulan"
-                                placeholder="Rp 500,000" />
+                            <x-input-label for="harga_perbulan" :value="__('Harga per Bulan *')" />
+                            <x-text-input id="harga_perbulan" name="harga_perbulan" value="{{ $kost->harga_per_bulan }}"
+                                type="number" class="block w-full mt-1" required autofocus
+                                autocomplete="harga_perbulan" placeholder="Rp 500,000" />
                             <x-input-error class="mt-2" :messages="$errors->get('harga_perbulan')" />
                         </div>
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="check" :value="__('Jenis Kelamin*')" />
-                            <input id="1" name="check[]" type="checkbox" value="1"
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{ ($kost->id_gender == 1 || $kost->id_gender == 3)? 'checked' : ''}} >
-                            <label for="1"
-                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
-                            <input id="2" name="check[]" type="checkbox" value="2"
-                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" {{ ($kost->id_gender == 2 || $kost->id_gender == 3)? 'checked' : ''}}>
-                            <label for="2"
-                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
+                        <x-input-label for="check" :value="__('Jenis Kelamin *')" />
+                        <input id="1" name="check[]" type="checkbox" value="1"
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            {{ $kost->id_gender == 1 || $kost->id_gender == 3 ? 'checked' : '' }}>
+                        <label for="1"
+                            class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
+                        <input id="2" name="check[]" type="checkbox" value="2"
+                            class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                            {{ $kost->id_gender == 2 || $kost->id_gender == 3 ? 'checked' : '' }}>
+                        <label for="2"
+                            class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
                         <x-input-error class="mt-2" :messages="$errors->get('check')" />
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="fasilitas" :value="__('Fasilitas*')" />
+                        <x-input-label for="fasilitas" :value="__('Fasilitas')" />
                         @foreach ($fasilitas as $fasilit)
-                        <input id="default-checkbox" type="checkbox" name="fasilitas[]" value="{{ $fasilit->id }}"
-                        class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                         @foreach ($kostFasilitas as $kostFas)
+                            <input id="default-checkbox" type="checkbox" name="fasilitas[]"
+                                value="{{ $fasilit->id }}"
+                                class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                                @foreach ($kostFasilitas as $kostFas)
                              @if ($kostFas->id_fasilitas == $fasilit->id && $kostFas->id_kost == $kost->id)
                                  checked
                                  @break
-                             @endif
-                         @endforeach
-                         >
-                            <label for="default-checkbox" class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                             @endif @endforeach>
+                            <label for="default-checkbox"
+                                class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                 {{ $fasilit->nama }}
                             </label>
                         @endforeach
@@ -124,7 +117,7 @@
                     </div>
 
                     <div class="mb-4">
-                        <x-input-label for="image" :value="__('Foto Kamar*')" />
+                        <x-input-label for="image" :value="__('Foto Kamar')" />
                         <div class="flex items-center justify-center w-full">
                             <label for="dropzone-file"
                                 class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
@@ -146,7 +139,7 @@
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />
                     </div>
 
-                    <x-danger-button :href="route('kost.index')" class="me-1">Batal</x-danger-button>
+                    <x-danger-a :href="route('kost.index')" class="me-1">Batal</x-danger-a>
                     <x-primary-button>{{ __('Simpan') }}</x-primary-button>
                 </form>
             </div>
