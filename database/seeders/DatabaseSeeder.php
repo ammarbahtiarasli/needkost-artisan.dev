@@ -120,8 +120,8 @@ class DatabaseSeeder extends Seeder
             'harga_per_bulan' => 1000000,
             'kamar_tersedia' => 20,
             'id_user' => 1,
-            'provinsi' => 'Jawa Barat',
-            'kota' => 'Bandung',
+            'id_provinsi' => 11,
+            'id_kota' => 1107,
             'id_gender' => 1,
         ]);
 
