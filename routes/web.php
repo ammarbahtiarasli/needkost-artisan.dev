@@ -5,10 +5,8 @@ use App\Http\Controllers\Auth\ProviderController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KostController;
-use App\Http\Controllers\KotaController;
-use App\Http\Controllers\KecamatanController;
+use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\Dashboard\DashboardKostController;
-use App\Http\Controllers\Dashboard\DashboardKotaController;
 use App\Http\Controllers\Dashboard\DashboardLokasiController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
 
@@ -32,17 +30,18 @@ Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback'])
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/help', [HomeController::class, 'help'])->name('help');
-Route::get('/riwayat-sewa', function () {
-    return view('riwayat');
-});
+
 
 // Route untuk kamar kost
 Route::get('/kost', [KostController::class, 'index'])->name('kost.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
-Route::get('/lokasi', [KostController::class, 'lokasi'])->name('lokasi');
-Route::get('/lokasi/kota/{kota}', [KostController::class, 'kota'])->name('kota');
-Route::get('/lokasi/kota/{kecamatan}', [KostController::class, 'kecamatan'])->name('kecamatan');
 Route::get('/payment', [KostController::class, 'payment'])->name('payment');
+Route::get('/riwayat', [KostController::class, 'history'])->name('history');
+Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
+Route::get('/lokasi/kota', [LokasiController::class, 'kotas'])->name('kotas');
+Route::get('/lokasi/kota/{kota}', [LokasiController::class, 'kota'])->name('kota');
+Route::get('/lokasi/provinsi', [LokasiController::class, 'provinsis'])->name('provinsis');
+Route::get('/lokasi/provinsi/{provinsi}', [LokasiController::class, 'provinsi'])->name('provinsi');
 
 // Dashboard
 Route::get('/dashboard', function () {
@@ -51,33 +50,19 @@ Route::get('/dashboard', function () {
 
 // Route untuk dashboard kamar kost
 Route::middleware('auth')->group(function () {
-    // Route::get('/kost', [DashboardKostController::class, 'index'])->name('kost.index');
-    // Route::get('/kost/create', [DashboardKostController::class, 'create'])->name('kost.create');
-    // Route::post('/kost', [DashboardKostController::class, 'store'])->name('kost.store');
-    // Route::get('/kost/{kost}', [DashboardKostController::class, 'show'])->name('kost.show');
-    // Route::get('/kost/edit/{kost}', [DashboardKostController::class, 'edit'])->name('kost.edit');
-    // Route::put('/kost/update', [DashboardKostController::class, 'update'])->name('kost.update');
-    // Route::delete('/kost/delete/{kost}', [DashboardKostController::class, 'destroy'])->name('kost.destroy');
     Route::resource('kost', DashboardKostController::class);
-});
 
-// Route untuk dashboard Lokasi
-Route::middleware('auth')->group(function () {
+    // Route untuk dashboard Lokasi
     Route::get('/lokasi/table', [DashboardLokasiController::class, 'index'])->name('lokasi.index');
-    Route::get('/lokasi/detail/{lokasi}', [DashboardLokasiController::class, 'show'])->name('lokasi.show');
-});
+    // Route::get('/lokasi/detail/{lokasi}', [DashboardLokasiController::class, 'show'])->name('lokasi.show');
 
-// Route untuk Pengguna
-Route::middleware('auth')->group(function () {
+    // Route untuk Pengguna
     Route::get('/user', [DashboardUserController::class, 'index'])->name('user.index');
-    // Route::get('/user/create', [DashboardUserController::class, 'create'])->name('user.create');
     Route::post('/user', [DashboardUserController::class, 'store'])->name('user.store');
     Route::get('/user/{user}', [DashboardUserController::class, 'show'])->name('user.show');
-    // Route::get('/user/edit/{user}', [DashboardUserController::class, 'edit'])->name('user.edit');
-    // Route::put('/user', [DashboardUserController::class, 'update'])->name('user.update');
     Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
-});
-Route::middleware('auth')->group(function () {
+
+    // profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

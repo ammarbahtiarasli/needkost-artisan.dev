@@ -7,15 +7,7 @@
         </x-slot>
         <x-slot name="desc">
             <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur illum recusandae rerum ratione
-                deleniti possimus minus.</p>
-        </x-slot>
-        <x-slot name="button">
-            <x-primary-a class="mx-1 bg-sky-800/80" :href="route('kota','bandung')" :active="request()->routeIs('nama-kota')">Bandung</x-primary-a>
-            <x-primary-a class="mx-1 bg-sky-800/80">Jakarta</x-primary-a>
-            <x-primary-a class="mx-1 bg-sky-800/80">Surabaya</x-primary-a>
-            <x-primary-a class="mx-1 bg-sky-800/80">Yogyakarta</x-primary-a>
-            <x-primary-a class="mx-1 bg-sky-800/80">Semarang</x-primary-a>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
         </x-slot>
     </x-head-minimal>
     <x-slot name="header">
