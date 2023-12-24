@@ -6,8 +6,8 @@
 
                 <section>
                     <div class="mb-6">
-                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Judul</h2>
-                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Subjudul</p>
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Rekomendasi</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari Kamar kost berdasarkan rekomendasi needkost.</p>
                     </div>
                     <div
                         class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">

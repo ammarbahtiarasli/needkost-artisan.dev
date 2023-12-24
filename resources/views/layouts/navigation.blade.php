@@ -5,7 +5,8 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center h-16 shrink-0">
-                    <a :href="route('dashboard')" class="focus:outline-none focus:ring-0">
+                    <img class="w-8 h-8 me-3" src="{{ asset('icon/logo-needkost.png') }}" alt="logo">
+                    <a :href="route('home')" class="focus:outline-none focus:ring-0">
                         <div class="text-2xl font-semibold tracking-tighter dark:text-white text-foreground">NeedKost_</div>
                         <span class="sr-only">NeedKost</span>
                     </a>
@@ -44,8 +45,11 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <x-dropdown-link :href="route('home')">
+                            {{ __('Beranda') }}
+                        </x-dropdown-link>
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Profil') }}
                         </x-dropdown-link>
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -53,7 +57,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Keluar') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -98,7 +102,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Profil') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -108,7 +112,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Keluar') }}
                     </x-responsive-nav-link>
                 </form>
             </div>

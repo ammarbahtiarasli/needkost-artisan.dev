@@ -66,6 +66,11 @@ class KostController extends Controller
 
     public function payment()
     {
-        return view('payment');
+        return view('kost.payment');
+    }
+
+    public function history()
+    {
+        return view('kost.riwayat');
     }
 }

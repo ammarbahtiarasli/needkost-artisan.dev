@@ -1,7 +1,7 @@
 <x-guest-layout>
     <div class="flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0 dark:bg-gray-900">
-        <div class="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
-            <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Register</h2>
+        <div class="w-full px-6 py-6 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md dark:bg-gray-800 sm:rounded-lg">
+            <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Daftar</h2>
             <p class="text-sm dark:text-gray-300 text-muted-foreground">Selamat datang di NeedKost.</p>
 
             <form method="POST" action="{{ route('register') }}" class="pt-6">
@@ -12,7 +12,7 @@
                 <div>
                     <x-input-label for="nama" :value="__('Nama')" />
                     <x-text-input id="nama" class="block w-full mt-1" type="text" name="nama"
-                        :value="old('nama')" required autofocus autocomplete="name" />
+                        :value="old('nama')" required autofocus autocomplete="name" placeholder="pudidi"/>
                     <x-input-error :messages="$errors->get('nama')" class="mt-2" />
                 </div>
 
@@ -20,7 +20,7 @@
                 <div class="mt-4">
                     <x-input-label for="email" :value="__('Email')" />
                     <x-text-input id="email" class="block w-full mt-1" type="email" name="email"
-                        :value="old('email')" required autocomplete="username" />
+                        :value="old('email')" required autocomplete="username" placeholder="user@needkost.id"/>
                     <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
 
@@ -29,14 +29,14 @@
                     <x-input-label for="password" :value="__('Password')" />
 
                     <x-text-input id="password" class="block w-full mt-1" type="password" name="password" required
-                        autocomplete="new-password" />
+                        autocomplete="new-password" placeholder="xxxxxxx"/>
 
                     <x-input-error :messages="$errors->get('password')" class="mt-2" />
                 </div>
 
                 <!-- Confirm Password -->
                 <div class="mt-4">
-                    <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                    <x-input-label for="password_confirmation" :value="__('Konfirmasi Password')" />
 
                     <x-text-input id="password_confirmation" class="block w-full mt-1" type="password"
                         name="password_confirmation" required autocomplete="new-password" />
@@ -47,11 +47,11 @@
                 <div class="flex items-center justify-end mt-4">
                     <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         href="{{ route('login') }}">
-                        {{ __('Already registered?') }}
+                        {{ __('Sudah punya akun ? Masuk') }}
                     </a>
 
                     <x-primary-button class="ms-4">
-                        {{ __('Register') }}
+                        {{ __('Daftar') }}
                     </x-primary-button>
                 </div>
             </form>
