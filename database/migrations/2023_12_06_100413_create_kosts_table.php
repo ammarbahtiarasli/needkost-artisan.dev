@@ -19,10 +19,10 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->integer('harga_per_bulan');
             $table->integer('kamar_tersedia');
-            $table->foreignId('id_user');
-            $table->foreignId('id_gender');
-            $table->string('provinsi');
-            $table->string('kota');
+            $table->foreignId('user_id');
+            $table->foreignId('gender_id');
+            $table->foreignId('kota_id');
+            $table->foreignId('provinsi_id');
             $table->timestamps();
         });
     }

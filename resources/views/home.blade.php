@@ -11,25 +11,29 @@
                     </div>
                     <div
                         class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
-                        @for ($i = 0; $i < 3; $i++)
+
+                        @foreach ($kosts as $kos)
                         <x-card>
+                            <x-slot name="id">
+                                {{ $kos->id }}
+                            </x-slot>
                             <x-slot name="jenis">
-                                Campur
+                                {{ $kos->gender->nama }}
                             </x-slot>
                             <x-slot name="nama">
-                                C03 Residence
+                                {{ $kos->nama }}
                             </x-slot>
                             <x-slot name="alamat">
-                                Jl. Kapten Abdul Hamid No 3, Citarum, Bandung Wetan, Kota Bandung, Jawa Barat 40115
+                                {{ $kos->alamat }}
                             </x-slot>
                             <x-slot name="fasilitas">
-                                AC, Wifi, Parkir Motor, Parkir Mobil, Dapur, Kamar Mandi Luar, Kamar Mandi Dalam
+                                {{ $kos->fasilitas }}
                             </x-slot>
                             <x-slot name="harga">
-                                Rp.500.000
+                                Rp. {{ number_format($kos->harga_per_bulan, 2) }}
                             </x-slot>
                         </x-card>
-                        @endfor
+                        @endforeach
                     </div>
                 </section>
 
@@ -53,13 +57,26 @@
                             kamu.</p>
                     </div>
                     <div class="mt-8 mb-4 md:flex md:-mx-4">
-                        @for ($i = 0; $i < 4; $i++)
-                            <x-kota-card>
-                                <x-slot name="nama_kota">
-                                   Kost
-                                </x-slot>
-                            </x-kota-card>
-                        @endfor
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Jakarta
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Bandung
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Surabaya
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Semarang
+                            </x-slot>
+                        </x-kota-card>
                     </div>
                 </section>
                 <div class="container flex justify-center">
