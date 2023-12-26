@@ -17,7 +17,7 @@
             </div>
 
             <div class="container p-8 mx-auto mt-5 bg-white sm:rounded-lg dark:bg-gray-800">
-                <form action="{{ route('kost.store') }}" method="POST">
+                <form action="{{ route('kost.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4">
                         <x-input-label for="nama" :value="__('Kamar Kost *')" />
@@ -124,7 +124,7 @@
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
                                         800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
+                                <input id="dropzone-file" name="photo" type="file" class="hidden" />
                             </label>
                         </div>
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />

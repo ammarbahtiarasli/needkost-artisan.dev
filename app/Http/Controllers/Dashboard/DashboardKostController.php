@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Kost;
 use App\Models\Kota;
+use App\Models\Photo;
 use App\Models\Provinsi;
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
@@ -75,7 +76,11 @@ class DashboardKostController extends Controller
         } else {
             $gender = $request['check'][0];
         }
+
+        $id = Kost::max('id') + 1;
+
         $kostBaru = Kost::create([
+            'id' => $id,
             'nama' => $request['nama'],
             'slug' => str_replace(' ', '-', strtolower($request['nama'])),
             'kota_id' => $request['kota'],
@@ -85,13 +90,21 @@ class DashboardKostController extends Controller
             'harga_per_bulan' => $request['harga_perbulan'],
             'kamar_tersedia' => $request['kamar_tersedia'],
             'gender_id' => $gender,
-            'user_ud' => auth()->user()->id,
+            'user_id' => auth()->user()->id,
+
         ]);
 
         foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
                 'kost_id' => $kostBaru->id,
                 'fasilitas_id' => $fasilitas,
+            ]);
+        }
+
+        if ($request->hasFile('photo')) {
+            Photo::create([
+                'kost_id' => $kostBaru->id,
+                'photo' => $request->file('photo')->store('photo/kost', 'public'),
             ]);
         }
 
