@@ -38,13 +38,11 @@ class DashboardKostController extends Controller
 
     public function search(Request $request)
     {
-        $fasilitas = KostFasilitas::all();
         $kost = Kost::where('user_id', auth()->user()->id)
             ->where('nama', 'like', '%' . $request->search . '%')
             ->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
-            'kostFasilitas' => $fasilitas,
         ]);
     }
 

@@ -10,8 +10,13 @@
             <div class="flex">
                 <div class="grid w-1/2 gap-4">
                     <div>
-                        <img class="h-auto max-w-full rounded-lg"
-                            src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="foto kamar">
+                        @if ($kost->photo()->exists())
+                            <img class="h-auto max-w-full rounded-lg"
+                                src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}" alt="">
+                        @else
+                            <img class="h-auto max-w-full rounded-lg"
+                                src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
+                        @endif
                     </div>
                     <div class="grid grid-cols-4 gap-4">
                         <div>
@@ -44,10 +49,10 @@
                             {{ $kost->nama }}</h1>
                         <h4 class="mb-1 text-lg font-semibold text-red-500 dark:text-white">Diskon 100rb
                             <span
-                                class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000) }}</span>
+                                class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000, 0, ',', '.') }}</span>
                         </h4>
                         <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp.
-                            {{ number_format($kost->harga_per_bulan, 2) }}<span class="text-lg font-medium"> (Bulan
+                            {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}<span class="text-lg font-medium"> (Bulan
                                 Pertama)</span>
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
@@ -137,6 +142,13 @@
                         class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                         @foreach ($other as $ok)
                             <x-card>
+                                <x-slot name="photo">
+                                    @if ($ok->photo()->exists())
+                                        {{ asset('storage/' .$ok->photo()->get()->first()->photo) }}
+                                    @else
+                                        https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
+                                    @endif
+                                </x-slot>
                                 <x-slot name="jenis">
                                     {{ $ok->gender->nama }}
                                 </x-slot>
@@ -156,7 +168,7 @@
                                 @endforeach
                             </x-slot>
                             <x-slot name="harga">
-                                Rp. {{ number_format($ok->harga_per_bulan, 2) }}
+                                Rp {{ number_format($ok->harga_per_bulan, 0, ',', '.') }}
                             </x-slot>
                             <x-slot name="url">
                                 <a href="#"
@@ -176,7 +188,7 @@
                     @endforeach
                 </div>
             </div>
-            @else
+        @else
         @endif
     </div>
 </div>

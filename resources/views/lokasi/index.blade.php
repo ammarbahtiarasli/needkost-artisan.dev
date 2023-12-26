@@ -27,6 +27,9 @@
                     class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                     @for ($i = 0; $i < 3; $i++)
                     <x-card>
+                        <x-slot name="photo">
+                            https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
+                        </x-slot>
                         <x-slot name="jenis">
                             Campur
                         </x-slot>
