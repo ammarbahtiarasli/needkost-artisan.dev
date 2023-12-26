@@ -18,6 +18,13 @@
                             class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                             @foreach ($kosts as $k)
                                 <x-card>
+                                    <x-slot name="photo">
+                                        @if ($k->photo()->exists())
+                                        {{ asset('storage/' . $k->photo()->get()->first()->photo) }}
+                                        @else
+                                        https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
+                                        @endif
+                                    </x-slot>
                                     <x-slot name="jenis">
                                         {{ $k->gender->nama }}
                                     </x-slot>
@@ -37,7 +44,7 @@
                                         @endforeach
                                     </x-slot>
                                     <x-slot name="harga">
-                                        Rp. {{ number_format($k->harga_per_bulan, 2) }}
+                                        Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
                                     </x-slot>
                                     <x-slot name="url">
                                         <a href="{{ route('kost.detail', $k->id) }}"

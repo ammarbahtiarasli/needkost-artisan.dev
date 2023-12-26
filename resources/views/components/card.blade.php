@@ -1,7 +1,7 @@
 <div class="max-w-sm transition bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-md dark:hover:shadow-md"
     {{ $attributes }}>
     <a :href="route('kost.detail')">
-        <img class="rounded-t-lg" src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="" />
+        <img class="rounded-t-lg" src="{{ $photo }}" alt="" />
     </a>
     <div class="p-5">
         <div class="mb-3">

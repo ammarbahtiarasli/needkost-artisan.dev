@@ -103,7 +103,7 @@
                                         @endforeach
                                     </td>
                                     <td class="px-6 py-4">
-                                        Rp. {{ number_format($kost->harga_per_bulan, 2) }}
+                                        Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
                                     </td>
                                     <td class="px-6 py-4 text-right">
                                         <x-dropdown align="right" width="48">

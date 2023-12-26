@@ -81,8 +81,8 @@
                         </div>
                         <div class="mb-4">
                             <x-input-label for="harga_perbulan" :value="__('Harga per Bulan *')" />
-                            <x-text-input id="harga_perbulan" name="harga_perbulan" value="{{ $kost->harga_per_bulan }}"
-                                type="number" class="block w-full mt-1" required autofocus
+                            <x-text-input-harga id="harga_perbulan" name="harga_perbulan" value="Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}"
+                                type="text" class="block w-full mt-1" required autofocus
                                 autocomplete="harga_perbulan" placeholder="Rp 500,000" />
                             <x-input-error class="mt-2" :messages="$errors->get('harga_perbulan')" />
                         </div>
