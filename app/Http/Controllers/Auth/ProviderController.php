@@ -32,7 +32,7 @@ class ProviderController extends Controller
             ]);
 
             Auth::login($user);
-            return to_route('profile.edit')->with('success', 'Login berhasil, silahkan lengkapi data diri anda.');
+            return to_route('profile.after-regis')->with('success', 'Login berhasil, silahkan lengkapi data diri anda.');
         } catch (\Exception $e) {
             return redirect('/login')->with('error', 'Login gagal, silahkan coba lagi.');
         }
