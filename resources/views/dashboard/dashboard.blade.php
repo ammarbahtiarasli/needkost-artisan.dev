@@ -52,5 +52,4 @@
             </div>
         </div>
     </div>
-    <img class="w-8 h-8" src="https://i.ibb.co/z5WVDkq/01-CF2-C8-E-1-DB4-44-AD-8002-69759-A990-EFE.png" alt="">
 </x-app-layout>

@@ -19,11 +19,6 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
-        $fasilitas = KostFasilitas::all();
-        $kost = Kost::query()
-            ->where('id_user', auth()->user()->id)
-=======
         $kost = Kost::where('user_id', auth()->user()->id)
             ->paginate(6);
 
@@ -45,7 +40,6 @@ class DashboardKostController extends Controller
         $fasilitas = KostFasilitas::all();
         $kost = Kost::where('id_user', auth()->user()->id)
             ->where('nama', 'like', '%' . $request->search . '%')
->>>>>>> 4cae21f735c5b7274c561d51632b5b52a37e9096
             ->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
