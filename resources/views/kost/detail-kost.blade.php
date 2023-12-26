@@ -52,31 +52,34 @@
                                 class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000, 0, ',', '.') }}</span>
                         </h4>
                         <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp.
-                            {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}<span class="text-lg font-medium"> (Bulan
+                            {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}<span class="text-lg font-medium">
+                                (Bulan
                                 Pertama)</span>
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
                             <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
                             <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
-                            <div class="flex justify-around">
-                                <x-input-label for="date" :value="__('Pilih tanggal mulai sewa')" />
-                                <x-input-label for="select" :value="__('Pilih jangka waktu sewa')" />
-                            </div>
-                            <div class="flex mb-6 gap-x-3">
-                                <x-text-input id="date" class="block w-1/2 mt-3" type="date" name="date"
-                                    :value="old('date')" required autocomplete="mulai sewa" />
-                                <x-input-error :messages="$errors->get('text')" class="mt-2" />
-                                <x-select class="w-1/2 mt-3" required>
-                                    <option value="test" selected disabled>Pilih waktu sewa</option>
-                                    <option value="6">6 Bulan</option>
-                                    <option value="12">1 Tahun</option>
-                                </x-select>
-                            </div>
-                            <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
-                                href="https://wa.me/+628">Chat Pemilik</x-secondary-button>
-                            <x-primary-a class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
-                                href="/payment">Ajukan
-                                Sewa</x-primary-a>
+                            <form action="{{ route('payment') }}" method="GET">
+                                <x-text-input type="text" hidden value="{{ $kost->id }}" name="id"></x-text-input>
+                                <div class="flex justify-around">
+                                    <x-input-label for="tglMulaiSewa" :value="__('Pilih tanggal mulai sewa')" />
+                                    <x-input-label for="waktuSewa" :value="__('Pilih jangka waktu sewa')" />
+                                </div>
+                                <div class="flex mb-6 gap-x-3">
+                                    <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3" type="date"
+                                        :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
+                                    <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                                    <x-select class="w-1/2 mt-3" id="waktuSewa" name="waktuSewa" required>
+                                        <option value="test" selected disabled>Pilih waktu sewa</option>
+                                        <option value="6">6 Bulan</option>
+                                        <option value="12">1 Tahun</option>
+                                    </x-select>
+                                </div>
+                                <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                    href="https://wa.me/+628">Chat Pemilik</x-secondary-button>
+                                <x-primary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80">Ajukan
+                                    Sewa</x-primary-button>
+                            </form>
                     </div>
                 </div>
             </div>

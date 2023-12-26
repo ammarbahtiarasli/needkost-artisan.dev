@@ -37,6 +37,7 @@ Route::get('/kosts', [KostController::class, 'index'])->name('kost.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
 Route::get('/payment', [KostController::class, 'payment'])->name('payment');
 Route::get('/riwayat', [KostController::class, 'history'])->name('history');
+Route::get('/invoice/{invoice}', [KostController::class, 'invoice'])->name('invoice');
 Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
 Route::get('/lokasi/kota', [LokasiController::class, 'kotas'])->name('kotas');
 Route::get('/lokasi/kota/{kota}', [LokasiController::class, 'kota'])->name('kota');

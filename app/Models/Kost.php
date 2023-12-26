@@ -29,7 +29,7 @@ class Kost extends Model
 
     public function kota()
     {
-        return $this->belongsTo(Kota::class, 'kode_kota');
+        return $this->belongsTo(Kota::class, 'kota_id');
     }
 
     public function gender()
