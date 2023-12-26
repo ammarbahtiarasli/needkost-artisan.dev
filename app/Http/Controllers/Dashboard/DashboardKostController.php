@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Kost;
 use App\Models\Kota;
+use App\Models\Photo;
 use App\Models\Provinsi;
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
@@ -38,7 +39,7 @@ class DashboardKostController extends Controller
     public function search(Request $request)
     {
         $fasilitas = KostFasilitas::all();
-        $kost = Kost::where('id_user', auth()->user()->id)
+        $kost = Kost::where('user_id', auth()->user()->id)
             ->where('nama', 'like', '%' . $request->search . '%')
             ->paginate(6);
         return view('dashboard.kost.index', [
@@ -75,23 +76,35 @@ class DashboardKostController extends Controller
         } else {
             $gender = $request['check'][0];
         }
+
+        $id = Kost::max('id') + 1;
+
         $kostBaru = Kost::create([
+            'id' => $id,
             'nama' => $request['nama'],
             'slug' => str_replace(' ', '-', strtolower($request['nama'])),
-            'id_kota' => $request['kota'],
-            'id_provinsi' => $request['provinsi'],
+            'kota_id' => $request['kota'],
+            'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
             'kamar_tersedia' => $request['kamar_tersedia'],
-            'id_gender' => $gender,
-            'id_user' => auth()->user()->id,
+            'gender_id' => $gender,
+            'user_id' => auth()->user()->id,
+
         ]);
 
         foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
-                'id_kost' => $kostBaru->id,
-                'id_fasilitas' => $fasilitas,
+                'kost_id' => $kostBaru->id,
+                'fasilitas_id' => $fasilitas,
+            ]);
+        }
+
+        if ($request->hasFile('photo')) {
+            Photo::create([
+                'kost_id' => $kostBaru->id,
+                'photo' => $request->file('photo')->store('photo/kost', 'public'),
             ]);
         }
 
@@ -130,21 +143,21 @@ class DashboardKostController extends Controller
         }
         $kost->update([
             'nama' => $request['nama'],
-            'id_kota' => $request['kota'],
-            'id_provinsi' => $request['provinsi'],
+            'kota_id' => $request['kota'],
+            'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
             'kamar_tersedia' => $request['kamar_tersedia'],
-            'id_gender' => $gender,
+            'gender_id' => $gender,
         ]);
 
-        KostFasilitas::where('id_kost', $kost->id)->delete();
+        KostFasilitas::where('kost_id', $kost->id)->delete();
 
         foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
-                'id_kost' => $kost->id,
-                'id_fasilitas' => $fasilitas,
+                'kost_id' => $kost->id,
+                'fasilitas_id' => $fasilitas,
             ]);
         }
 

@@ -31,6 +31,7 @@ class StoreKostRequest extends FormRequest
             'harga_perbulan' => 'required',
             'kamar_tersedia' => 'required',
             'check' => 'required',
+            'photo' => ['nullable', 'image', 'max:2048', 'mimes:png,jpg,jpeg'],
         ];
     }
 }
