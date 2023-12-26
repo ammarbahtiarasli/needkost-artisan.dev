@@ -8,48 +8,51 @@
     <div class="container pt-6 mx-auto">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="flex">
-                <div class="grid w-1/2 gap-4 ">
+                <div class="grid w-1/2 gap-4">
                     <div>
                         <img class="h-auto max-w-full rounded-lg"
-                            src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
+                            src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="foto kamar">
                     </div>
-                    {{-- <div class="grid grid-cols-4 gap-4">
+                    <div class="grid grid-cols-4 gap-4">
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
                 <div class="w-1/2 ms-6">
                     <div class="container h-full p-6 bg-white rounded-lg">
                         <span
                             class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $kost->gender->nama }}</span>
-                        <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $kost->nama }}</h1>
+                        <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            {{ $kost->nama }}</h1>
                         <h4 class="mb-1 text-lg font-semibold text-red-500 dark:text-white">Diskon 100rb
-                            <span class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000) }}</span>
+                            <span
+                                class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000) }}</span>
                         </h4>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp. {{ number_format($kost->harga_per_bulan, 2) }}<span
-                                class="text-lg font-medium"> (Bulan Pertama)</span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp.
+                            {{ number_format($kost->harga_per_bulan, 2) }}<span class="text-lg font-medium"> (Bulan
+                                Pertama)</span>
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
-                            <span class="text-red-500"> {{ $kost->kamar_tersedia . " Kamar" }} </span>
-                            <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
+                            <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
+                            <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
                             <div class="flex justify-around">
                                 <x-input-label for="date" :value="__('Pilih tanggal mulai sewa')" />
                                 <x-input-label for="select" :value="__('Pilih jangka waktu sewa')" />
@@ -60,11 +63,13 @@
                                 <x-input-error :messages="$errors->get('text')" class="mt-2" />
                                 <x-select class="w-1/2 mt-3" required>
                                     <option value="test" selected disabled>Pilih waktu sewa</option>
-                                    <option value="test">6 Bulan</option>
-                                    <option value="test">1 Tahun</option>
+                                    <option value="6">6 Bulan</option>
+                                    <option value="12">1 Tahun</option>
                                 </x-select>
                             </div>
-                            <x-primary-a class="flex justify-center w-full h-10 p-3 mt-8 bg-sky-800/80"
+                            <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                href="https://wa.me/+628">Chat Pemilik</x-secondary-button>
+                            <x-primary-a class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
                                 href="/payment">Ajukan
                                 Sewa</x-primary-a>
                     </div>
@@ -81,13 +86,14 @@
                                     alt="foto" loading="lazy" style="opacity: 1;">
                             </div>
                             <div>
-                                <h4 class="text-lg font-medium text-foreground">A Ammar Bahtiar</h4>
-                                <p class="text-normal text-muted-foreground">Kos C03 Residence</p>
+                                <h4 class="text-lg font-medium text-foreground">A Ammar Bahtiar
+                                </h4>
+                                <p class="text-normal text-muted-foreground">C03 Residence</p>
                             </div>
                         </a>
                     </div>
                     <hr class="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700">
-                    <div class="items-center justify-center md:flex md:-mx-4">
+                    <div class="items-center md:flex md:-mx-4">
                         <div class="max-w-full rounded-lg md:mx-4 md:mt-0">
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Deskripsi :
                             </h2>

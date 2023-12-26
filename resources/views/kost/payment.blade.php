@@ -60,7 +60,6 @@
                     <x-primary-button class="flex justify-center w-full h-10 p-3 mt-4">Bayar sekarang
                     </x-primary-button>
                 </dl>
-
             </div>
         </div>
     </div>
