@@ -39,7 +39,7 @@ class Kost extends Model
 
     public function photo()
     {
-        return $this->belongsToMany(Photo::class, 'kost_photos', 'kost_id');
+        return $this->hasMany(Photo::class, 'kost_id');
     }
 
     public function fasilitas()
