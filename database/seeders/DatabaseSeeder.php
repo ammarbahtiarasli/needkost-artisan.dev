@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 Kota::create([
                     'id' => $k['id'],
                     'nama' => $k['name'],
-                    'id_provinsi' => $p['id'],
+                    'provinsi_id' => $p['id'],
                 ]);
             }
         }
@@ -99,8 +99,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => 'admin',
             'no_hp' => '081234567890',
-            'id_gender' => 1,
-            'id_role' => 1,
+            'gender_id' => 1,
+            'role_id' => 1,
         ]);
 
         User::create([
@@ -108,8 +108,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'radit@gmail.com',
             'password' => 'radit1234',
             'no_hp' => '080987654321',
-            'id_gender' => 1,
-            'id_role' => 2,
+            'gender_id' => 1,
+            'role_id' => 2,
         ]);
 
         Kost::create([
@@ -119,20 +119,20 @@ class DatabaseSeeder extends Seeder
             'deskripsi' => 'Kost ini sangat nyaman',
             'harga_per_bulan' => 1000000,
             'kamar_tersedia' => 20,
-            'id_user' => 1,
-            'provinsi' => 'Jawa Barat',
-            'kota' => 'Bandung',
-            'id_gender' => 1,
+            'user_id' => 1,
+            'provinsi_id' => 11,
+            'kota_id' => 1107,
+            'gender_id' => 1,
         ]);
 
         KostFasilitas::create([
-            'id_kost' => 1,
-            'id_fasilitas' => 1,
+            'kost_id' => 1,
+            'fasilitas_id' => 1,
         ]);
 
         KostFasilitas::create([
-            'id_kost' => 1,
-            'id_fasilitas' => 3,
+            'kost_id' => 1,
+            'fasilitas_id' => 3,
         ]);
     }
 }

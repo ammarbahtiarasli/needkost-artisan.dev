@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Kost;
+use App\Models\Kota;
+use App\Models\Provinsi;
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
 use App\Models\KostFasilitas;
@@ -17,9 +19,33 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $fasilitas = KostFasilitas::all();
         $kost = Kost::query()
             ->where('id_user', auth()->user()->id)
+=======
+        $kost = Kost::where('user_id', auth()->user()->id)
+            ->paginate(6);
+
+        if (request()->has('search')) {
+            $kost = Kost::where('user_id', auth()->user()->id)
+                ->where('nama', 'like', '%' . request('search') . '%')
+                ->paginate(6);
+        }
+
+        // dd($kost);
+
+        return view('dashboard.kost.index', [
+            'kosts' => $kost,
+        ]);
+    }
+
+    public function search(Request $request)
+    {
+        $fasilitas = KostFasilitas::all();
+        $kost = Kost::where('id_user', auth()->user()->id)
+            ->where('nama', 'like', '%' . $request->search . '%')
+>>>>>>> 4cae21f735c5b7274c561d51632b5b52a37e9096
             ->paginate(6);
         return view('dashboard.kost.index', [
             'kosts' => $kost,
@@ -33,10 +59,14 @@ class DashboardKostController extends Controller
     public function create()
     {
         $fasilitas = Fasilitas::all();
+        $provinsi = Provinsi::all();
+        $kota = Kota::all();
         return view(
             'dashboard.kost.create',
             [
                 'fasilitas' => $fasilitas,
+                'provinsi' => $provinsi,
+                'kota' => $kota,
             ]
         );
     }
@@ -54,8 +84,8 @@ class DashboardKostController extends Controller
         $kostBaru = Kost::create([
             'nama' => $request['nama'],
             'slug' => str_replace(' ', '-', strtolower($request['nama'])),
-            'kota' => $request['kota'],
-            'kecamatan' => $request['kecamatan'],
+            'id_kota' => $request['kota'],
+            'id_provinsi' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
@@ -89,7 +119,9 @@ class DashboardKostController extends Controller
     {
         $fasilitas = Fasilitas::all();
         $kostFasilitas = KostFasilitas::all();
-        return view('dashboard.kost.edit', compact('kost', 'kostFasilitas', 'fasilitas'));
+        $kota = Kota::all();
+        $provinsi = Provinsi::all();
+        return view('dashboard.kost.edit', compact('kost', 'kostFasilitas', 'fasilitas', 'kota', 'provinsi'));
     }
 
     /**
@@ -104,8 +136,8 @@ class DashboardKostController extends Controller
         }
         $kost->update([
             'nama' => $request['nama'],
-            'kota' => $request['kota'],
-            'kecamatan' => $request['kecamatan'],
+            'id_kota' => $request['kota'],
+            'id_provinsi' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],

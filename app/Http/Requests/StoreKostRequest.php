@@ -25,7 +25,7 @@ class StoreKostRequest extends FormRequest
         return [
             'nama' => 'required',
             'kota' => 'required',
-            'kecamatan' => 'required',
+            'provinsi' => 'required',
             'alamat' => 'required',
             'deskripsi' => 'required',
             'harga_perbulan' => 'required',

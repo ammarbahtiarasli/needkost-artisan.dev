@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_kost');
+            $table->foreignId('kost_id');
             $table->string('photo');
             $table->timestamps();
         });

@@ -16,7 +16,7 @@
                         <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Data semua pengguna</p>
                     </div>
                     <div class="container flex justify-end w-1/2">
-                        <form>
+                        <form method="GET" action="{{ route('user.index') }}">
                             <label for="default-search"
                                 class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
                             <div class="relative items-end justify-end">
@@ -27,15 +27,15 @@
                                             stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                     </svg>
                                 </div>
-                                <input type="search" id="default-search"
+                                <input type="search" id="default-search" name="search" value="{{ request('search') }}"
                                     class="block w-full p-3 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 bg-gray-50 focus:ring-sky-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
-                                    placeholder="Cari Pengguna ..." required>
+                                    placeholder="Cari Pengguna ...">
                             </div>
                         </form>
                     </div>
                 </div>
 
-                @if ($users->count() > 0)
+                @if ($users->count() != 0)
                 <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>

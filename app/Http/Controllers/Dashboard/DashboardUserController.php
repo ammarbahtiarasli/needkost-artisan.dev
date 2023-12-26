@@ -14,6 +14,13 @@ class DashboardUserController extends Controller
     public function index()
     {
         $users = User::whereNot('id', auth()->user()->id)->get();
+
+        if (request()->has('search')) {
+            $users = User::whereNot('id', auth()->user()->id)
+                ->where('nama', 'like', '%' . request('search') . '%')
+                ->get();
+        }
+
         return view('dashboard.user.index', [
             'users' => $users
         ]);

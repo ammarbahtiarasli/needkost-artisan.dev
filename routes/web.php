@@ -9,7 +9,8 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\Dashboard\DashboardKostController;
 use App\Http\Controllers\Dashboard\DashboardLokasiController;
 use App\Http\Controllers\Dashboard\DashboardUserController;
-
+use App\Http\Controllers\Dashboard\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,7 @@ Route::get('/lokasi/provinsi', [LokasiController::class, 'provinsis'])->name('pr
 Route::get('/lokasi/provinsi/{provinsi}', [LokasiController::class, 'provinsi'])->name('provinsi');
 
 // Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
 // Route untuk dashboard kamar kost
 Route::middleware('auth')->group(function () {
@@ -53,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
     // Route untuk dashboard Lokasi
     Route::get('/lokasi/table', [DashboardLokasiController::class, 'index'])->name('lokasi.index');
-    // Route::get('/lokasi/detail/{lokasi}', [DashboardLokasiController::class, 'show'])->name('lokasi.show');
+    Route::get('/lokasi/table/{provinsi}', [DashboardLokasiController::class, 'perProvinsi'])->name('lokasi.provinsi');
 
     // Route untuk Pengguna
     Route::get('/user', [DashboardUserController::class, 'index'])->name('user.index');

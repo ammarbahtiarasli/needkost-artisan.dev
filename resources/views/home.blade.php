@@ -5,9 +5,40 @@
             <div class="space-y-10 sm:space-y-10">
                 <section>
                     <div class="mb-6">
+<<<<<<< HEAD
                         <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Rekomendasi</h2>
                         <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari Kamar kost berdasarkan
                             rekomendasi needkost.</p>
+=======
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Judul</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Subjudul</p>
+                    </div>
+                    <div
+                        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+
+                        @foreach ($kosts as $kos)
+                        <x-card>
+                            <x-slot name="id">
+                                {{ $kos->id }}
+                            </x-slot>
+                            <x-slot name="jenis">
+                                {{ $kos->gender->nama }}
+                            </x-slot>
+                            <x-slot name="nama">
+                                {{ $kos->nama }}
+                            </x-slot>
+                            <x-slot name="alamat">
+                                {{ $kos->alamat }}
+                            </x-slot>
+                            <x-slot name="fasilitas">
+                                {{ $kos->fasilitas }}
+                            </x-slot>
+                            <x-slot name="harga">
+                                Rp. {{ number_format($kos->harga_per_bulan, 2) }}
+                            </x-slot>
+                        </x-card>
+                        @endforeach
+>>>>>>> 4cae21f735c5b7274c561d51632b5b52a37e9096
                     </div>
                     @if ($kost->count() == 0)
                         <div class="flex items-center justify-center w-full">
@@ -74,6 +105,7 @@
                             kamu.</p>
                     </div>
                     <div class="mt-8 mb-4 md:flex md:-mx-4">
+<<<<<<< HEAD
                         @for ($i = 0; $i < 4; $i++)
                             <x-kota-card>
                                 <x-slot name="nama_kota">
@@ -81,6 +113,28 @@
                                 </x-slot>
                             </x-kota-card>
                         @endfor
+=======
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Jakarta
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Bandung
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Surabaya
+                            </x-slot>
+                        </x-kota-card>
+                        <x-kota-card>
+                            <x-slot name="nama_kota">
+                                Kost di Semarang
+                            </x-slot>
+                        </x-kota-card>
+>>>>>>> 4cae21f735c5b7274c561d51632b5b52a37e9096
                     </div>
                 </section>
                 <div class="container flex justify-center">
