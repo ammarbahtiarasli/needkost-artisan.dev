@@ -1,4 +1,9 @@
 <x-guest-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
+            {{ __('Rekomendasi Kost berdasarkan Lokasi') }}
+        </h2>
+    </x-slot>
     <x-head-minimal>
         <x-slot name="title">
             <h1
@@ -10,11 +15,6 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
         </x-slot>
     </x-head-minimal>
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
-            {{ __('Rekomendasi Kost berdasarkan Lokasi') }}
-        </h2>
-    </x-slot>
 
     <div class="container py-6 mx-auto">
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">

@@ -8,7 +8,7 @@
     <div class="container pt-6 mx-auto">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="flex">
-                <div class="grid w-1/2 gap-4 ">
+                <div class="grid w-1/2 gap-4">
                     <div>
                         @if ($kost->photo()->exists())
                             <img class="h-auto max-w-full rounded-lg"
@@ -22,22 +22,22 @@
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                         <div>
                             <img class="h-auto max-w-full rounded-lg"
                                 src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="">
+                                alt="foto kamar">
                         </div>
                     </div>
                 </div>
@@ -68,11 +68,13 @@
                                 <x-input-error :messages="$errors->get('text')" class="mt-2" />
                                 <x-select class="w-1/2 mt-3" required>
                                     <option value="test" selected disabled>Pilih waktu sewa</option>
-                                    <option value="test">6 Bulan</option>
-                                    <option value="test">1 Tahun</option>
+                                    <option value="6">6 Bulan</option>
+                                    <option value="12">1 Tahun</option>
                                 </x-select>
                             </div>
-                            <x-primary-a class="flex justify-center w-full h-10 p-3 mt-8 bg-sky-800/80"
+                            <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                href="https://wa.me/+628">Chat Pemilik</x-secondary-button>
+                            <x-primary-a class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
                                 href="/payment">Ajukan
                                 Sewa</x-primary-a>
                     </div>

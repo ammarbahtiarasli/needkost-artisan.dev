@@ -36,8 +36,8 @@
                                     </x-slot>
                                     <x-slot name="fasilitas">
                                         @foreach ($k->fasilitas()->get() as $fasilitas)
-                                        {{ $fasilitas->nama }}
-                                        @if ($loop->last)
+                                            {{ $fasilitas->nama }}
+                                            @if ($loop->last)
                                             @break
                                         @endif
                                         ,
@@ -68,48 +68,37 @@
             </div>
         </div>
     </div>
+</div>
 
-    {{-- kota populer --}}
-    <div class="container py-6 mx-auto">
-        <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-            <div class="space-y-8 sm:space-y-8">
-                <section id="rekomendasi">
-                    <div class="mb-6">
-                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer</h2>
-                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari kost berdasarkan kota tujuan
-                            kamu.</p>
-                    </div>
-                    <div class="mt-8 mb-4 md:flex md:-mx-4">
-                        <x-kota-card>
-                            <x-slot name="nama_kota">
-                                Kost di Jakarta
-                            </x-slot>
-                        </x-kota-card>
-                        <x-kota-card>
-                            <x-slot name="nama_kota">
-                                Kost di Bandung
-                            </x-slot>
-                        </x-kota-card>
-                        <x-kota-card>
-                            <x-slot name="nama_kota">
-                                Kost di Surabaya
-                            </x-slot>
-                        </x-kota-card>
-                        <x-kota-card>
-                            <x-slot name="nama_kota">
-                                Kost di Semarang
-                            </x-slot>
-                        </x-kota-card>
-                    </div>
-                </section>
-                <div class="container flex justify-center">
-                    <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>
+{{-- kota populer --}}
+<div class="container py-6 mx-auto">
+    <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+        <div class="space-y-8 sm:space-y-8">
+            <section id="rekomendasi">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Kota Populer</h2>
+                    <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari kost berdasarkan kota tujuan
+                        kamu.</p>
                 </div>
+                <div class="mt-8 mb-4 md:flex md:-mx-4">
+                    <a href="/lokasi/kota/bandung"
+                        class="w-full h-16 mt-8 overflow-hidden transition bg-center bg-cover bg-[url('https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] rounded-lg sm:h-32 hover:shadow-md md:mx-4 md:mt-0 md:w-1/4">
+                        <div class="flex items-center justify-center h-full bg-sky-800/60">
+                            <div class="max-w-xl px-10">
+                                <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di Bandung</h2>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+            <div class="container flex justify-center">
+                <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>
             </div>
         </div>
     </div>
+</div>
 
-    <x-support />
+<x-support />
 
-    @include('layouts.footer')
+@include('layouts.footer')
 </x-guest-layout>
