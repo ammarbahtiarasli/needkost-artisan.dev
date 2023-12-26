@@ -33,7 +33,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/help', [HomeController::class, 'help'])->name('help');
 
 // Route untuk kamar kost
-Route::get('/kost', [KostController::class, 'index'])->name('kost.index');
+Route::get('/kosts', [KostController::class, 'index'])->name('kost.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
 Route::get('/payment', [KostController::class, 'payment'])->name('payment');
 Route::get('/riwayat', [KostController::class, 'history'])->name('history');
@@ -62,6 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
 
     // profile
+    Route::get('/after-regis', [ProfileController::class, 'afterRegis'])->name('profile.after-regis');
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
