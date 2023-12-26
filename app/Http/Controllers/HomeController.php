@@ -15,11 +15,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $fasilitas = KostFasilitas::all();
         $kost = Kost::all();
         return view('home', [
             'kosts' => $kost,
-            'fasilitas' => $fasilitas,
         ]);
     }
 

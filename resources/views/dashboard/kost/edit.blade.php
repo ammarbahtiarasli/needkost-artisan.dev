@@ -92,12 +92,12 @@
                         <x-input-label for="check" :value="__('Jenis Kelamin *')" />
                         <input id="1" name="check[]" type="checkbox" value="1"
                             class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            {{ $kost->id_gender == 1 || $kost->id_gender == 3 ? 'checked' : '' }}>
+                            {{ $kost->gender_id == 1 || $kost->gender_id == 3 ? 'checked' : '' }}>
                         <label for="1"
                             class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Laki-laki</label>
                         <input id="2" name="check[]" type="checkbox" value="2"
                             class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-                            {{ $kost->id_gender == 2 || $kost->id_gender == 3 ? 'checked' : '' }}>
+                            {{ $kost->gender_id == 2 || $kost->gender_id == 3 ? 'checked' : '' }}>
                         <label for="2"
                             class="mx-2 text-sm font-medium text-gray-900 dark:text-gray-300">Perempuan</label>
                         <x-input-error class="mt-2" :messages="$errors->get('check')" />
@@ -110,7 +110,7 @@
                                 value="{{ $fasilit->id }}"
                                 class="w-4 h-4 bg-gray-100 border-gray-300 rounded text-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                                 @foreach ($kostFasilitas as $kostFas)
-                             @if ($kostFas->id_fasilitas == $fasilit->id && $kostFas->id_kost == $kost->id)
+                             @if ($kostFas->fasilitas_id == $fasilit->id && $kostFas->kost_id == $kost->id)
                                  checked
                                  @break
                              @endif @endforeach>

@@ -15,11 +15,11 @@ class Gender extends Model
 
     function user()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class, 'user_id');
     }
 
     function kost()
     {
-        return $this->hasMany(Kost::class);
+        return $this->belongsToMany(Kost::class, 'kost_id');
     }
 }

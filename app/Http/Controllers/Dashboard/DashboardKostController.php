@@ -38,7 +38,7 @@ class DashboardKostController extends Controller
     public function search(Request $request)
     {
         $fasilitas = KostFasilitas::all();
-        $kost = Kost::where('id_user', auth()->user()->id)
+        $kost = Kost::where('user_id', auth()->user()->id)
             ->where('nama', 'like', '%' . $request->search . '%')
             ->paginate(6);
         return view('dashboard.kost.index', [
@@ -78,20 +78,20 @@ class DashboardKostController extends Controller
         $kostBaru = Kost::create([
             'nama' => $request['nama'],
             'slug' => str_replace(' ', '-', strtolower($request['nama'])),
-            'id_kota' => $request['kota'],
-            'id_provinsi' => $request['provinsi'],
+            'kota_id' => $request['kota'],
+            'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
             'kamar_tersedia' => $request['kamar_tersedia'],
-            'id_gender' => $gender,
-            'id_user' => auth()->user()->id,
+            'gender_id' => $gender,
+            'user_ud' => auth()->user()->id,
         ]);
 
         foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
-                'id_kost' => $kostBaru->id,
-                'id_fasilitas' => $fasilitas,
+                'kost_id' => $kostBaru->id,
+                'fasilitas_id' => $fasilitas,
             ]);
         }
 
@@ -130,21 +130,21 @@ class DashboardKostController extends Controller
         }
         $kost->update([
             'nama' => $request['nama'],
-            'id_kota' => $request['kota'],
-            'id_provinsi' => $request['provinsi'],
+            'kota_id' => $request['kota'],
+            'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
             'harga_per_bulan' => $request['harga_perbulan'],
             'kamar_tersedia' => $request['kamar_tersedia'],
-            'id_gender' => $gender,
+            'gender_id' => $gender,
         ]);
 
-        KostFasilitas::where('id_kost', $kost->id)->delete();
+        KostFasilitas::where('kost_id', $kost->id)->delete();
 
         foreach ($request['fasilitas'] as $fasilitas) {
             KostFasilitas::create([
-                'id_kost' => $kost->id,
-                'id_fasilitas' => $fasilitas,
+                'kost_id' => $kost->id,
+                'fasilitas_id' => $fasilitas,
             ]);
         }
 
