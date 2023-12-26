@@ -12,11 +12,9 @@
                 <!-- Logo -->
                 <div class="flex items-center h-16 shrink-0">
                     <img class="w-8 h-8 me-3" src="{{ asset('icon/logo-needkost.png') }}" alt="">
-                    <a :href="route('dashboard')" class="focus:outline-none focus:ring-0">
-                        <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_
-                        </div>
-                        <span class="sr-only">NeedKost</span>
-                    </a>
+                    <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_
+                    </div>
+                    <span class="sr-only">NeedKost</span>
                 </div>
 
                 <!-- Navigation Links -->
