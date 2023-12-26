@@ -103,15 +103,6 @@ class DatabaseSeeder extends Seeder
             'role_id' => 1,
         ]);
 
-        User::create([
-            'nama' => 'Radhitya',
-            'email' => 'radit@gmail.com',
-            'password' => 'radit1234',
-            'no_hp' => '080987654321',
-            'gender_id' => 1,
-            'role_id' => 2,
-        ]);
-
         Kost::create([
             'slug' => 'kost-radhitya',
             'nama' => 'Kost Radhitya',

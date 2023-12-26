@@ -77,6 +77,12 @@ class DashboardKostController extends Controller
 
         $id = Kost::max('id') + 1;
 
+        // Filter Berdasarkan Harga
+        $harga = substr($request->get('harga_perbulan'), 4, 20);
+
+        $harga = (int) str_replace('.', '', $harga);
+
+
         $kostBaru = Kost::create([
             'id' => $id,
             'nama' => $request['nama'],
@@ -85,7 +91,7 @@ class DashboardKostController extends Controller
             'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
-            'harga_per_bulan' => $request['harga_perbulan'],
+            'harga_per_bulan' => $harga,
             'kamar_tersedia' => $request['kamar_tersedia'],
             'gender_id' => $gender,
             'user_id' => auth()->user()->id,
@@ -139,13 +145,19 @@ class DashboardKostController extends Controller
         } else {
             $gender = $request['check'][0];
         }
+
+        // Filter Berdasarkan Harga
+        $harga = substr($request->get('harga_perbulan'), 4, 20);
+
+        $harga = (int) str_replace('.', '', $harga);
+
         $kost->update([
             'nama' => $request['nama'],
             'kota_id' => $request['kota'],
             'provinsi_id' => $request['provinsi'],
             'alamat' => $request['alamat'],
             'deskripsi' => $request['deskripsi'],
-            'harga_per_bulan' => $request['harga_perbulan'],
+            'harga_per_bulan' => $harga,
             'kamar_tersedia' => $request['kamar_tersedia'],
             'gender_id' => $gender,
         ]);

@@ -23,18 +23,16 @@ class ProviderController extends Controller
 
             if ($user !== null) {
                 Auth::login($user);
-                return to_route('dashboard')->with('success', 'Login berhasil.');
+                return to_route('home')->with('success', 'Login berhasil.');
             }
             $user = User::create([
                 'nama' => $SocialUser->name,
                 'email' => $SocialUser->email,
                 'password' => '12345678',
-                'id_gender' => 1,
-                'id_role' => 1,
             ]);
 
             Auth::login($user);
-            return to_route('dashboard')->with('success', 'Login berhasil, silahkan lengkapi data diri anda.');
+            return to_route('profile.edit')->with('success', 'Login berhasil, silahkan lengkapi data diri anda.');
         } catch (\Exception $e) {
             return redirect('/login')->with('error', 'Login gagal, silahkan coba lagi.');
         }
