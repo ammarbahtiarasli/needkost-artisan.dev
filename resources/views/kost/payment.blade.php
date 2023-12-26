@@ -65,7 +65,6 @@
                                 kesalahan!</p>
                         </div>
                     </dl>
-
                 </div>
                 <div class="w-full p-6 bg-white rounded-lg ">
                     <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
