@@ -16,7 +16,19 @@ class LokasiController extends Controller
     public function index()
     {
         $kosts = Kost::all();
-        return view('lokasi.index', ['kosts' => $kosts]);
+        $provinsis = $this->getProvinsis();
+        $kotas = $this->getKotas();
+        return view('lokasi.index', compact('kosts', 'provinsis', 'kotas'));
+    }
+
+    private function getProvinsis() 
+    {
+        return Provinsi::all();
+    }
+
+    private function getKotas() 
+    {
+        return Kota::all();
     }
 
     public function kotas()
@@ -30,7 +42,7 @@ class LokasiController extends Controller
     }
 
     public function provinsis()
-    {
+    {   
         return view('lokasi.provinsis');
     }
 
