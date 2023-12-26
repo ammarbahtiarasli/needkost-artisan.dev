@@ -20,9 +20,8 @@
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="space-y-10 sm:space-y-6">
                 <div class="mb-6">
-                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Rekomendasi</h2>
-                    <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari Kamar kost berdasarkan
-                            rekomendasi needkost.</p>
+                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Lorem</h2>
+                    <p class="text-sm dark:text-gray-300 text-muted-foreground">Lorem</p>
                 </div>
                 @if ($kosts->count() == 0)
                     <div class="flex items-center justify-center w-full">
