@@ -123,12 +123,6 @@
                                                 <x-dropdown-link :href="route('kost.edit', $kost->id)">
                                                     {{ __('Ubah') }}
                                                 </x-dropdown-link>
-                                                {{-- <form method="POST" ">
-                                                    @csrf
-                                                    @method('DELETE') --}}
-                                                {{-- <x-dropdown-link-button>
-                                                        {{ __('Hapus') }}
-                                                    </x-dropdown-link-button> --}}
                                                 <x-dropdown-link x-data=""
                                                     x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}</x-dropdown-link>
 

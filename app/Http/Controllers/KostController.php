@@ -37,6 +37,7 @@ class KostController extends Controller
      */
     public function detail(Kost $kost)
     {
+        $kost = Kost::find($kost->id);
         return view('kost.detail-kost', compact('kost'));
     }
 
@@ -66,6 +67,11 @@ class KostController extends Controller
 
     public function payment()
     {
-        return view('payment');
+        return view('kost.payment');
+    }
+
+    public function history()
+    {
+        return view('kost.riwayat');
     }
 }

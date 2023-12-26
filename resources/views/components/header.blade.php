@@ -16,9 +16,8 @@
                 Kamu lagi nyari kosan ? di <span
                     class="inline-block -rotate-1 transition hover:rotate-3 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-2xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 text-lg tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-3xl md:text-3xl lg:text-4xl">NeedKost</span>
                 aja.</h1>
-            <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.consectetur illum recusandae rerum ratione
-                deleniti possimus minus.</p>
+            <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">
+                Pilihan buat yang mencari tempat tinggal yang nggak hanya sekadar tempat tidur, tapi juga sebagai tempat yang bisa menunjang kegiatan kalian.</p>
             <form class="w-full max-w-md mx-auto">
                 <div class="relative">
                     <div class="absolute inset-y-0 rtl:inset-x-0 start-0 flex items-center ps-3.5 pointer-events-none">

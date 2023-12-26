@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }} - Dashboard</title>
 
         {{-- icon --}}
-        <link rel="icon" href="{{ asset('needkost.ico') }}" type="image/x-icon" />
+        <link rel="icon" href="{{ asset('icon/logo-needkost.ico') }}" type="image/x-icon" />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

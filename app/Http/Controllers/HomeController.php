@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kota;
+use App\Models\Provinsi;
+use App\Models\Kost;
+use App\Models\KostFasilitas;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home', []);
+        $fasilitas = KostFasilitas::all();
+        $kost = Kost::all();
+        return view('home', [
+            'kost' => $kost,
+            'fasilitas' => $fasilitas,
+        ]);
     }
 
     /**
