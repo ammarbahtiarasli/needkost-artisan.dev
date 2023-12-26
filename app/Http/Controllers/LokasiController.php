@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Provinsi;
 use App\Models\Kota;
+use App\Models\Kost;
+use App\Models\KostFasilitas;
 use Illuminate\Http\Request;
 
 class LokasiController extends Controller
@@ -13,7 +15,8 @@ class LokasiController extends Controller
      */
     public function index()
     {
-        return view('lokasi.index');
+        $kosts = Kost::all();
+        return view('lokasi.index', ['kosts' => $kosts]);
     }
 
     public function kotas()

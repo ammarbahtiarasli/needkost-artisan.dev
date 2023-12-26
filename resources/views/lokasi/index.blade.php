@@ -20,9 +20,15 @@
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="space-y-10 sm:space-y-6">
                 <div class="mb-6">
-                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">lorem</h2>
-                    <p class="text-sm dark:text-gray-300 text-muted-foreground">lorem</p>
+                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Rekomendasi</h2>
+                    <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari Kamar kost berdasarkan
+                            rekomendasi needkost.</p>
                 </div>
+                @if ($kosts->count() == 0)
+                    <div class="flex items-center justify-center w-full">
+                        <p class="mt-4 text-lg text-rose-400">Tidak ada rekomendasi kamar kost.</p>
+                    </div>
+                @else
                 <div
                     class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                     @foreach ($kosts as $k)
@@ -72,6 +78,7 @@
                     </x-card>
                     @endforeach
                 </div>
+                @endif
             </div>
         </div>
     </div>
