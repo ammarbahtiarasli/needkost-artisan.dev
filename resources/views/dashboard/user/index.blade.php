@@ -74,10 +74,10 @@
                             {{ $user->no_hp }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $user->gender->nama }}
+                            {{ ($user->gender != null) ? $user->gender->nama : '' }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $user->role->nama }}
+                            {{ ($user->role != null) ? $user->role->nama : '' }}
                         </td>
                         <td class="px-6 py-4">
                             <x-warning-button x-data=""
