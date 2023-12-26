@@ -40,15 +40,18 @@
                     <div class="container h-full p-6 bg-white rounded-lg">
                         <span
                             class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $kost->gender->nama }}</span>
-                        <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $kost->nama }}</h1>
+                        <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                            {{ $kost->nama }}</h1>
                         <h4 class="mb-1 text-lg font-semibold text-red-500 dark:text-white">Diskon 100rb
-                            <span class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000) }}</span>
+                            <span
+                                class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000) }}</span>
                         </h4>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp. {{ number_format($kost->harga_per_bulan, 2) }}<span
-                                class="text-lg font-medium"> (Bulan Pertama)</span>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp.
+                            {{ number_format($kost->harga_per_bulan, 2) }}<span class="text-lg font-medium"> (Bulan
+                                Pertama)</span>
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
-                            <span class="text-red-500"> {{ $kost->kamar_tersedia . " Kamar" }} </span>
+                            <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
                             <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
                             <div class="flex justify-around">
                                 <x-input-label for="date" :value="__('Pilih tanggal mulai sewa')" />
@@ -96,15 +99,15 @@
                             </h2>
                             <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-400">
                                 @foreach ($kost->fasilitas()->get() as $fasilitas)
-                                <li class="flex items-center">
-                                    <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                                        aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                        viewBox="0 0 20 20">
-                                        <path
-                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                    </svg>
-                                    {{ $fasilitas->nama }}
-                                </li>
+                                    <li class="flex items-center">
+                                        <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                                            viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        {{ $fasilitas->nama }}
+                                    </li>
                                 @endforeach
                             </ul>
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Lokasi dan Lingkungan
@@ -122,31 +125,32 @@
                 </div>
             </div>
             @if ($other->count() != 0)
-            <div class="mb-6">
                 <div class="mb-6">
-                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">lorem</h2>
-                    <p class="text-sm dark:text-gray-300 text-muted-foreground">lorem</p>
-                </div>
-                <div
-                    class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+                    <div class="mb-6">
+                        <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Mungkin cocok
+                            dengan kamu</h2>
+                        <p class="text-sm dark:text-gray-300 text-muted-foreground">Ini rekomendasi dari kami</p>
+                    </div>
+                    <div
+                        class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                         @foreach ($other as $ok)
-                        <x-card>
-                            <x-slot name="jenis">
-                                {{ $ok->gender->nama }}
-                            </x-slot>
-                            <x-slot name="nama">
-                                {{ $ok->nama }}
-                            </x-slot>
-                            <x-slot name="alamat">
-                                {{ $ok->alamat }}
-                            </x-slot>
-                            <x-slot name="fasilitas">
-                                @foreach ($ok->fasilitas()->get() as $fasilitas)
-                                {{ $fasilitas->nama }}
-                                @if ($loop->last)
-                                    @break
-                                @endif
-                                ,
+                            <x-card>
+                                <x-slot name="jenis">
+                                    {{ $ok->gender->nama }}
+                                </x-slot>
+                                <x-slot name="nama">
+                                    {{ $ok->nama }}
+                                </x-slot>
+                                <x-slot name="alamat">
+                                    {{ $ok->alamat }}
+                                </x-slot>
+                                <x-slot name="fasilitas">
+                                    @foreach ($ok->fasilitas()->get() as $fasilitas)
+                                        {{ $fasilitas->nama }}
+                                        @if ($loop->last)
+                                        @break
+                                    @endif
+                                    ,
                                 @endforeach
                             </x-slot>
                             <x-slot name="harga">
@@ -167,14 +171,14 @@
                                 </a>
                             </x-slot>
                         </x-card>
-                        @endforeach
-                    @else
+                    @endforeach
                 </div>
             </div>
-            @endif
-        </div>
+            @else
+        @endif
     </div>
+</div>
 
 
-    @include('layouts.footer')
+@include('layouts.footer')
 </x-guest-layout>
