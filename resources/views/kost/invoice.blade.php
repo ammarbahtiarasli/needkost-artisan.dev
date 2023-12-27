@@ -66,9 +66,9 @@
                             </div>
                         </div>
                         <div class="py-6">
-                            <x-primary-a :href="route('home')" class="me-1">
-                                {{ __('Beranda') }}
-                            </x-primary-a>
+                            <x-secondary-button :href="route('history')" class="me-1">
+                                {{ __('Riwayat Sewa') }}
+                            </x-secondary-button>
                             <x-primary-button>
                                 {{ __('Cetak Invoice') }}
                             </x-primary-button>
