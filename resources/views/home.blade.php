@@ -20,9 +20,9 @@
                                 <x-card>
                                     <x-slot name="photo">
                                         @if ($k->photo()->exists())
-                                        {{ asset('storage/' . $k->photo()->get()->first()->photo) }}
+                                            {{ asset('storage/' .$k->photo()->get()->first()->photo) }}
                                         @else
-                                        https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
+                                            https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
                                         @endif
                                     </x-slot>
                                     <x-slot name="jenis">
@@ -41,33 +41,33 @@
                                             @break
                                         @endif
                                         ,
-                                        @endforeach
-                                    </x-slot>
-                                    <x-slot name="harga">
-                                        Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
-                                    </x-slot>
-                                    <x-slot name="url">
-                                        <a href="{{ route('kost.detail', $k->id) }}"
-                                            class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
-                                            <span class="mr-6">Selengkapnya</span>
-                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
-                                                <path
-                                                    d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
-                                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round"></path>
-                                            </svg>
-                                        </a>
-                                    </x-slot>
-                                </x-card>
-                            @endforeach
-                        </div>
-                    @endif
-                </section>
-            </div>
+                                    @endforeach
+                                </x-slot>
+                                <x-slot name="harga">
+                                    Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
+                                </x-slot>
+                                <x-slot name="url">
+                                    <a href="{{ route('kost.detail', $k->id) }}"
+                                        class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
+                                        <span class="mr-6">Selengkapnya</span>
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
+                                            <path
+                                                d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
+                                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </svg>
+                                    </a>
+                                </x-slot>
+                            </x-card>
+                        @endforeach
+                    </div>
+                @endif
+            </section>
         </div>
     </div>
+</div>
 </div>
 
 {{-- kota populer --}}
@@ -81,15 +81,17 @@
                         kamu.</p>
                 </div>
                 <div class="mt-8 mb-4 md:flex md:-mx-4">
-                    <a href="/lokasi/kota/bandung"
-                        class="w-full h-16 mt-8 overflow-hidden transition bg-center bg-cover bg-[url('https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] rounded-lg sm:h-32 hover:shadow-md md:mx-4 md:mt-0 md:w-1/4">
-                        <div class="flex items-center justify-center h-full bg-sky-800/60">
-                            <div class="max-w-xl px-10">
-                                <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di Bandung</h2>
+                        @foreach ($kotas as $kota)
+                        <a href="/lokasi/kota/{{ $kota}}"
+                            class="w-full h-16 mt-8 overflow-hidden transition bg-center bg-cover bg-[url('https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] rounded-lg sm:h-32 hover:shadow-md md:mx-4 md:mt-0 md:w-1/4">
+                            <div class="flex items-center justify-center h-full bg-sky-800/60">
+                                <div class="max-w-xl px-10">
+                                    <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di {{ $kota }}</h2>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                        @endforeach
+                    </div>
             </section>
             <div class="container flex justify-center">
                 <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>

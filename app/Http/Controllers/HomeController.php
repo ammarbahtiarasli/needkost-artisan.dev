@@ -16,8 +16,17 @@ class HomeController extends Controller
     public function index()
     {
         $kost = Kost::all();
+        $kota = array(
+            'Bandung',
+            'Jakarta',
+            'Surabaya',
+            'Semarang'
+
+        );
+        // dd($kota);
         return view('home', [
             'kosts' => $kost,
+            'kotas' => $kota,
         ]);
     }
 
