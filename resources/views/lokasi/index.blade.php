@@ -14,35 +14,24 @@
             <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
         </x-slot>
+        <x-slot name="provin">
+            @foreach ($provinsis as $provins)
+            {{ $provins->nama }}#
+            @endforeach
+        </x-slot>
+        <x-slot name="kot">
+            @foreach ($kotas as $kots)
+            {{ $kots->nama }}#
+            @endforeach
+        </x-slot>
     </x-head-minimal>
 
-    <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
-        <div class="grid grid-cols-2 w-xl gap-x-3">
-            <div class="w-full">
-                <select  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 rounded-md shadow-sm block w-full mt-1" id="provinsi" name="provinsi" required="required">
-    	            <option selected disabled>Pilih Provinsi</option>
-                	@foreach ($provinsis as $provinsi)
-	                <option value="{{ $provinsi->nama }}">{{ $provinsi->nama}}</option>
-                	@endforeach
-                </select>
-             </div>
-            <div class="w-full">
-                <select  class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 rounded-md shadow-sm block w-full mt-1" id="kota" name="kota" required="required">
-    	            <option selected disabled>Pilih Kota/Kab</option>
-	                @foreach($kotas as $kota)
-                    <option value="{{ $kota->nama }}">{{ $kota->nama }}</option>
-                	@endforeach
-                </select>
-             </div>
-        </div>
-    </div>
     <div class="container py-6 mx-auto">
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="space-y-10 sm:space-y-6">
                 <div class="mb-6">
-                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Rekomendasi</h2>
-                    <p class="text-sm dark:text-gray-300 text-muted-foreground">Cari Kamar kost berdasarkan
-                            rekomendasi needkost.</p>
+                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Hasil Pencarian</h2>
+                    <p class="text-sm dark:text-gray-300 text-muted-foreground">234 kamar kost.</p>
                 </div>
                 @if ($kosts->count() == 0)
                     <div class="flex items-center justify-center w-full">
@@ -53,6 +42,9 @@
                     class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                     @foreach ($kosts as $k)
                     <x-card>
+                        <x-slot name="id">
+                            {{ $k->id }}
+                        </x-slot>
                         <x-slot name="photo">
                             @if ($k->photo()->exists())
                             {{ asset('storage/' . $k->photo()->get()->first()->photo) }}
