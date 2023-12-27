@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Kost::class);
     }
+
+    public function riwayat()
+    {
+        return $this->hasMany(Riwayat::class);
+    }
 }

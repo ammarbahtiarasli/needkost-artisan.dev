@@ -1,6 +1,6 @@
 <div class="max-w-sm transition bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:shadow-md dark:hover:shadow-md"
     {{ $attributes }}>
-    <a :href="route('kost.detail')">
+    <a href="{{ route('kost.detail',  $id) }}">
         <img class="rounded-t-lg" src="{{ $photo }}" alt="" />
     </a>
     <div class="p-5">
@@ -8,7 +8,7 @@
             <span
                 class="bg-slate-200/80 text-slate-800 text-xs font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $jenis }}</span>
         </div>
-        <a href="route('kost.detail')">
+        <a href="{{ route('kost.detail', $id) }}">
             <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
                 {{ $nama }}</h5>
         </a>

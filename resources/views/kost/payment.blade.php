@@ -24,32 +24,21 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="min-h-screen font-sans antialiased text-gray-900 bg-gray-100">
+<body class="min-h-screen font-sans antialiased text-gray-900 bg-gray-200 dark:bg-gray-900">
 
     <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="overflow-hidden transition shadow-sm bg-yellow-200/80 dark:bg-gray-800 sm:rounded-lg">
-            <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __('Selesaikan Pembayaran !') }}
+        <div class="overflow-hidden transition shadow-sm bg-yellow-200/80 dark:bg-sky-400/60 sm:rounded-lg">
+            <div class="p-6 font-semibold text-gray-900 dark:text-gray-100">
+                    {{ __('Pembayaran akan otomatis dibatalkan jika Kamu keluar dari halaman ini !') }}
             </div>
         </div>
     </div>
 
-    <!-- Page Heading -->
-    @if (isset($header))
-        <header class="bg-white shadow dark:bg-gray-800">
-            <div class="px-4 pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-                <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
-                    {{ __('Pengajuan Sewa') }}
-                </h2>
-            </div>
-        </header>
-    @endif
-
     <!-- Page Content -->
     <main class=" bg-grascale-y-100 dark:bg-gray-900">
         <div class="container py-6 mx-auto">
-            <div class="flex justify-center px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-                <div class="w-full p-6 bg-white rounded-lg">
+            <div class="flex justify-center px-4 mx-auto gap-x-4 sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+                <div class="w-full p-6 bg-white rounded-lg dark:bg-gray-800">
                     <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {{ __('Informasi Pembayaran') }}
                     </h2>
@@ -73,7 +62,7 @@
                         </div>
                     </dl>
                 </div>
-                <div class="w-full p-6 bg-white rounded-lg ">
+                <div class="w-full p-6 bg-white rounded-lg dark:bg-gray-800 ">
                     <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {{ __('') }}
                     </h2>
@@ -116,14 +105,19 @@
                     window.location.href = "/invoice/{{ $sewa['nomor_invoice'] }}";
                     console.log(result);
                 },
+                onPending: function(result) {
+                    alert("Tolong tidak keluar sebelum membayar! Kamu akan diarahkan ke halaman sebelumnya.");
+                    window.location.href = "/kost/detail/{{ $kost->id }}"
+                },
                 onError: function(result) {
                     /* You may add your own implementation here */
-                    alert("Pembayaran Gagal!");
-                    console.log(result);
+                    alert("Pembayaran gagal. Kamu akan diarahkan ke halaman sebelumnya");
+                    window.location.href = "/kost/detail/{{ $kost->id }}"
                 },
                 onClose: function() {
                     /* You may add your own implementation here */
-                    alert('Kamu menutup popup sebelum menyelesaikan proses pembayaran!');
+                    alert("Pembayaran Dibatalkan!");
+                    window.location.href = "/kost/detail/{{ $kost->id }}"
                 }
             })
         });

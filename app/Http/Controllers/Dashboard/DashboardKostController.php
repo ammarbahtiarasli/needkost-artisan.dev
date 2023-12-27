@@ -171,6 +171,14 @@ class DashboardKostController extends Controller
             ]);
         }
 
+        if ($request->hasFile('photo')) {
+            Photo::where('kost_id', $kost->id)->delete();
+            Photo::create([
+                'kost_id' => $kost->id,
+                'photo' => $request->file('photo')->store('photo/kost', 'public'),
+            ]);
+        }
+
         return to_route('kost.index')->with('success', 'Kamar Kost berhasil dirubah');
     }
 
@@ -180,6 +188,8 @@ class DashboardKostController extends Controller
     public function destroy(Kost $kost)
     {
         $kost = Kost::find($kost->id);
+        $kost->kostFasilitas()->delete();
+        $kost->photo()->delete();
         $kost->delete();
         return redirect()->route('kost.index')->with('success', 'Kamar Kost berhasil dihapus');
     }

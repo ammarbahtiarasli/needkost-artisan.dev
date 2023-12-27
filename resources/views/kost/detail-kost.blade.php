@@ -42,16 +42,16 @@
                     </div>
                 </div>
                 <div class="w-1/2 ms-6">
-                    <div class="container h-full p-6 bg-white rounded-lg">
+                    <div class="container h-full p-6 bg-white rounded-lg dark:bg-gray-800">
                         <span
                             class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $kost->gender->nama }}</span>
                         <h1 class="my-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                             {{ $kost->nama }}</h1>
                         <h4 class="mb-1 text-lg font-semibold text-red-500 dark:text-white">Diskon 100rb
-                            <span
-                                class="text-gray-400 line-through">{{ number_format($kost->harga_per_bulan + 100000, 0, ',', '.') }}</span>
+                            <span class="text-gray-400 line-through">Rp
+                                {{ number_format($kost->harga_per_bulan + 100000, 0, ',', '.') }}</span>
                         </h4>
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp.
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Rp
                             {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}<span class="text-lg font-medium">
                                 (Bulan
                                 Pertama)</span>
@@ -60,14 +60,15 @@
                             <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
                             <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
                             <form action="{{ route('payment') }}" method="GET">
-                                <x-text-input type="text" hidden value="{{ $kost->id }}" name="id"></x-text-input>
+                                <x-text-input type="text" hidden value="{{ $kost->id }}"
+                                    name="id"></x-text-input>
                                 <div class="flex justify-around">
                                     <x-input-label for="tglMulaiSewa" :value="__('Pilih tanggal mulai sewa')" />
                                     <x-input-label for="waktuSewa" :value="__('Pilih jangka waktu sewa')" />
                                 </div>
                                 <div class="flex mb-6 gap-x-3">
-                                    <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3" type="date"
-                                        :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
+                                    <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3"
+                                        type="date" :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
                                     <x-input-error :messages="$errors->get('text')" class="mt-2" />
                                     <x-select class="w-1/2 mt-3" id="waktuSewa" name="waktuSewa" required>
                                         <option value="test" selected disabled>Pilih waktu sewa</option>
@@ -76,14 +77,15 @@
                                     </x-select>
                                 </div>
                                 <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
-                                    href="https://wa.me/+628">Chat Pemilik</x-secondary-button>
+                                    href="https://wa.me/{{ '+62' . substr($kost->user->no_hp, 1, 13) }}"
+                                    target="_blank">Chat Pemilik</x-secondary-button>
                                 <x-primary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80">Ajukan
                                     Sewa</x-primary-button>
                             </form>
                     </div>
                 </div>
             </div>
-            <div class="container p-6 my-6 bg-white rounded-lg">
+            <div class="container p-6 my-6 bg-white rounded-lg dark:bg-gray-800">
                 <div class="w-full pb-6 space-y-8 lg:block lg:pb-12 top-28">
                     <div>
                         <div class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Dikelola oleh :</div>
@@ -94,8 +96,9 @@
                                     alt="foto" loading="lazy" style="opacity: 1;">
                             </div>
                             <div>
-                                <h4 class="text-lg font-medium text-foreground">{{ $kost->user->nama }}</h4>
-                                <p class="text-normal text-muted-foreground">{{ $kost->nama }}</p>
+                                <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">
+                                    {{ $kost->user->nama }}</h4>
+                                <p class="dark:text-gray-200 text-normal text-muted-foreground">{{ $kost->nama }}</p>
                             </div>
                         </a>
                     </div>
@@ -123,13 +126,13 @@
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Lokasi dan Lingkungan
                                 sekitar :
                             </h2>
-                            <div class="">
-                                <p>{{ $kost->alamat }}</p>
-                                <iframe class="w-full mt-3 mb-1 rounded-lg h-96"
+                            <p class="dark:text-gray-200">{{ $kost->alamat }}</p>
+                            {{-- <div class="flex min-w-full">
+                                <iframe class="mt-3 mb-1 rounded-lg h-96"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid"
                                     loading="lazy"></iframe>
-                                <p>*data maps dummy</p>
                             </div>
+                            <p class="dark:text-gray-200">*data maps dummy</p> --}}
                         </div>
                     </div>
                 </div>
@@ -145,6 +148,9 @@
                         class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                         @foreach ($other as $ok)
                             <x-card>
+                                <x-slot name="id">
+                                    {{ $ok->id }}
+                                </x-slot>
                                 <x-slot name="photo">
                                     @if ($ok->photo()->exists())
                                         {{ asset('storage/' .$ok->photo()->get()->first()->photo) }}

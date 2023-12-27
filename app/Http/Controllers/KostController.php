@@ -120,9 +120,19 @@ class KostController extends Controller
                 'gross_amount' => $total,
             ),
             'customer_details' => array(
-                'name' => $penyewa->nama,
+                'first_name' => $penyewa->nama,
+                'email' => $penyewa->email,
                 'phone' => $penyewa->no_hp,
             ),
+            'item_details' => array(
+                array(
+                    'id' => $kost->id,
+                    'price' => $kost->harga_per_bulan,
+                    'quantity' => $waktu_sewa,
+                    'name' => $kost->nama,
+                    'merchant_name' => 'NeedKost',
+                )
+            )
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
@@ -149,6 +159,7 @@ class KostController extends Controller
 
     public function history()
     {
-        return view('kost.riwayat');
+        $riwayat = Riwayat::where('user_id', auth()->user()->id)->get();
+        return view('kost.riwayat', compact('riwayat'));
     }
 }

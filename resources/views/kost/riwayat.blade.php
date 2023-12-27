@@ -31,9 +31,9 @@
                                                 alt="foto" loading="lazy" style="opacity: 1;">
                                         </div>
                                         <div>
-                                            <h4 class="text-lg font-medium text-foreground">A Ammar Bahtiar
+                                            <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">A Ammar Bahtiar
                                             </h4>
-                                            <p class="text-normal text-muted-foreground">Penyewa</p>
+                                            <p class="text-normal dark:text-gray-200 text-muted-foreground">Penyewa</p>
                                         </div>
                                     </a>
                                 </div>
@@ -42,7 +42,8 @@
                         <div class="container w-2/3">
                             <div class="container py-3">
 
-                                <div class="relative overflow-x-auto border sm:rounded-lg">
+                                <div class="relative overflow-x-auto border dark:border-gray-700 sm:rounded-lg">
+                                    @if (!$riwayat->isEmpty())
                                     <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
                                         <thead
                                             class="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -61,48 +62,43 @@
                                                 </th>
                                             </tr>
                                         </thead>
+                                        @foreach ($riwayat as $riwayat)
                                         <tbody>
                                             <tr
                                                 class="text-center bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                                 <th scope="row"
                                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    lorem
+                                                    {{ $riwayat->kost->nama }}
                                                 </th>
                                                 <td class="px-6 py-4">
-                                                    lorem
+                                                    {{ $riwayat->durasi }} bulan
                                                 </td>
                                                 <td class="px-6 py-4">
-                                                    lorem
+                                                    Rp
+                            {{ number_format($riwayat->harga_total, 0, ',', '.') }}
                                                 </td>
                                                 <td class="px-6 py-4">
+                                                    @if(((int) date('m') - (int) date('m', strtotime($riwayat->created_at))) > $riwayat->durasi)
+                                                    <span
+                                                    class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Selesai</span>
+                                                    @elseif ($riwayat->created_at <= now())
                                                     <span
                                                     class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Sedang berlangsung</span>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                        <tbody>
-                                            <tr
-                                                class="text-center bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                                <th scope="row"
-                                                    class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    lorem
-                                                </th>
-                                                <td class="px-6 py-4">
-                                                    lorem
-                                                </td>
-                                                <td class="px-6 py-4">
-                                                    lorem
-                                                </td>
-                                                <td class="px-6 py-4">
+                                                    @elseif($riwayat->created_at >= now())
                                                     <span
-                                                    class="bg-emerald-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Selesai</span>
+                                                    class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Menunggu waktu mulai</span>
+                                                    @endif
                                                 </td>
                                             </tr>
                                         </tbody>
+                                        @endforeach
+
                                     </table>
+                                    @else
                                     <div class="p-6 font-semibold text-center text-rose-500">
                                         {{ __('Belum ada transaksi baru.') }}
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

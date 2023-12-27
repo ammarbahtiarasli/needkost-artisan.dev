@@ -18,6 +18,9 @@
                             class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
                             @foreach ($kosts as $k)
                                 <x-card>
+                                    <x-slot name="id">
+                                        {{ $k->id }}
+                                    </x-slot>
                                     <x-slot name="photo">
                                         @if ($k->photo()->exists())
                                             {{ asset('storage/' .$k->photo()->get()->first()->photo) }}
@@ -81,17 +84,18 @@
                         kamu.</p>
                 </div>
                 <div class="mt-8 mb-4 md:flex md:-mx-4">
-                        @foreach ($kotas as $kota)
-                        <a href="/lokasi/kota/{{ $kota}}"
+                    @foreach ($kotas as $kota)
+                        <a href="/lokasi/kota/{{ $kota }}"
                             class="w-full h-16 mt-8 overflow-hidden transition bg-center bg-cover bg-[url('https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] rounded-lg sm:h-32 hover:shadow-md md:mx-4 md:mt-0 md:w-1/4">
                             <div class="flex items-center justify-center h-full bg-sky-800/60">
                                 <div class="max-w-xl px-10">
-                                    <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di {{ $kota }}</h2>
+                                    <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di
+                                        {{ $kota }}</h2>
                                 </div>
                             </div>
                         </a>
-                        @endforeach
-                    </div>
+                    @endforeach
+                </div>
             </section>
             <div class="container flex justify-center">
                 <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>

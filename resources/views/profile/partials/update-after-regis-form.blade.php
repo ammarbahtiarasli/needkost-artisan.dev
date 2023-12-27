@@ -25,7 +25,7 @@
         <div>
             <x-input-label for="noHp" :value="__('Nomor HP *')" />
             <x-text-input id="noHp" name="noHp" type="number" class="block w-full mt-1" :value="old('no_hp')"
-                required autofocus autocomplete="name" />
+                required autofocus autocomplete="name" placeholder="08xxxxxxx"/>
             <x-input-error class="mt-2" :messages="$errors->get('noHp')" />
         </div>
         <div class="">

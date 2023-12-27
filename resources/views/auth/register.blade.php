@@ -43,6 +43,16 @@
                     <x-input-error class="mt-2" :messages="$errors->get('jenis_kelamin')" />
                 </div>
 
+                <div class="mt-4">
+                    <x-input-label for="gender" :value="__('Jenis Kelamin *')" />
+                    <x-select id="gender" name="gender" class="block w-full mt-1">
+                        <option selected disabled>Pilih </option>
+                        <option value="1">Laki-laki</option>
+                        <option value="2">Perempuan</option>
+                    </x-select>
+                    <x-input-error class="mt-2" :messages="$errors->get('jenis_kelamin')" />
+                </div>
+
                 <!-- Password -->
                 <div class="mt-4">
                     <x-input-label for="password" :value="__('Password *')" />

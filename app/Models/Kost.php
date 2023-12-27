@@ -46,4 +46,9 @@ class Kost extends Model
     {
         return $this->belongsToMany(Fasilitas::class, KostFasilitas::class, 'kost_id');
     }
+
+    public function riwayat()
+    {
+        return $this->hasMany(Riwayat::class, 'kost_id');
+    }
 }
