@@ -63,7 +63,7 @@
                                 <x-dropdown-link :href="route('dashboard')">
                                     {{ __('Dashboard') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('profile.edit')">
+                                <x-dropdown-link :href="route('profile.edit-guest')">
                                     {{ __('Profil') }}
                                 </x-dropdown-link>
                                 <x-dropdown-link :href="route('history')">
@@ -132,7 +132,7 @@
             @if (Route::has('login'))
                 @auth
                     <div class="mt-3 space-y-1">
-                        <x-responsive-nav-link :href="route('profile.edit')">
+                        <x-responsive-nav-link :href="route('profile.edit-guest')">
                             {{ __('Profil') }}
                         </x-responsive-nav-link>
 

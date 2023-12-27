@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rules\Password;
 
 class ProfileController extends Controller
 {
@@ -17,6 +19,13 @@ class ProfileController extends Controller
     public function edit(Request $request): View
     {
         return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
+    }
+
+    public function editGuest(Request $request): View
+    {
+        return view('profile.edit-guest', [
             'user' => $request->user(),
         ]);
     }
@@ -71,6 +80,15 @@ class ProfileController extends Controller
         $user->gender_id = $request->gender;
         $user->email_verified_at = now();
         $user->save();
+
+        $validated = $request->validateWithBag('updatePassword', [
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', Password::defaults(), 'confirmed'],
+        ]);
+
+        $request->user()->update([
+            'password' => Hash::make($validated['password']),
+        ]);
 
         return Redirect::route('home')->with('status', 'profile-updated');
     }

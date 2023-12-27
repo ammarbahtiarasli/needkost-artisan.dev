@@ -68,17 +68,17 @@
                         <input id="remember_me" type="checkbox"
                             class="text-indigo-600 border-gray-300 rounded shadow-sm dark:bg-gray-900 dark:border-gray-700 focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                             name="remember">
-                        <span class="text-sm text-gray-600 ms-2 dark:text-gray-400">{{ __('Remember me') }}</span>
+                        <span class="text-sm text-gray-600 ms-2 dark:text-gray-400">{{ __('Ingatkan saya') }}</span>
                     </label>
                 </div>
 
                 <div class="flex items-center justify-end mt-4">
-                    {{-- @if (Route::has('password.request'))
-                        <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    @if (Route::has('password.request'))
+                        <a class="text-sm text-gray-600 underline rounded-md me-6 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                             href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
+                            {{ __('Lupa Password?') }}
                         </a>
-                    @endif --}}
+                    @endif
                     <a class="text-sm text-gray-600 underline rounded-md dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                         href="{{ route('register') }}">
                         {{ __('belum punya akun? Daftar') }}
