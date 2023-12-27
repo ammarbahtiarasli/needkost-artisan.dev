@@ -40,6 +40,8 @@ class KostController extends Controller
      */
     public function detail(Kost $kost)
     {
+        Riwayat::query()->where('status', 'pending')->delete();
+
         $kost = Kost::find($kost->id);
         $other = Kost::where('id', '!=', $kost->id)->get();
         return view('kost.detail-kost', compact('kost', 'other'));

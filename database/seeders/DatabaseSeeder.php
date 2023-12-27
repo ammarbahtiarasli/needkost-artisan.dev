@@ -104,8 +104,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Kost::create([
-            'slug' => 'kost-radhitya',
-            'nama' => 'Kost Radhitya',
+            'slug' => 'radhitya-kost',
+            'nama' => 'Radhitya Kost',
             'alamat' => 'Jl. Radhitya No. 1',
             'deskripsi' => 'Kost ini sangat nyaman',
             'harga_per_bulan' => 1000000,
@@ -116,6 +116,19 @@ class DatabaseSeeder extends Seeder
             'gender_id' => 1,
         ]);
 
+        Kost::create([
+            'slug' => 'ammar-kost',
+            'nama' => 'Ammar Kost',
+            'alamat' => 'Jl. Ammar No. 1',
+            'deskripsi' => 'Kost ini sangat nyaman',
+            'harga_per_bulan' => 1000,
+            'kamar_tersedia' => 13,
+            'user_id' => 1,
+            'provinsi_id' => 11,
+            'kota_id' => 1107,
+            'gender_id' => 3,
+        ]);
+
         KostFasilitas::create([
             'kost_id' => 1,
             'fasilitas_id' => 1,
@@ -124,6 +137,16 @@ class DatabaseSeeder extends Seeder
         KostFasilitas::create([
             'kost_id' => 1,
             'fasilitas_id' => 3,
+        ]);
+
+        KostFasilitas::create([
+            'kost_id' => 2,
+            'fasilitas_id' => 1,
+        ]);
+
+        KostFasilitas::create([
+            'kost_id' => 2,
+            'fasilitas_id' => 2,
         ]);
     }
 }
