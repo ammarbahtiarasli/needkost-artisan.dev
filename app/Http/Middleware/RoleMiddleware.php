@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class PemilikMiddleware
+class RoleMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,8 +16,8 @@ class PemilikMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::check() || Auth::user()->role->nama !== 'Pemilik') {
-            abort(403);
+        if (Auth::user()->role_id !== 1 && Auth::user()->role_id !== 2) {
+            abort(403, 'Unauthorized action.');
         }
         return $next($request);
     }

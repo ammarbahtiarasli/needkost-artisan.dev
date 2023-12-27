@@ -54,9 +54,9 @@ Route::get('/lokasi/provinsi', [LokasiController::class, 'provinsis'])->name('pr
 Route::get('/lokasi/provinsi/{provinsi}', [LokasiController::class, 'provinsi'])->name('provinsi');
 
 // Route untuk dashboard kamar kost
-Route::middleware(['auth', 'admin', 'pemilik'])->group(function () {
+Route::middleware(['auth', 'role'])->group(function () {
     // Dashboard
-    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin')->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('kost', DashboardKostController::class);
 
