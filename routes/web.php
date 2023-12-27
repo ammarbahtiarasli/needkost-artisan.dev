@@ -27,6 +27,18 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
 Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
 
+// Payment
+Route::get('/payment', [KostController::class, 'payment'])->name('payment');
+Route::get('/riwayat', [KostController::class, 'history'])->name('history');
+Route::get('/invoice/{invoice}', [KostController::class, 'invoice'])->name('invoice');
+
+// profile
+Route::get('/after-regis', [ProfileController::class, 'afterRegis'])->name('profile.after-regis');
+Route::patch('/after-regis', [ProfileController::class, 'updateAfterRegis'])->name('profile.update-after-regis');
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
 // Route untuk Home
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
@@ -35,20 +47,17 @@ Route::get('/help', [HomeController::class, 'help'])->name('help');
 // Route untuk kamar kost
 Route::get('/kosts', [KostController::class, 'index'])->name('kost.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
-Route::get('/payment', [KostController::class, 'payment'])->name('payment');
-Route::get('/riwayat', [KostController::class, 'history'])->name('history');
-Route::get('/invoice/{invoice}', [KostController::class, 'invoice'])->name('invoice');
 Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
 Route::get('/lokasi/kota', [LokasiController::class, 'kotas'])->name('kotas');
 Route::get('/lokasi/kota/{kota}', [LokasiController::class, 'kota'])->name('kota');
 Route::get('/lokasi/provinsi', [LokasiController::class, 'provinsis'])->name('provinsis');
 Route::get('/lokasi/provinsi/{provinsi}', [LokasiController::class, 'provinsi'])->name('provinsi');
 
-// Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
 // Route untuk dashboard kamar kost
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'admin', 'pemilik'])->group(function () {
+    // Dashboard
+    Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('admin')->name('dashboard');
+
     Route::resource('kost', DashboardKostController::class);
 
     // Route untuk dashboard Lokasi
@@ -60,12 +69,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/user', [DashboardUserController::class, 'store'])->name('user.store');
     Route::get('/user/{user}', [DashboardUserController::class, 'show'])->name('user.show');
     Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
-
-    // profile
-    Route::get('/after-regis', [ProfileController::class, 'afterRegis'])->name('profile.after-regis');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__ . '/auth.php';

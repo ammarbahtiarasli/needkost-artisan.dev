@@ -62,4 +62,16 @@ class ProfileController extends Controller
     {
         return view('profile.after-regis');
     }
+
+    public function updateAfterRegis(Request $request)
+    {
+        $user = $request->user();
+        $user->role_id = $request->role;
+        $user->no_hp = $request->noHp;
+        $user->gender_id = $request->gender;
+        $user->email_verified_at = now();
+        $user->save();
+
+        return Redirect::route('home')->with('status', 'profile-updated');
+    }
 }
