@@ -12,9 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <!-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
-                    </x-nav-link> -->
+                    </x-nav-link>
                     <x-nav-link :href="route('kost.index')" :active="request()->routeIs('kost.index', 'kost.create', 'kost.show', 'kost.edit')">
                         {{ __('Kamar Kost') }}
                     </x-nav-link>
