@@ -60,6 +60,9 @@
                                                 <th scope="col" class="px-6 py-3">
                                                     Status
                                                 </th>
+                                                <th scope="col" class="px-6 py-3">
+                                                    Aksi
+                                                </th>
                                             </tr>
                                         </thead>
                                         @foreach ($riwayat as $riwayat)
@@ -88,6 +91,11 @@
                                                     <span
                                                     class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Menunggu waktu mulai</span>
                                                     @endif
+                                                </td>
+                                                <td class="px-6 py-4">
+                                                    <x-primary-a href="/invoice/{{ $riwayat->nomor_invoice }}">
+                                                        {{ __('Invoice') }}
+                                                    </x-primary-a>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -56,7 +56,7 @@
                             <dd class="text-lg font-semibold">{{ $sewa['email'] }}</dd>
                         </div>
                         <div class="flex flex-col pt-6">
-                            <p>*Pastikan data diri yang anda masukkan sudah benar. Jika ada kesalahan, pihak NeedKost_
+                            <p><span class="font-semibold text-red-600">*Catatan :</span> Pastikan data diri yang anda masukkan sudah benar. Jika ada kesalahan, pihak <span class="font-semibold">NeedKost_</span>
                                 tidak ikut bertanggung jawab. Tolong kontak pemilik kost jika ingin memperbaiki
                                 kesalahan!</p>
                         </div>
@@ -85,8 +85,7 @@
                             <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Total Pembayaran</dt>
                             <dd class="text-lg font-semibold">Rp {{ number_format($sewa['harga_total'], 0, ',', '.') }}</dd>
                         </div>
-                        <x-primary-button id="pay-button" class="flex justify-center w-full h-10 p-3 mt-4">Bayar
-                            sekarang
+                        <x-primary-button id="pay-button" class="flex justify-center w-full h-10 p-3 mt-4">Pilih Pembayaran
                         </x-primary-button>
                     </dl>
                 </div>

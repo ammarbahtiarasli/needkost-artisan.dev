@@ -7,8 +7,8 @@
 
     @if (session()->has('success'))
         <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
+            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-emerald-400/80 sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-white">
                         {{ __(session('success')) }}
                 </div>
             </div>
@@ -19,7 +19,7 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    {{ __("You're logged in!") }}
+                    {{ __("Kamu masuk sebagai " .  Auth::user()->role->nama . " Kost") }}
                 </div>
             </div>
         </div>

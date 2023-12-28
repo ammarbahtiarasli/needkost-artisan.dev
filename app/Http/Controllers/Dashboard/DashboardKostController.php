@@ -20,13 +20,20 @@ class DashboardKostController extends Controller
      */
     public function index()
     {
-        $kost = Kost::where('user_id', auth()->user()->id)
-            ->paginate(6);
+        if (auth()->user()->role->nama === 'Admin') {
+            $kost = Kost::paginate(6);
+        } else {
+            $kost = Kost::where('user_id', auth()->user()->id)->paginate(6);
+        }
 
         if (request()->has('search')) {
-            $kost = Kost::where('user_id', auth()->user()->id)
-                ->where('nama', 'like', '%' . request('search') . '%')
-                ->paginate(6);
+            if (auth()->user()->role->nama === 'Admin') {
+                $kost = Kost::where('nama', 'like', '%' . request('search') . '%')->paginate(6);
+            } else {
+                $kost = Kost::where('user_id', auth()->user()->id)
+                    ->where('nama', 'like', '%' . request('search') . '%')
+                    ->paginate(6);
+            }
         }
 
         // dd($kost);
@@ -54,14 +61,11 @@ class DashboardKostController extends Controller
         $fasilitas = Fasilitas::all();
         $provinsi = Provinsi::all();
         $kota = Kota::all();
-        return view(
-            'dashboard.kost.create',
-            [
-                'fasilitas' => $fasilitas,
-                'provinsi' => $provinsi,
-                'kota' => $kota,
-            ]
-        );
+        return view('dashboard.kost.create', [
+            'fasilitas' => $fasilitas,
+            'provinsi' => $provinsi,
+            'kota' => $kota,
+        ]);
     }
 
     /**
@@ -82,7 +86,6 @@ class DashboardKostController extends Controller
 
         $harga = (int) str_replace('.', '', $harga);
 
-
         $kostBaru = Kost::create([
             'id' => $id,
             'nama' => $request['nama'],
@@ -95,7 +98,6 @@ class DashboardKostController extends Controller
             'kamar_tersedia' => $request['kamar_tersedia'],
             'gender_id' => $gender,
             'user_id' => auth()->user()->id,
-
         ]);
 
         foreach ($request['fasilitas'] as $fasilitas) {
@@ -191,6 +193,8 @@ class DashboardKostController extends Controller
         $kost->kostFasilitas()->delete();
         $kost->photo()->delete();
         $kost->delete();
-        return redirect()->route('kost.index')->with('success', 'Kamar Kost berhasil dihapus');
+        return redirect()
+            ->route('kost.index')
+            ->with('success', 'Kamar Kost berhasil dihapus');
     }
 }

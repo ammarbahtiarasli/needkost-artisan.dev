@@ -5,6 +5,15 @@
         </h2>
     </x-slot>
 
+    @if (session()->has('success'))
+        <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-emerald-400/80 sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-white">
+                    {{ __(session('success')) }}
+                </div>
+            </div>
+        </div>
+    @endif
 
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -36,67 +45,83 @@
                 </div>
 
                 @if ($users->count() != 0)
-                <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" class="px-6 py-3">
-                                Nama
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                No.HP
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Jenis Kelamin
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Role
-                            </th>
-                            <th scope="col" class="px-6 py-3">
-                                Aksi
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($users as $user)
-                        <tr
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row"
-                            class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                            <img class="w-10 h-10 rounded-full"
-                                src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
-                                alt="Jese image">
-                            <div class="ps-3">
-                                <div class="text-base font-semibold">{{ $user->nama }}</div>
-                                <div class="font-normal text-gray-500">{{ $user->email }}</div>
-                            </div>
-                        </th>
-                        <td class="px-6 py-4">
-                            {{ $user->no_hp }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ ($user->gender != null) ? $user->gender->nama : '' }}
-                        </td>
-                        <td class="px-6 py-4">
-                            {{ ($user->role != null) ? $user->role->nama : '' }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <x-warning-button x-data=""
-                                href="">{{ __('Edit') }}</x-warning-button>
-                            <form action="" method="post" class="inline-block">
-                                @csrf
-                                @method('DELETE')
-                                <x-danger-button x-data=""
-                                    onclick="confirm('Kamar Kost ini akan dihapus ?');">{{ __('Delete') }}</x-danger-button>
-                            </form>
-                        </td>
-                    </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                    <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Nama
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    No.HP
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Jenis Kelamin
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Role
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Aksi
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($users as $user)
+                                <tr
+                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                        <img class="w-10 h-10 rounded-full"
+                                            src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
+                                            alt="Jese image">
+                                        <div class="ps-3">
+                                            <div class="text-base font-semibold">{{ $user->nama }}</div>
+                                            <div class="font-normal text-gray-500">{{ $user->email }}</div>
+                                        </div>
+                                    </th>
+                                    <td class="px-6 py-4">
+                                        {{ $user->no_hp }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $user->gender != null ? $user->gender->nama : '' }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        {{ $user->role != null ? $user->role->nama : '' }}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <x-warning-button x-data=""
+                                            href="">{{ __('Edit') }}</x-warning-button>
+                                        <x-danger-button x-data=""
+                                            x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}
+                                        </x-danger-button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            <x-modal name="confirm-user-deletion" focusable>
+                                <form method="post" action="{{ route('user.destroy', $user->id) }} class="p-6">
+                                    @csrf
+                                    @method('delete')
+                                    <div class="container p-6">
+                                        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                                            {{ __('Apakah kamu yakin ingin menghapus Pengguna ini?') }}
+                                        </h2>
+                                        <div class="flex justify-end mt-6">
+                                            <x-secondary-button x-on:click="$dispatch('close')">
+                                                {{ __('Batal') }}
+                                            </x-secondary-button>
+                                            <x-danger-button class="ms-3">
+                                                {{ __('Hapus Pengguna') }}
+                                            </x-danger-button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </x-modal>
+                        </tbody>
+                    </table>
                 @else
-                <div class="p-6 font-semibold text-center text-rose-500">
-                    {{ __('Data Pengguna tidak ada.') }}
-                </div>
+                    <div class="p-6 font-semibold text-center text-rose-500">
+                        {{ __('Data Pengguna tidak ada.') }}
+                    </div>
                 @endif
             </div>
         </div>

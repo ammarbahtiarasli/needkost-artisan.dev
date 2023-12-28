@@ -55,6 +55,7 @@ class DashboardUserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('user.index')->with('success', 'Pengguna berhasil dihapus');
     }
 }

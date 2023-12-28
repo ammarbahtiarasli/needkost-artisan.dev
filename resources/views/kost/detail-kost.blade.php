@@ -11,7 +11,7 @@
                 <div class="grid w-1/2 gap-4">
                     <div>
                         @if ($kost->photo()->exists())
-                            <img class="h-auto max-w-full rounded-lg"
+                            <img class="h-full rounded-lg aspect-[16/9] object-cover"
                                 src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}" alt="">
                         @else
                             <img class="h-auto max-w-full rounded-lg"
@@ -58,7 +58,7 @@
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
                             <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
-                            <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
+                            <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
                             <form action="{{ route('payment') }}" method="GET">
                                 <x-text-input type="text" hidden value="{{ $kost->id }}"
                                     name="id"></x-text-input>
@@ -107,10 +107,10 @@
                         <div class="max-w-full rounded-lg md:mx-4 md:mt-0">
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Deskripsi :
                             </h2>
-                            <p class="text-gray-500 dark:text-gray-400">{{ $kost->deskripsi }}</p>
+                            <p class="text-gray-500 dark:text-gray-300">{{ $kost->deskripsi }}</p>
                             <h2 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">Fasilitas :
                             </h2>
-                            <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-400">
+                            <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-300">
                                 @foreach ($kost->fasilitas()->get() as $fasilitas)
                                     <li class="flex items-center">
                                         <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
