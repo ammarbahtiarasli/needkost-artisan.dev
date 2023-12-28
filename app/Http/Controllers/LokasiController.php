@@ -21,6 +21,20 @@ class LokasiController extends Controller
         return view('lokasi.index', compact('kosts', 'provinsis', 'kotas'));
     }
 
+    public function getKota(Request $request)
+    {
+        $id_provinsi = $request->id_provinsi;
+        $kotas = Kota::where('provinsis_id', $id_provinsi)->get();
+
+        $options = '<option selected disabled>Pilih Kota/Kab</option>';
+
+        foreach ($kotas as $kota) {
+            $options .= "<option value='$kota->id'>$kota->nama</option>";
+        }
+
+        return response()->json(['options' => $options]);
+    }
+
     private function getProvinsis()
     {
         return Provinsi::all();
