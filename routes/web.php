@@ -33,7 +33,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/help', [HomeController::class, 'help'])->name('help');
 
 // Route untuk kamar kost
-Route::get('/kosts', [KostController::class, 'index'])->name('kost.index');
+Route::get('/kosts', [KostController::class, 'index'])->name('kosts.index');
 Route::get('/kost/detail/{kost}', [KostController::class, 'detail'])->name('kost.detail');
 Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi');
 Route::get('/lokasi/kota', [LokasiController::class, 'kotas'])->name('kotas');
@@ -54,6 +54,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment', [KostController::class, 'payment'])->name('payment');
     Route::get('/riwayat', [KostController::class, 'history'])->name('history');
     Route::get('/invoice/{invoice}', [KostController::class, 'invoice'])->name('invoice');
+    Route::get('/print/{invoice}', [KostController::class, 'print'])->name('invoice.print');
+});
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    // Route untuk Pengguna
+    Route::get('/user', [DashboardUserController::class, 'index'])->name('user.index');
+    Route::post('/user', [DashboardUserController::class, 'store'])->name('user.store');
+    Route::get('/user/{user}', [DashboardUserController::class, 'show'])->name('user.show');
+    Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
 });
 
 // Route untuk dashboard kamar kost
@@ -68,12 +77,6 @@ Route::middleware(['auth', 'role'])->group(function () {
     // Route untuk dashboard Lokasi
     Route::get('/lokasi/table', [DashboardLokasiController::class, 'index'])->name('lokasi.index');
     Route::get('/lokasi/table/{provinsi}', [DashboardLokasiController::class, 'perProvinsi'])->name('lokasi.provinsi');
-
-    // Route untuk Pengguna
-    Route::get('/user', [DashboardUserController::class, 'index'])->name('user.index');
-    Route::post('/user', [DashboardUserController::class, 'store'])->name('user.store');
-    Route::get('/user/{user}', [DashboardUserController::class, 'show'])->name('user.show');
-    Route::delete('/user/{user}', [DashboardUserController::class, 'destroy'])->name('user.destroy');
 });
 
 require __DIR__ . '/auth.php';

@@ -14,16 +14,34 @@
             <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
         </x-slot>
-        <x-slot name="provin">
-            @foreach ($provinsis as $provins)
-            {{ $provins->nama }}#
-            @endforeach
-        </x-slot>
-        <x-slot name="kot">
-            @foreach ($kotas as $kots)
-            {{ $kots->nama }}#
-            @endforeach
-        </x-slot>
+        <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
+            <div class="grid grid-cols-2 w-xl gap-x-3">
+                <div class="w-full">
+                    <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
+                        <option selected disabled>Pilih Provinsi</option>
+                        @foreach (explode('#', $provin) as $provinsi)
+                        @if ($provinsi == '')
+                        @break
+                        @endif
+                        <option value="{{ $provinsi }}">{{ $provinsi }}</option>
+                        @endforeach
+                    </x-select>
+                    <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
+                </div>
+                <div class="w-full">
+                    <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
+                        <option selected disabled>Pilih Kota/Kab</option>
+                        @foreach (explode('#', $kot) as $kota)
+                        @if ($kota == '')
+                        @break
+                        @endif
+                        <option value="{{ $kota }}">{{ $kota }}</option>
+                        @endforeach
+                    </x-select>
+                    <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
+                </div>
+            </div>
+        </div>
     </x-head-minimal>
 
     <div class="container py-6 mx-auto">

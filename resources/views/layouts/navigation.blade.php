@@ -21,9 +21,11 @@
                     <x-nav-link :href="route('lokasi.index')" :active="request()->routeIs('lokasi.index', 'lokasi.show')">
                         {{ __('Lokasi') }}
                     </x-nav-link>
+                    @if(Auth::user()->role->nama === 'Admin')
                     <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.index', 'user.show')">
                         {{ __('Pengguna') }}
                     </x-nav-link>
+                    @endif
                 </div>
             </div>
 

@@ -67,6 +67,9 @@
                         @endforeach
                     </div>
                 @endif
+                <div class="container flex justify-end mt-8">
+                    <x-primary-a href="/lokasi">Lihat kamar lainnya</x-primary-a>
+                </div>
             </section>
         </div>
     </div>
@@ -97,7 +100,7 @@
                     @endforeach
                 </div>
             </section>
-            <div class="container flex justify-center">
+            <div class="container flex justify-end">
                 <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>
             </div>
         </div>
