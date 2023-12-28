@@ -44,7 +44,7 @@ class KostController extends Controller
         Riwayat::query()->where('status', 'pending')->delete();
 
         $kost = Kost::find($kost->id);
-        $other = Kost::where('id', '!=', $kost->id)->get();
+        $other = Kost::where('id', '!=', $kost->id)->inRandomOrder()->paginate(3);
         return view('kost.detail-kost', compact('kost', 'other'));
     }
 

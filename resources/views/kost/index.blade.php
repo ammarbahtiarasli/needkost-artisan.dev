@@ -49,13 +49,22 @@
                                 {{ $k->alamat }}
                             </x-slot>
                             <x-slot name="fasilitas">
-                                @foreach ($k->fasilitas()->get() as $fasilitas)
-                                    {{ $fasilitas->nama }}
-                                    @if ($loop->last)
-                                    @break
-                                @endif
-                                ,
-                            @endforeach
+                                @if (count($k->fasilitas()->get()) == 0)
+                                            Tidak ada fasilitas tambahan
+                                        @else
+                                            @foreach ($k->fasilitas()->get() as $fasilitas)
+                                            {{ $fasilitas->nama }}
+                                            @if($loop->index > 2)
+                                            ...
+                                            @break
+
+                                            @endif
+                                            @if($loop->last)
+                                            @break
+                                            @endif
+                                            ,
+                                            @endforeach
+                                        @endif
                         </x-slot>
                         <x-slot name="harga">
                             Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
