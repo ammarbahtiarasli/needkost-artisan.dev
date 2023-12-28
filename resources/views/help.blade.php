@@ -30,119 +30,122 @@
                     </div>
                 </div>
             </div>
+
+{{-- BATAS SUCI --}}
+
             <div class="space-y-10 sm:space-y-14">
-                <h1
-                    class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-                    Paling Sering Dicari</h1>
+                <div class="w-1/2">
+                </div>
             </div>
         </div>
     </div>
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Akun pemilik</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <img class="h-8 w-8" src="https://i.pinimg.com/originals/ee/79/2b/ee792b23230f5071ba8a105cddc592af.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Lupa Password?</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Panduan Keamanan</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <img class="h-8 w-8" src="https://i.pinimg.com/564x/9d/24/0c/9d240c635b387997e32ddb20a9e36f9f.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Bagaimana Transaksi Saya Aman Di NeedKost?</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Produk dan Fitur untuk Penyewaan</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <img class="h-8 w-8" src="https://i.pinimg.com/564x/3f/6c/b5/3f6cb5434714ce1c2da01a8d35466559.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Mengapa percakapan saya dengan pemilik kos di chat hilang?</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-           Kebijakan NeedKost</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <img class="h-8 w-8" src="https://i.pinimg.com/564x/9f/e1/f8/9fe1f86b8750210be476be0238c68a9e.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Kebijakan Privasi NeedKost</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-           Akun Penyewa</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <img class="h-8 w-8" src="https://i.pinimg.com/564x/9d/24/0c/9d240c635b387997e32ddb20a9e36f9f.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Saya lupa password akun penyewa, apa yang harus saya lakukan?</h1>
-    </div>
-    <div class="space-y-2 sm:space-y-3">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-
-    <div class="space-y-10 sm:space-y-14">
-        <h1
-            class="text-xl mt-8 font-semibold leading-none tracking-tight text-gray-900">
-           Syarat dan Ketentuan</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-14">
-        <div class="w-1/2">
+    <div class="space-y-10 sm:space-y-14 mx-20">
+        <div class="space-y-10 sm:space-y-14">
+          <h1 class="text-4xl mt-8 font-semibold leading-none tracking-tight text-gray-900">Paling Sering Dicari</h1>
         </div>
-        <img class="h-8 w-8" src="https://i.pinimg.com/564x/d3/dd/22/d3dd22232e921196b5eac4d3d3cf4fbc.jpg" alt="">
-        <h1
-            class="text-xl mt-8 Saya aman di NeedKost?font-semibold leading-none tracking-tight text-gray-900">
-            Syarat dan ketentuan umum</h1>
-    </div>
-    <div class="space-y-10 sm:space-y-10">
-        <h1
-            class="text-sm mt-8 font-semibold leading-none tracking-tight text-gray-900">
-            Selengkapnya</h1>
-    </div>
-</div>
+        <div class="grid grid-cols-3 gap-5">
+          <!-- Section 1: Akun Pemilik -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Akun Pemilik</h1>
+                <h1 class="text-xl font-light">Lupa Password Akun Pemilik? </h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+          <!-- Section 2: Panduan Keamanan -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
+                  </svg>
+
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Panduan Keamanan</h1>
+                <h1 class="text-xl font-light">Bagaimana Transaksi Saya Aman Di NeedKost?</h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+          <!-- Section 3: Produk dan Fitur untuk Penyewa -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Zm0 3h.008v.008h-.008v-.008Z" />
+                  </svg>
+
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Produk dan Fitur untuk
+                  Penyewa</h1>
+                <h1 class="text-xl font-light">Mengapa Chat Saya dengan Pemilik Kos Hilang?</h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+          <!-- Section 4: Kebijakan NeedKost -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />
+                  </svg>
+
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Kebijakan NeedKost</h1>
+                <h1 class="text-xl font-light">Kebijakan Privasi NeedKost </h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+          <!-- Section 5: Akun Penyewa -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                  stroke="currentColor" class="w-6 h-6">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Akun Penyewa</h1>
+                <h1 class="text-xl font-light">Saya Lupa Password Akun Penyewa?</h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+          <!-- Section 6: Syarat dan Ketentuan -->
+          <div class="flex flex-col items-center space-y-10 sm:space-y-14 text-center w-full h-40">
+            <div class="flex h-full">
+              <div class="w-1/6 flex justify-center h-full ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                  </svg>
+
+              </div>
+              <div class="w-5/6 flex flex-col gap-2 text-left ">
+                <h1 class="text-md font-bold text-gray-800 hover:text-gray-400 transition-all">Syarat dan Ketentuan</h1>
+                <h1 class="text-xl font-light">Syarat dan Ketentuan Umum</h1>
+                <h1 class="text-sm text-gray-400 font-bold">Selengkapnya </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 
 
