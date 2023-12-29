@@ -44,21 +44,47 @@
 </div>
 </x-head-minimal>
 
-<div class="container py-6 mx-auto">
-<div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-    <div class="space-y-10 sm:space-y-6">
-        <div class="mb-6">
-            <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Hasil Pencarian</h2>
-            <p class="text-sm dark:text-gray-300 text-muted-foreground">234 kamar kost.</p>
+    <!-- Add this meta tag to your HTML file -->
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+
+ <!-- Include jQuery -->
+ <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+<!-- Your HTML code -->
+<div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
+    <div class="grid grid-cols-2 w-xl gap-x-3">
+        <div class="w-full">
+            <select class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 rounded-md shadow-sm block w-full mt-1" id="provinsi" name="provinsi" required="required">
+                <option selected disabled>Pilih Provinsi</option>
+                @foreach ($provinsis as $provinsi)
+                    <option value="{{ $provinsi->id }}">{{ $provinsi->nama }}</option>
+                @endforeach
+            </select>
         </div>
-        @if ($kosts->count() == 0)
-            <div class="flex items-center justify-center w-full">
-                <p class="mt-4 text-lg text-rose-400">Tidak ada rekomendasi kamar kost.</p>
-            </div>
-        @else
-            <div
-                class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
-                @foreach ($kosts as $k)
+        <div class="w-full">
+            <select class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-sky-500 dark:focus:border-sky-600 focus:ring-sky-500 dark:focus:ring-sky-600 rounded-md shadow-sm block w-full mt-1" id="kota" name="kota" required="required">
+                <option selected disabled>Pilih Kota/Kab</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+    <div class="container py-6 mx-auto">
+        <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="space-y-10 sm:space-y-6">
+                <div class="mb-6">
+                    <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Hasil Pencarian</h2>
+                    <p class="text-sm dark:text-gray-300 text-muted-foreground">{{ $kosts->count() }} kamar kost.</p>
+                </div>
+                @if ($kosts->count() == 0)
+                    <div class="flex items-center justify-center w-full">
+                        <p class="mt-4 text-lg text-rose-400">Tidak ada rekomendasi kamar kost.</p>
+                    </div>
+                @else
+                <div
+                    class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+                    @foreach ($kosts as $k)
                     <x-card>
                         <x-slot name="id">
                             {{ $k->id }}
@@ -120,6 +146,35 @@
 </div>
 </div>
 </div>
+
+
+    <script>
+    jQuery.noConflict();
+
+    jQuery(function ($) {
+        $.ajaxSetup({
+            headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        });
+
+        $('#provinsi').on('change', function () {
+            let id_provinsi = $(this).val();
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('lokasi') }}",
+                data: { id_provinsi: id_provinsi },
+                cache: false,
+
+                success: function (data) {
+                    $('#kota').html(data.options);
+                },
+                error: function (xhr, status, error) {
+                    console.error('AJAX error:', status, error);
+                },
+            })
+        });
+    });
+    </script>
 
 @include('layouts.footer')
 </x-guest-layout>
