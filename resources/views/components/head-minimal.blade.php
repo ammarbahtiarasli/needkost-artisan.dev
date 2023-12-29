@@ -4,8 +4,7 @@
         {{ $title }}
         {{ $desc }}
     </div>
-    <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
-    </div>
+    {{ $slot }}
     <div class="w-full h-full bg-gradient-to-b from-sky-50 to-transparent dark:from-sky-900">
     </div>
 </div>
