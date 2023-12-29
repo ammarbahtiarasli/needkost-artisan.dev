@@ -14,17 +14,35 @@
             <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
         </x-slot>
-        <x-slot name="provin">
-            @foreach ($provinsis as $provins)
-            {{ $provins->nama }}#
-            @endforeach
-        </x-slot>
-        <x-slot name="kot">
-            @foreach ($kotas as $kots)
-            {{ $kots->nama }}#
-            @endforeach
-        </x-slot>
-    </x-head-minimal>
+        <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
+            <div class="grid grid-cols-2 w-xl gap-x-3">
+                <div class="w-full">
+                    <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
+                        <option selected disabled>Pilih Provinsi</option>
+                        @foreach (explode('#', $provin) as $provinsi)
+                            @if ($provinsi == '')
+                            @break
+                        @endif
+                        <option value="{{ $provinsi }}">{{ $provinsi }}</option>
+                    @endforeach
+                </x-select>
+                <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
+            </div>
+            <div class="w-full">
+                <x-select id="provinsi" name="provinsi" class="block w-full mt-1" required>
+                    <option selected disabled>Pilih Kota/Kab</option>
+                    @foreach (explode('#', $kot) as $kota)
+                        @if ($kota == '')
+                        @break
+                    @endif
+                    <option value="{{ $kota }}">{{ $kota }}</option>
+                @endforeach
+            </x-select>
+            <x-input-error class="mt-2" :messages="$errors->get('provinsi')" />
+        </div>
+    </div>
+</div>
+</x-head-minimal>
 
     <!-- Add this meta tag to your HTML file -->
 <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -73,9 +91,9 @@
                         </x-slot>
                         <x-slot name="photo">
                             @if ($k->photo()->exists())
-                            {{ asset('storage/' . $k->photo()->get()->first()->photo) }}
+                                {{ asset('storage/' .$k->photo()->get()->first()->photo) }}
                             @else
-                            https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
+                                https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg
                             @endif
                         </x-slot>
                         <x-slot name="jenis">
@@ -88,38 +106,46 @@
                             {{ $k->alamat }}
                         </x-slot>
                         <x-slot name="fasilitas">
-                            @foreach ($k->fasilitas()->get() as $fasilitas)
-                                {{ $fasilitas->nama }}
+                            @if (count($k->fasilitas()->get()) == 0)
+                                Tidak ada fasilitas tambahan
+                            @else
+                                @foreach ($k->fasilitas()->get() as $fasilitas)
+                                    {{ $fasilitas->nama }}
+                                    @if ($loop->index > 2)
+                                        ...
+                                    @break
+                                @endif
                                 @if ($loop->last)
                                 @break
                             @endif
                             ,
-                            @endforeach
-                        </x-slot>
-                        <x-slot name="harga">
-                            Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
-                        </x-slot>
-                        <x-slot name="url">
-                            <a href="{{ route('kost.detail', $k->id) }}"
-                                class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
-                                <span class="mr-6">Selengkapnya</span>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
-                                    <path
-                                    d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
-                                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                                    </svg>
-                            </a>
-                        </x-slot>
-                    </x-card>
-                    @endforeach
-                </div>
-                @endif
-            </div>
-        </div>
+                        @endforeach
+                    @endif
+                </x-slot>
+                <x-slot name="harga">
+                    Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
+                </x-slot>
+                <x-slot name="url">
+                    <a href="{{ route('kost.detail', $k->id) }}"
+                        class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
+                        <span class="mr-6">Selengkapnya</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
+                            <path
+                                d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
+                                stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                        </svg>
+                    </a>
+                </x-slot>
+            </x-card>
+        @endforeach
     </div>
+@endif
+</div>
+</div>
+</div>
 
 
     <script>
@@ -150,6 +176,5 @@
     });
     </script>
 
-
-    @include('layouts.footer')
-</x-guest-layout> 
+@include('layouts.footer')
+</x-guest-layout>

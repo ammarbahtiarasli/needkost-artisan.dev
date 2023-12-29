@@ -16,7 +16,8 @@ class KostController extends Controller
      */
     public function index()
     {
-        return view('kost.index');
+        $kosts = Kost::paginate(6);
+        return view('kost.index', compact('kosts'));
     }
 
     /**
@@ -43,7 +44,7 @@ class KostController extends Controller
         Riwayat::query()->where('status', 'pending')->delete();
 
         $kost = Kost::find($kost->id);
-        $other = Kost::where('id', '!=', $kost->id)->get();
+        $other = Kost::where('id', '!=', $kost->id)->inRandomOrder()->paginate(3);
         return view('kost.detail-kost', compact('kost', 'other'));
     }
 
@@ -93,6 +94,8 @@ class KostController extends Controller
             'status' => 'pending',
             'nomor_invoice' => 'INV-' . $id_riwayat . '-' . date('dmy'),
         );
+
+        Riwayat::query()->where('status', 'pending')->delete();
 
         Riwayat::create([
             'nomor_invoice' => $sewa['nomor_invoice'],
@@ -147,6 +150,13 @@ class KostController extends Controller
         return view('kost.invoice', compact('riwayat'));
     }
 
+    public function print($invoice)
+    {
+        $riwayat = Riwayat::where('nomor_invoice', $invoice)->first();
+
+        return view('kost.pdf', compact('riwayat'));
+    }
+
     public function callback(Request $request)
     {
         $serverKey = config('midtrans.server_key');
@@ -159,6 +169,7 @@ class KostController extends Controller
 
     public function history()
     {
+        Riwayat::query()->where('status', 'pending')->delete();
         $riwayat = Riwayat::where('user_id', auth()->user()->id)->get();
         return view('kost.riwayat', compact('riwayat'));
     }

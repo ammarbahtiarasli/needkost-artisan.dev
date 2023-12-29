@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $kost = Kost::all();
+        $kost = Kost::inRandomOrder()->paginate(6);
         $kota = array(
             'Bandung',
             'Jakarta',

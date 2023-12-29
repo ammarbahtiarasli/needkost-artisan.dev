@@ -7,9 +7,9 @@
 
     @if (session()->has('success'))
         <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-gray-800 sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-gray-100">
-                        {{ __(session('success')) }}
+            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-emerald-400/80 sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-white">
+                    {{ __(session('success')) }}
                 </div>
             </div>
         </div>
@@ -48,95 +48,93 @@
                     </div>
                 </div>
 
-                @if ($kosts->count() > 0)
-                    <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                            <tr>
-                                <th scope="col" class="px-16 py-3">
-                                    <span class="sr-only">Image</span>
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Nama Kost
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Alamat
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Fasilitas
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    Harga
-                                </th>
-                                <th scope="col" class="px-6 py-3">
-                                    <span class="sr-only">Aksi</span>
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            @foreach ($kosts as $kost)
-                                <tr
-                                    class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                    <th class="p-4">
-                                        @if ($kost->photo()->exists())
-                                        <img src="{{ asset('storage/' . $kost->photo()->get()->first()->photo) }}"
-                                            class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
-                                        @else
-                                        <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
-                                            class="w-16 max-w-full max-h-full rounded-lg md:w-32" alt="image">
-                                        @endif
+                @if (Auth::user()->role->nama === 'Admin')
+                    @if ($kosts->count() > 0)
+                        <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-16 py-3">
+                                        <span class="sr-only">Image</span>
                                     </th>
-                                    <th scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                        {{ $kost->nama }}
+                                    <th scope="col" class="px-6 py-3">
+                                        Nama Kost
                                     </th>
-                                    <td class="px-6 py-4">
-                                        {{ $kost->alamat }}
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        @foreach ($kost->fasilitas()->get() as $fasilitas)
-                                        {{ $fasilitas->nama }}
-                                        @if ($loop->last)
-                                            @break
-                                        @endif
-                                        ,
-                                        @endforeach
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <x-dropdown align="right" width="48">
-                                            <x-slot name="trigger">
-                                                <button
-                                                    class="inline-flex items-center px-3 py-2 text-sm font-medium leading-4 text-gray-600 transition duration-150 ease-in-out border border-transparent rounded-md bg-sky-200/80 dark:text-gray-400 dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none">
-                                                    <div>Detail</div>
-                                                    <div class="ms-1">
-                                                        <svg class="w-4 h-4 fill-current"
-                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                                            <path fill-rule="evenodd"
-                                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                                clip-rule="evenodd" />
-                                                        </svg>
-                                                    </div>
-                                                </button>
-                                            </x-slot>
-                                            <x-slot name="content" class="z-50">
-                                                <x-dropdown-link :href="route('kost.show', $kost->id)">
-                                                    {{ __('Lihat') }}
-                                                </x-dropdown-link>
-                                                <x-dropdown-link :href="route('kost.edit', $kost->id)">
-                                                    {{ __('Ubah') }}
-                                                </x-dropdown-link>
-                                                <x-dropdown-link x-data=""
-                                                    x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}</x-dropdown-link>
-
-
-                                                {{-- </form> --}}
-                                            </x-slot>
-                                        </x-dropdown>
-                                    </td>
+                                    <th scope="col" class="px-6 py-3">
+                                        Pemilik Kost
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Harga perbulan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Terakhir diubah
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        <span class="sr-only">Aksi</span>
+                                    </th>
                                 </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach ($kosts as $kost)
+                                    <tr
+                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <th class="p-4">
+                                            @if ($kost->photo()->exists())
+                                                <img src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    alt="image">
+                                            @else
+                                                <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    alt="image">
+                                            @endif
+                                        </th>
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap dark:text-gray-200">
+                                            {{ $kost->nama }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ $kost->user->nama }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $kost->updated_at->diffForHumans() }}
+                                        </td>
+
+                                        <td class="px-6 py-4 text-right">
+                                            <x-dropdown align="right" width="48">
+                                                <x-slot name="trigger">
+                                                    <x-sky-button>
+                                                        <div>Detail</div>
+                                                        <div class="ms-1">
+                                                            <svg class="w-4 h-4 fill-current"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </div>
+                                                    </x-sky-button>
+                                                </x-slot>
+                                                <x-slot name="content" class="z-50">
+                                                    <x-dropdown-link :href="route('kost.show', $kost->id)">
+                                                        {{ __('Lihat') }}
+                                                    </x-dropdown-link>
+                                                    <x-dropdown-link :href="route('kost.edit', $kost->id)">
+                                                        {{ __('Ubah') }}
+                                                    </x-dropdown-link>
+                                                    <x-dropdown-link x-data=""
+                                                        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}
+                                                    </x-dropdown-link>
+                                                    {{-- </form> --}}
+                                                </x-slot>
+                                            </x-dropdown>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 <x-modal name="confirm-user-deletion" focusable>
                                     <form method="post" action="{{ route('kost.destroy', $kost->id) }} class="p-6">
                                         @csrf
@@ -145,12 +143,10 @@
                                             <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
                                                 {{ __('Apakah kamu yakin ingin menghapus kost ini?') }}
                                             </h2>
-
                                             <div class="flex justify-end mt-6">
                                                 <x-secondary-button x-on:click="$dispatch('close')">
                                                     {{ __('Batal') }}
                                                 </x-secondary-button>
-
                                                 <x-danger-button class="ms-3">
                                                     {{ __('Hapus Kost') }}
                                                 </x-danger-button>
@@ -158,13 +154,127 @@
                                         </div>
                                     </form>
                                 </x-modal>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="p-6 font-semibold text-center text-rose-500">
+                            {{ __('Data Kamar Kost tidak ada.') }}
+                        </div>
+                    @endif
                 @else
-                    <div class="p-6 font-semibold text-center text-rose-500">
-                        {{ __('Data Kamar Kost tidak ada.') }}
-                    </div>
+                    @if ($kosts->count() > 0)
+                        <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-16 py-3">
+                                        <span class="sr-only">Image</span>
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Nama Kost
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Harga perbulan
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Kamar yang tersedia
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Terakhir diubah
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        <span class="sr-only">Aksi</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                @foreach ($kosts as $kost)
+                                    <tr
+                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                        <th class="p-4">
+                                            @if ($kost->photo()->exists())
+                                                <img src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    alt="image">
+                                            @else
+                                                <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    alt="image">
+                                            @endif
+                                        </th>
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap dark:text-gray-200">
+                                            {{ $kost->nama }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $kost->kamar_tersedia . ' Kamar' }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            {{ $kost->updated_at->diffForHumans() }}
+                                        </td>
+
+                                        <td class="px-6 py-4 text-right">
+                                            <x-dropdown align="right" width="48">
+                                                <x-slot name="trigger">
+                                                    <x-sky-button>
+                                                        <div>Detail</div>
+                                                        <div class="ms-1">
+                                                            <svg class="w-4 h-4 fill-current"
+                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                viewBox="0 0 20 20">
+                                                                <path fill-rule="evenodd"
+                                                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                                    clip-rule="evenodd" />
+                                                            </svg>
+                                                        </div>
+                                                    </x-sky-button>
+                                                </x-slot>
+                                                <x-slot name="content" class="z-50">
+                                                    <x-dropdown-link :href="route('kost.show', $kost->id)">
+                                                        {{ __('Lihat') }}
+                                                    </x-dropdown-link>
+                                                    <x-dropdown-link :href="route('kost.edit', $kost->id)">
+                                                        {{ __('Ubah') }}
+                                                    </x-dropdown-link>
+                                                    <x-dropdown-link x-data=""
+                                                        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}
+                                                    </x-dropdown-link>
+                                                    {{-- </form> --}}
+                                                </x-slot>
+                                            </x-dropdown>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <x-modal name="confirm-user-deletion" focusable>
+                                    <form method="post" action="{{ route('kost.destroy', $kost->id) }} class="p-6">
+                                        @csrf
+                                        @method('delete')
+                                        <div class="container p-6">
+                                            <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                                                {{ __('Apakah kamu yakin ingin menghapus kost ini?') }}
+                                            </h2>
+                                            <div class="flex justify-end mt-6">
+                                                <x-secondary-button x-on:click="$dispatch('close')">
+                                                    {{ __('Batal') }}
+                                                </x-secondary-button>
+                                                <x-danger-button class="ms-3">
+                                                    {{ __('Hapus Kost') }}
+                                                </x-danger-button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </x-modal>
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="p-6 font-semibold text-center text-rose-500">
+                            {{ __('Data Kamar Kost tidak ada.') }}
+                        </div>
+                    @endif
                 @endif
 
                 {{-- pagination --}}

@@ -38,13 +38,22 @@
                                         {{ $k->alamat }}
                                     </x-slot>
                                     <x-slot name="fasilitas">
-                                        @foreach ($k->fasilitas()->get() as $fasilitas)
+                                        @if (count($k->fasilitas()->get()) == 0)
+                                            Tidak ada fasilitas tambahan
+                                        @else
+                                            @foreach ($k->fasilitas()->get() as $fasilitas)
                                             {{ $fasilitas->nama }}
-                                            @if ($loop->last)
+                                            @if($loop->index > 2)
+                                            ...
                                             @break
+
+                                            @endif
+                                            @if($loop->last)
+                                            @break
+                                            @endif
+                                            ,
+                                            @endforeach
                                         @endif
-                                        ,
-                                    @endforeach
                                 </x-slot>
                                 <x-slot name="harga">
                                     Rp {{ number_format($k->harga_per_bulan, 0, ',', '.') }}
@@ -67,6 +76,9 @@
                         @endforeach
                     </div>
                 @endif
+                <div class="container flex justify-end mt-8">
+                    <x-primary-a href="/kosts">Lihat kamar lainnya</x-primary-a>
+                </div>
             </section>
         </div>
     </div>
@@ -97,7 +109,7 @@
                     @endforeach
                 </div>
             </section>
-            <div class="container flex justify-center">
+            <div class="container flex justify-end">
                 <x-primary-a href="/lokasi">Lihat semua kota</x-primary-a>
             </div>
         </div>

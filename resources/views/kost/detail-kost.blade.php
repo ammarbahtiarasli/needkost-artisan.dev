@@ -11,7 +11,7 @@
                 <div class="grid w-1/2 gap-4">
                     <div>
                         @if ($kost->photo()->exists())
-                            <img class="h-auto max-w-full rounded-lg"
+                            <img class="h-full rounded-lg aspect-[16/9] object-cover"
                                 src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}" alt="">
                         @else
                             <img class="h-auto max-w-full rounded-lg"
@@ -58,7 +58,7 @@
                         </h2>
                         <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
                             <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
-                            <hr class="h-px mt-6 mb-6 bg-gray-200 border-0 dark:bg-gray-700">
+                            <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
                             <form action="{{ route('payment') }}" method="GET">
                                 <x-text-input type="text" hidden value="{{ $kost->id }}"
                                     name="id"></x-text-input>
@@ -85,8 +85,8 @@
                     </div>
                 </div>
             </div>
-            <div class="container p-6 my-6 bg-white rounded-lg dark:bg-gray-800">
-                <div class="w-full pb-6 space-y-8 lg:block lg:pb-12 top-28">
+            <div class="container px-6 pt-6 my-6 bg-white rounded-lg dark:bg-gray-800">
+                <div class="w-full pb-3 space-y-8 lg:block lg:pb-6 top-28">
                     <div>
                         <div class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Dikelola oleh :</div>
                         <a class="flex group" href="#" target="_blank" rel="noopener noreferrer">
@@ -107,32 +107,37 @@
                         <div class="max-w-full rounded-lg md:mx-4 md:mt-0">
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Deskripsi :
                             </h2>
-                            <p class="text-gray-500 dark:text-gray-400">{{ $kost->deskripsi }}</p>
+                            <p class="text-gray-500 dark:text-gray-300">{{ $kost->deskripsi }}</p>
                             <h2 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">Fasilitas :
                             </h2>
-                            <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-400">
-                                @foreach ($kost->fasilitas()->get() as $fasilitas)
-                                    <li class="flex items-center">
-                                        <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
-                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                                            viewBox="0 0 20 20">
-                                            <path
-                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
-                                        </svg>
-                                        {{ $fasilitas->nama }}
-                                    </li>
-                                @endforeach
+                            <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-300">
+                                @if (count($kost->fasilitas()->get()) == 0)
+                                    Tidak ada fasilitas tambahan
+                                @else
+                                    @foreach ($kost->fasilitas()->get() as $fasilitas)
+                                        <li class="flex items-center">
+                                            <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0"
+                                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="currentColor" viewBox="0 0 20 20">
+                                                <path
+                                                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                            </svg>
+                                            {{ $fasilitas->nama }}
+                                        </li>
+                                    @endforeach
+
+                                @endif
                             </ul>
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Lokasi dan Lingkungan
                                 sekitar :
                             </h2>
                             <p class="dark:text-gray-200">{{ $kost->alamat }}</p>
-                            {{-- <div class="flex min-w-full">
-                                <iframe class="mt-3 mb-1 rounded-lg h-96"
+                            <div class="flex min-w-full">
+                                <iframe class="mt-3 mb-1 rounded-lg h-96 w-full"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid"
                                     loading="lazy"></iframe>
                             </div>
-                            <p class="dark:text-gray-200">*data maps dummy</p> --}}
+                            <p class="dark:text-gray-200">*data maps dummy</p>
                         </div>
                     </div>
                 </div>
@@ -168,38 +173,46 @@
                                     {{ $ok->alamat }}
                                 </x-slot>
                                 <x-slot name="fasilitas">
-                                    @foreach ($ok->fasilitas()->get() as $fasilitas)
-                                        {{ $fasilitas->nama }}
+                                    @if (count($ok->fasilitas()->get()) == 0)
+                                        Tidak ada fasilitas tambahan
+                                    @else
+                                        @foreach ($ok->fasilitas()->get() as $fasilitas)
+                                            {{ $fasilitas->nama }}
+                                            @if ($loop->index > 2)
+                                                ...
+                                            @break
+                                        @endif
                                         @if ($loop->last)
                                         @break
                                     @endif
                                     ,
                                 @endforeach
-                            </x-slot>
-                            <x-slot name="harga">
-                                Rp {{ number_format($ok->harga_per_bulan, 0, ',', '.') }}
-                            </x-slot>
-                            <x-slot name="url">
-                                <a href="#"
-                                    class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
-                                    <span class="mr-6">Selengkapnya</span>
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
-                                        <path
-                                            d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
-                                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                                            stroke-linejoin="round"></path>
-                                    </svg>
-                                </a>
-                            </x-slot>
-                        </x-card>
-                    @endforeach
-                </div>
+                            @endif
+                        </x-slot>
+                        <x-slot name="harga">
+                            Rp {{ number_format($ok->harga_per_bulan, 0, ',', '.') }}
+                        </x-slot>
+                        <x-slot name="url">
+                            <a href="#"
+                                class="relative inline-flex items-center justify-center h-10 px-4 py-2 text-sm font-medium transition-colors border rounded-md lg: bg-emerald-200/80 dark:border-none dark:text-gray-200 dark:bg-emerald-600/90 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-emerald -200-foreground hover:bg-emerald -200/80 dark:hover:bg-emerald-700/80 group">
+                                <span class="mr-6">Selengkapnya</span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="absolute right-0 mr-4 !h-4 shrink-0 !stroke-2 duration-300 group-hover:mr-3">
+                                    <path
+                                        d="M15.2465 5.74628L19.3752 9.87494C20.5468 11.0465 20.5468 12.946 19.3752 14.1176L15.2465 18.2463M19.7465 11.9963H3.74655"
+                                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round"></path>
+                                </svg>
+                            </a>
+                        </x-slot>
+                    </x-card>
+                @endforeach
             </div>
-        @else
-        @endif
-    </div>
+        </div>
+    @else
+    @endif
+</div>
 </div>
 
 
