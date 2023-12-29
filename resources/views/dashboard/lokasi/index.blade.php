@@ -106,6 +106,9 @@
                             {{ __('Pilih Provinsi terlebih dahulu.') }}
                         </div>
                     @endif
+                    <div class="p-6">
+                        {{ $kota->links() }}
+                    </div>
                 </div>
             </div>
 

@@ -22,7 +22,7 @@
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                         {{ __('Beranda') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('kosts.index')" :active="request()->routeIs('history', 'kosts.index')">
+                    <x-nav-link :href="route('kosts.index')" :active="request()->routeIs('history', 'kosts.index', 'kost.detail')">
                         {{ __('Sewa Kost') }}
                     </x-nav-link>
                     <x-nav-link :href="route('lokasi')" :active="request()->routeIs('lokasi', 'provinsi', 'kota')">
