@@ -58,7 +58,7 @@
 
     <div class="px-4 py-4 mx-auto lg:py-12 sm:px-6 md:px-4 lg:max-w-6xl xl:max-w-7xl lg:px-8">
         <div class="flex flex-col p-6 px-0 pt-0">
-            <h4 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Info kost</h3>
+            <h4 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Info kost</h4>
             <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Semua data tentang informasi kost yang sedang disewa</p>
         </div>
         <div class="py-6">
@@ -144,15 +144,15 @@
 
     <div class="px-4 py-4 mx-auto lg:py-12 sm:px-6 md:px-4 lg:max-w-6xl xl:max-w-7xl lg:px-8">
         <div class="flex flex-col p-6 px-0 pt-0">
-            <h4 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Info Pengguna</h3>
-            <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Semua data tentang informasi pengguna yang sedang menyewa kost</p>
+            <h4 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Info Pengguna</h4>
+            <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Semua data pengguna yang sedang menyewa kost</p>
         </div>
         <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="flex p-6 text-gray-900 dark:text-gray-100">
                     <div class="container w-1/2">
-                        <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Pengguna yang sedang menyewa kost
+                        <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Kost yang sedang disewa
                         </h3>
                         <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Data semua pengguna</p>
                     </div>
