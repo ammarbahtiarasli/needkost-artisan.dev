@@ -81,7 +81,7 @@
                 </div>
                 @if ($kosts->count() == 0)
                     <div class="flex items-center justify-center w-full">
-                        <p class="mt-4 text-lg text-rose-400">Tidak ada rekomendasi kamar kost.</p>
+                        <p class="mt-4 text-lg text-rose-400">Tidak ada rekomendasi kamar kost</p>
                     </div>
                 @else
                     <div
