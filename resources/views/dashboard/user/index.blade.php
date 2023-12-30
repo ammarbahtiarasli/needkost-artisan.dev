@@ -51,13 +51,13 @@
                                 <th scope="col" class="px-6 py-3">
                                     Nama
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                     No.HP
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                     Jenis Kelamin
                                 </th>
-                                <th scope="col" class="px-6 py-3">
+                                <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                     Role
                                 </th>
                                 <th scope="col" class="px-6 py-3">
@@ -79,18 +79,18 @@
                                             <div class="font-normal text-gray-500">{{ $user->email }}</div>
                                         </div>
                                     </th>
-                                    <td class="px-6 py-4">
+                                    <td class="hidden px-6 py-4 md:table-cell">
                                         {{ $user->no_hp }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="hidden px-6 py-4 md:table-cell">
                                         {{ $user->gender != null ? $user->gender->nama : '' }}
                                     </td>
-                                    <td class="px-6 py-4">
+                                    <td class="hidden px-6 py-4 md:table-cell">
                                         {{ $user->role != null ? $user->role->nama : '' }}
                                     </td>
                                     <td class="px-6 py-4">
                                         <x-warning-button x-data=""
-                                            href="">{{ __('Edit') }}</x-warning-button>
+                                            href="" class="mb-2">{{ __('Edit') }}</x-warning-button>
                                         <x-danger-button x-data=""
                                             x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')">{{ __('Hapus') }}
                                         </x-danger-button>
@@ -123,6 +123,9 @@
                         {{ __('Data Pengguna tidak ada.') }}
                     </div>
                 @endif
+                <div class="p-6">
+                    {{ __('') }}
+                </div>
             </div>
         </div>
     </div>

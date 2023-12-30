@@ -18,10 +18,10 @@
                           <a :href="route('home')" :active="request()->routeIs('home')" class="hover:underline">Beranda</a>
                       </li>
                       <li class="mb-3">
-                          <a href="#rekomendasi" class="hover:underline">Rekomendasi</a>
+                          <a href="#rekomendasi" class="hover:underline">Sewa Kost</a>
                       </li>
                       <li class="mb-3">
-                          <a :href="route('lokasi')" :active="request()->routeIs('lokasi')" class="hover:underline">Lokasi</a>
+                          <a :href="route('lokasi')" :active="request()->routeIs('lokasi')" class="hover:underline">Berdasarkan Lokasi</a>
                       </li>
                   </ul>
               </div>
@@ -40,7 +40,7 @@
       </div>
       <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
       <div class="sm:flex sm:items-center sm:justify-between">
-          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="#" class="font-semibold hover:underline">Artisan.Dev</a>. All Rights Reserved.
+          <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© {{ date('Y'); }} <a href="#" class="font-semibold hover:underline">Artisan.Dev</a>. Hak cipta dilindungi.
           </span>
       </div>
     </div>
