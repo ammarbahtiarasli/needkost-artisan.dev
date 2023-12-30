@@ -14,7 +14,6 @@
                     <img class="w-8 h-8 me-3" src="{{ asset('icon/logo-needkost.png') }}" alt="">
                     <div class="text-2xl font-semibold tracking-tighter text-foreground dark:text-white">NeedKost_
                     </div>
-                    <span class="sr-only">NeedKost</span>
                 </div>
 
                 <!-- Navigation Links -->
@@ -56,7 +55,6 @@
                                         </svg>
                                     </div>
                                 </button>
-
                             </x-slot>
 
                             <x-slot name="content">
@@ -81,22 +79,20 @@
                                 </form>
                             </x-slot>
                         </x-dropdown>
-                    @else
+                    @endauth
+                @else
+                    @auth
                         <div class="py-6 text-right sm:top-0 sm:right-0">
                             <a href="{{ route('login') }}"
                                 class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors rounded-md bg-sky-200 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-sky-200/80 h-9">Masuk</a>
-                            {{-- @if (Route::has('register'))
-                                <a href="{{ route('register') }}"
-                                    class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors bg-gray-200 rounded-md ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-gray-200/80 h-9">Daftar</a>
-                            @endif --}}
-                        @endauth
-                    </div>
+                        </div>
+                    @endauth
                 @endif
             </div>
 
             <!-- Hamburger -->
             <div class="flex items-center -me-2 sm:hidden">
-                <button @click="open = ! open"
+                <button @click="open = !open"
                     class="inline-flex items-center justify-center p-2 text-gray-400 transition duration-150 ease-in-out rounded-md dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400">
                     <svg class="w-6 h-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{ 'hidden': open, 'inline-flex': !open }" class="inline-flex"
@@ -113,11 +109,14 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Beranda') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('lokasi')" :active="request()->routeIs('kota')">
-                {{ __('Lokasi') }}
+            <x-responsive-nav-link :href="route('kosts.index')" :active="request()->routeIs('history', 'kosts.index', 'kost.detail')">
+                {{ __('Sewa Kost') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('lokasi')" :active="request()->routeIs('lokasi', 'provinsi', 'kota')">
+                {{ __('Berdasarkan Lokasi') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('about')" :active="request()->routeIs('about')">
                 {{ __('Tentang Kami') }}
@@ -131,9 +130,19 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             @if (Route::has('login'))
                 @auth
+                    <div class="px-4">
+                        <div class="text-base font-medium text-gray-800 dark:text-gray-200">{{ Auth::user()->nama }}</div>
+                        <div class="text-sm font-medium text-gray-500">{{ Auth::user()->email }}</div>
+                    </div>
                     <div class="mt-3 space-y-1">
+                        <x-responsive-nav-link :href="route('dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-responsive-nav-link>
                         <x-responsive-nav-link :href="route('profile.edit-guest')">
                             {{ __('Profil') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link :href="route('history')">
+                            {{ __('Riwayat Sewa') }}
                         </x-responsive-nav-link>
 
                         <!-- Authentication -->

@@ -17,7 +17,7 @@
 
     <div class="py-6">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="container mb-6">
+            <div class="container mx-3 mb-6 md:mx-0">
                 <x-primary-a x-data="" :href="route('kost.create')">
                     {{ __('Tambah Kamar Kost') }}
                 </x-primary-a>
@@ -54,19 +54,19 @@
                             <thead
                                 class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                                 <tr>
-                                    <th scope="col" class="px-16 py-3">
+                                    <th scope="col" class="hidden px-16 py-3 md:table-cell">
                                         <span class="sr-only">Image</span>
                                     </th>
                                     <th scope="col" class="px-6 py-3">
                                         Nama Kost
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                         Pemilik Kost
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                         Harga perbulan
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                         Terakhir diubah
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -79,7 +79,7 @@
                                 @foreach ($kosts as $kost)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                                        <th class="p-4">
+                                        <th class="hidden p-4 md:table-cell">
                                             @if ($kost->photo()->exists())
                                                 <img src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}"
                                                     class="w-16 max-w-full max-h-full rounded-lg md:w-32"
@@ -94,13 +94,13 @@
                                             class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap dark:text-gray-200">
                                             {{ $kost->nama }}
                                         </th>
-                                        <td class="px-6 py-4">
+                                        <td class="hidden px-6 py-4 md:table-cell">
                                             {{ $kost->user->nama }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="hidden px-6 py-4 md:table-cell">
                                             Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="hidden px-6 py-4 md:table-cell">
                                             {{ $kost->updated_at->diffForHumans() }}
                                         </td>
 

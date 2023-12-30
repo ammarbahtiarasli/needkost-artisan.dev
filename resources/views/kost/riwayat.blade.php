@@ -16,32 +16,13 @@
                             </h2>
 
                             <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-                                {{ __('Perbarui informasi profil dan alamat email akun Kamu.') }}
+                                {{ __('Semua riwayat sewa akun kamu.') }}
                             </p>
                         </header>
                     </section>
                     <div class="flex w-full py-3">
-                        <div class="container w-1/3">
+                        <div class="container w-full">
                             <div class="container py-3">
-                                <div>
-                                    <a class="flex group" href="#" target="_blank" rel="noopener noreferrer">
-                                        <div class="flex-shrink-0 mr-4">
-                                            <img class="w-12 h-12 duration-300 rounded-full ring-1 group-hover:ring-foreground transitions ring-foreground/10"
-                                                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-                                                alt="foto" loading="lazy" style="opacity: 1;">
-                                        </div>
-                                        <div>
-                                            <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">A Ammar Bahtiar
-                                            </h4>
-                                            <p class="text-normal dark:text-gray-200 text-muted-foreground">Penyewa</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container w-2/3">
-                            <div class="container py-3">
-
                                 <div class="relative overflow-x-auto border dark:border-gray-700 sm:rounded-lg">
                                     @if (!$riwayat->isEmpty())
                                     <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">

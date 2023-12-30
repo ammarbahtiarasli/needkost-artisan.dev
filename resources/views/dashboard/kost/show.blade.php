@@ -5,8 +5,11 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="py-6 md:py-12">
         <div class="container max-w-5xl mx-auto sm:px-6 lg:px-8">
+            <div class="container mx-3 mb-6">
+                <x-primary-a :href="route('kost.index')" class="block md:hidden">Kembali ke daftar kamar</x-primary-a>
+            </div>
             <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 text-gray-900 ms-2 dark:text-gray-100">
                     <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Detail kamar
@@ -15,7 +18,7 @@
                         kost</p>
                 </div>
                 <div class="flex justify-center mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-                    <div class="w-full mb-6">
+                    <div class="w-full mx-6 mb-6 md:mx-0">
                         <img class="object-cover max-w-full mb-6 rounded-lg ratio-16/9"
                             src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
                         <span
@@ -38,7 +41,7 @@
                             </div>
                             <div class="flex flex-col py-3">
                                 <dt class="mb-1 text-gray-400 md:text-lg dark:text-gray-400">Deskripsi</dt>
-                                <p class="font-semibold dark:text-gray-200">{{ $kost->deskripsi }}</p>
+                                <p class="text-sm md:text-normal md:font-semibold dark:text-gray-200">{{ $kost->deskripsi }}</p>
                             </div>
                             <div class="flex flex-col pt-3 mb-2">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Fasilitas</dt>
@@ -75,7 +78,7 @@
                                 </div>
                             </div>
                         </dl>
-                        <x-primary-a :href="route('kost.index')" class="mt-6">Kembali ke daftar kamar</x-primary-a>
+                        <x-primary-a :href="route('kost.index')" class="hidden mt-6 md:inline-block">Kembali ke daftar kamar</x-primary-a>
                     </div>
                 </div>
             </div>

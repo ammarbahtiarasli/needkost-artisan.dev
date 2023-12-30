@@ -7,8 +7,8 @@
 
     <div class="container pt-6 mx-auto">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
-            <div class="flex">
-                <div class="grid w-1/2 gap-4">
+            <div class="block md:flex">
+                <div class="grid grid-cols-1 gap-4 md:w-1/2">
                     <div>
                         @if ($kost->photo()->exists())
                             <img class="h-full rounded-lg aspect-[16/9] object-cover"
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="w-1/2 ms-6">
+                <div class="grid grid-cols-1 mt-6 md:mt-0 md:w-1/2 md:ms-6">
                     <div class="container h-full p-6 bg-white rounded-lg dark:bg-gray-800">
                         <span
                             class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $kost->gender->nama }}</span>
@@ -107,7 +107,7 @@
                         <div class="max-w-full rounded-lg md:mx-4 md:mt-0">
                             <h2 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Deskripsi :
                             </h2>
-                            <p class="text-gray-500 dark:text-gray-300">{{ $kost->deskripsi }}</p>
+                            <p class="text-sm text-gray-500 md:text-base dark:text-gray-300">{{ $kost->deskripsi }}</p>
                             <h2 class="mt-2 text-lg font-semibold text-gray-900 dark:text-white">Fasilitas :
                             </h2>
                             <ul class="max-w-full mb-4 space-y-1 text-gray-500 list-inside dark:text-gray-300">
@@ -133,7 +133,7 @@
                             </h2>
                             <p class="dark:text-gray-200">{{ $kost->alamat }}</p>
                             <div class="flex min-w-full">
-                                <iframe class="mt-3 mb-1 rounded-lg h-96 w-full"
+                                <iframe class="w-full mt-3 mb-1 rounded-lg h-96"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid"
                                     loading="lazy"></iframe>
                             </div>

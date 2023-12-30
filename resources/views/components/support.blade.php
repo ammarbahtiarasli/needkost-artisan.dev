@@ -3,11 +3,11 @@
         <div class="w-full px-4">
             <div class="flex flex-wrap items-center justify-center">
                 <a href="#"
-                    class="mx-4 max-w-[140px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+                    class="mx-4 max-w-[140px] py-4 opacity-60 grayscale dark:grayscale-0 dark:opacity-100 transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Logo.min.svg" alt="Laravel" />
                 </a>
                 <a href="#"
-                    class="mx-4 max-w-[140px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+                    class="mx-4 max-w-[140px] py-4 opacity-60 grayscale dark:grayscale-0 dark:opacity-100 transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
                     <img src="https://seeklogo.com/images/M/midtrans-logo-1D17614A16-seeklogo.com.png"
                         alt="Midtrans" />
                 </a>
