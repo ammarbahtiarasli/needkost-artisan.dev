@@ -76,6 +76,7 @@ Route::middleware(['auth', 'role'])->group(function () {
 
     // Route untuk dashboard Lokasi
     Route::get('/lokasi/table', [DashboardLokasiController::class, 'index'])->name('lokasi.index');
+    Route::get('/lokasi/table/search', [DashboardLokasiController::class, 'search'])->name('lokasi.search');
     Route::get('/lokasi/table/{provinsi}', [DashboardLokasiController::class, 'perProvinsi'])->name('lokasi.provinsi');
 });
 

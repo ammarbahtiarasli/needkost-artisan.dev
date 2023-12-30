@@ -31,9 +31,9 @@
                                                 alt="foto" loading="lazy" style="opacity: 1;">
                                         </div>
                                         <div>
-                                            <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">A Ammar Bahtiar
+                                            <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">{{ Auth::user()->nama }}
                                             </h4>
-                                            <p class="text-normal dark:text-gray-200 text-muted-foreground">Penyewa</p>
+                                            <p class="text-normal dark:text-gray-200 text-muted-foreground">{{ Auth::user()->role->nama }}</p>
                                         </div>
                                     </a>
                                 </div>

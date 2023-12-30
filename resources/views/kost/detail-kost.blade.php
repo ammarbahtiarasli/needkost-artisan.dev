@@ -56,32 +56,64 @@
                                 (Bulan
                                 Pertama)</span>
                         </h2>
-                        <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">Tersisa
-                            <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
-                            <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
-                            <form action="{{ route('payment') }}" method="GET">
-                                <x-text-input type="text" hidden value="{{ $kost->id }}"
-                                    name="id"></x-text-input>
-                                <div class="flex justify-around">
-                                    <x-input-label for="tglMulaiSewa" :value="__('Pilih tanggal mulai sewa')" />
-                                    <x-input-label for="waktuSewa" :value="__('Pilih jangka waktu sewa')" />
-                                </div>
-                                <div class="flex mb-6 gap-x-3">
-                                    <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3"
-                                        type="date" :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
-                                    <x-input-error :messages="$errors->get('text')" class="mt-2" />
-                                    <x-select class="w-1/2 mt-3" id="waktuSewa" name="waktuSewa" required>
-                                        <option value="test" selected disabled>Pilih waktu sewa</option>
-                                        <option value="6">6 Bulan</option>
-                                        <option value="12">1 Tahun</option>
-                                    </x-select>
-                                </div>
-                                <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
-                                    href="https://wa.me/{{ '+62' . substr($kost->user->no_hp, 1, 13) }}"
-                                    target="_blank">Chat Pemilik</x-secondary-button>
-                                <x-primary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80">Ajukan
-                                    Sewa</x-primary-button>
-                            </form>
+                        <h4 class="mt-3 font-normal text-gray-800 text-md dark:text-white">
+                            @if ($kost->kamar_tersedia !== 0)
+                                Tersisa
+                                <span class="text-red-500"> {{ $kost->kamar_tersedia . ' Kamar' }} </span>
+                                <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
+                                <form action="{{ route('payment') }}" method="GET">
+                                    <x-text-input type="text" hidden value="{{ $kost->id }}"
+                                        name="id"></x-text-input>
+                                    <div class="flex justify-around">
+                                        <x-input-label for="tglMulaiSewa" :value="__('Pilih tanggal mulai sewa')" />
+                                        <x-input-label for="waktuSewa" :value="__('Pilih jangka waktu sewa')" />
+                                    </div>
+                                    <div class="flex mb-6 gap-x-3">
+                                        <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3"
+                                            type="date" :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
+                                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                                        <x-select class="w-1/2 mt-3" id="waktuSewa" name="waktuSewa" required>
+                                            <option value="test" selected disabled>Pilih waktu sewa</option>
+                                            <option value="6">6 Bulan</option>
+                                            <option value="12">1 Tahun</option>
+                                        </x-select>
+                                    </div>
+                                    <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                        href="https://wa.me/{{ '+62' . substr($kost->user->no_hp, 1, 13) }}"
+                                        target="_blank">Chat Pemilik</x-secondary-button>
+                                    <x-primary-button
+                                        class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80">Ajukan
+                                        Sewa</x-primary-button>
+                                </form>
+                                @else
+                                <span class="text-red-500"> Tidak ada kamar kosong </span>
+                                <hr class="h-px mt-4 mb-4 bg-gray-200 border-0 dark:bg-gray-700">
+                                <form action="{{ route('payment') }}" method="GET">
+                                    <x-text-input type="text" hidden value="{{ $kost->id }}"
+                                        name="id"></x-text-input>
+                                    <div class="flex justify-around">
+                                        <x-input-label for="tglMulaiSewa" :value="__('Pilih tanggal mulai sewa')" />
+                                        <x-input-label for="waktuSewa" :value="__('Pilih jangka waktu sewa')" />
+                                    </div>
+                                    <div class="flex mb-6 gap-x-3">
+                                        <x-text-input id="tanggalSewa" name="tanggalSewa" class="block w-1/2 mt-3" disabled
+                                            type="date" :value="old('tanggalSewa')" required autocomplete="mulai-sewa" />
+                                        <x-input-error :messages="$errors->get('text')" class="mt-2" />
+                                        <x-select class="w-1/2 mt-3" id="waktuSewa" name="waktuSewa" required disabled>
+                                            <option value="test" selected disabled>Pilih waktu sewa</option>
+                                            <option value="6">6 Bulan</option>
+                                            <option value="12">1 Tahun</option>
+                                        </x-select>
+                                    </div>
+                                    <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                        href="https://wa.me/{{ '+62' . substr($kost->user->no_hp, 1, 13) }}"
+                                        target="_blank">Chat Pemilik</x-secondary-button>
+                                    <x-secondary-button
+                                        class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80" disabled>Ajukan
+                                        Sewa</x-secondary-button>
+                                </form>
+
+                            @endif
                     </div>
                 </div>
             </div>
@@ -133,7 +165,7 @@
                             </h2>
                             <p class="dark:text-gray-200">{{ $kost->alamat }}</p>
                             <div class="flex min-w-full">
-                                <iframe class="mt-3 mb-1 rounded-lg h-96 w-full"
+                                <iframe class="mt-3 mb-1 rounded-lg h-96 min-w-full"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid"
                                     loading="lazy"></iframe>
                             </div>

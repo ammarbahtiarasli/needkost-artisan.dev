@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kost;
+use App\Models\Photo;
 use App\Models\Riwayat;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -34,6 +35,21 @@ class KostController extends Controller
     public function store(StoreKostRequest $request)
     {
         //
+    }
+
+    public function search(Request $request)
+    {
+        if ($request->search == null) {
+            $kosts = Kost::paginate(6);
+            $photo = $kosts->first()->photo()->get()->first()->photo;
+        } else {
+            $kosts = Kost::where('nama', 'like', '%' . $request->search . '%')->paginate(6);
+            $photo = asset('storage/' . $kosts->first()->photo()->get()->first()->photo);
+            if ($photo == null) {
+                $photo = 'https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg';
+            }
+        }
+        return view('kost.search', compact('kosts', 'photo'));
     }
 
     /**
@@ -75,10 +91,15 @@ class KostController extends Controller
     public function payment(Request $request)
     {
         $id = $request->id;
+        $kost = Kost::find($id);
+
+        if ($kost->kamar_tersedia === 0) {
+            return redirect()->back()->with('error', 'Kamar sudah penuh');
+        }
+
         $id_riwayat = rand();
         $tanggal_mulai = str_replace('-', ' ', date('d-F-Y', strtotime($request->tanggalSewa)));
         $waktu_sewa = $request->waktuSewa;
-        $kost = Kost::find($id);
         $penyewa = auth()->user();
         $total = $kost->harga_per_bulan * $waktu_sewa;
         $sewa = array(
@@ -145,6 +166,8 @@ class KostController extends Controller
     public function invoice($invoice)
     {
         $riwayat = Riwayat::where('nomor_invoice', $invoice)->first();
+        $kamar_tersedia = $riwayat->kost->kamar_tersedia - 1;
+        $riwayat->kost->update(['kamar_tersedia' => $kamar_tersedia]);
         $riwayat->update(['status' => 'success']);
 
         return view('kost.invoice', compact('riwayat'));
