@@ -83,7 +83,7 @@
     <div class="container py-6 mx-auto">
         <div class="flex px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
             <div class="w-1/2">
-                <img class="h-5 w-5" src="https://i.pinimg.com/564x/d3/b7/c1/d3b7c10201510848f5bcf86e51b83ed6.jpg" alt="">
+                <img src="img/peta.jpg">
             </div>
             <div class="w-1/2">
                 <a href="#" class="block max-w-md py-6">
