@@ -1,21 +1,26 @@
 <x-guest-layout>
+    <x-slot name="header">
+        <h2 class="pt-16 font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
+            {{ __('Lokasi / Kota Bandung') }}
+        </h2>
+    </x-slot>
+
     <x-head-minimal>
         <x-slot name="title">
             <h1
                 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 sm:text-3xl md:text-3xl lg:text-4xl dark:text-white">
                 Kota / Kab <span
-                class="inline-block -rotate-1 transition hover:rotate-3 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-2xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 text-lg tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-3xl md:text-3xl lg:text-4xl">{{ $kota }}</span> .</h1>
+                    class="inline-block -rotate-1 transition hover:rotate-3 animate-gradient-pulse rounded-xl ring-2 ring-sky-300/70 shadow-2xl shadow-sky-300/[0.25] ml-1 bg-gradient-to-r from-background via-sky-300/10 to-background px-4 py-1.5 text-lg tracking-tight text-foreground sm:px-4 sm:py-3 sm:text-3xl md:text-3xl lg:text-4xl">{{ $kota }}</span>
+                .</h1>
         </x-slot>
         <x-slot name="desc">
             <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
                 Lorem ipsum dolor sit amet consectetur.</p>
         </x-slot>
+        <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
+        </div>
     </x-head-minimal>
-    <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
-            {{ __('Lokasi / Kota Bandung') }}
-        </h2>
-    </x-slot>
+
 
     <div class="container py-6 mx-auto ">
         <div class="px-4 mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">

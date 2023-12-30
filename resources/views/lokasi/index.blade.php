@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
+        <h2 class="pt-16 font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
             {{ __('Rekomendasi Kost berdasarkan Lokasi') }}
         </h2>
     </x-slot>
@@ -11,8 +11,8 @@
                 Cari kamar kost sesuai lokasi kamu.</h1>
         </x-slot>
         <x-slot name="desc">
-            <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">Here at
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.consecteturs.</p>
+            <p class="mb-8 font-normal text-gray-500 text-md lg:text-lg sm:px-16 lg:px-48 dark:text-gray-200">
+                Pencarian Kost Sesuai Lokasimu, Hanya di NeedKost!.</p>
         </x-slot>
         <div class="container flex justify-center px-4 pb-8 mx-auto text-center lg:pb-16">
             <form action="/lokasi">
