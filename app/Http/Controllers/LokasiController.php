@@ -16,8 +16,29 @@ class LokasiController extends Controller
     public function index()
     {
         $kosts = Kost::all();
-        $provinsis = $this->getProvinsis();
-        $kotas = $this->getKotas();
+        $provinsis = Provinsi::all();
+        $kotas = Kota::all();
+
+        if (request()->has('terapkan')) {
+
+            $reqProv = str_replace('+', ' ', request('provinsi'));
+            $provinsi = Provinsi::where('nama', $reqProv)->first();
+            $reqKota = str_replace('+', ' ', request('kota'));
+            $kota = Kota::where('nama', $reqKota)->first();
+
+            if ($reqProv != null && $reqKota != null) {
+                $kosts = Kost::where('provinsi_id', $provinsi->id)
+                    ->where('kota_id', $kota->id)
+                    ->get();
+            } else if ($reqProv != null && $reqKota == null) {
+                $kosts = Kost::where('provinsi_id', $provinsi->id)
+                    ->get();
+            } else if ($reqProv == null && $reqKota != null) {
+                $kosts = Kost::where('kota_id', $kota->id)
+                    ->get();
+            }
+        }
+
         return view('lokasi.index', compact('kosts', 'provinsis', 'kotas'));
     }
 
@@ -33,16 +54,6 @@ class LokasiController extends Controller
         }
 
         return response()->json(['options' => $options]);
-    }
-
-    private function getProvinsis()
-    {
-        return Provinsi::all();
-    }
-
-    private function getKotas()
-    {
-        return Kota::all();
     }
 
     public function kotas()
