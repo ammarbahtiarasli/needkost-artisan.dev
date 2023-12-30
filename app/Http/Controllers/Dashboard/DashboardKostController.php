@@ -174,7 +174,10 @@ class DashboardKostController extends Controller
         }
 
         if ($request->hasFile('photo')) {
-            Photo::where('kost_id', $kost->id)->delete();
+            if ($kost->photo()->exists()) {
+                Photo::where('kost_id', $kost->id)->delete();
+                unlink(storage_path('app/public/' . $kost->photo->photo));
+            }
             Photo::create([
                 'kost_id' => $kost->id,
                 'photo' => $request->file('photo')->store('photo/kost', 'public'),

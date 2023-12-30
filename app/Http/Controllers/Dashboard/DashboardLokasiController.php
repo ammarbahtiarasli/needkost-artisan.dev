@@ -29,6 +29,15 @@ class DashboardLokasiController extends Controller
         return view('dashboard.lokasi.index', compact('provinsi', 'kota'));
     }
 
+    public function search(Request $request)
+    {
+        $provinsi = Provinsi::where('nama', 'like', '%' . $request->search . '%')->paginate(10);
+        $kota = null;
+
+        // dd($kota);
+        return view('dashboard.lokasi.search', compact('provinsi', 'kota'));
+    }
+
     public function perProvinsi(Request $request)
     {
         $provinsi = Provinsi::paginate(10);

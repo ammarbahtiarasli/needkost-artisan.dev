@@ -54,8 +54,10 @@
                     <h2 class="text-xl font-semibold leading-6 tracking-tight dark:text-gray-200">Semua</h2>
                     <p class="text-sm dark:text-gray-300 text-muted-foreground">kamar kost yang ada di NeedKost</p>
                 </div>
-                <div
-                    class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+                <div class="grid gap-y-12 sm:grid-cols-2 sm:gap-10 md:gap-x-4 md:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-12">
+                    @if ($kosts->isEmpty())
+                    <span class="text-red-500"> Tidak ada kamar kost </span>
+                    @else
                     @foreach ($kosts as $k)
                         <x-card>
                             <x-slot name="id">

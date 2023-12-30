@@ -17,7 +17,7 @@
             </div>
 
             <div class="container p-8 mx-auto mt-5 bg-white sm:rounded-lg dark:bg-gray-800">
-                <form action="{{ route('kost.update', $kost->id) }}" method="POST">
+                <form action="{{ route('kost.update', $kost->id) }}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
                     <div class="mb-4">
@@ -139,7 +139,7 @@
                                     <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX.
                                         800x400px)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" class="hidden" />
+                                <input id="dropzone-file" type="file" class="hidden" name="photo" />
                             </label>
                         </div>
                         <x-input-error class="mt-2" :messages="$errors->get('image')" />

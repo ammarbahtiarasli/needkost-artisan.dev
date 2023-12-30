@@ -46,7 +46,8 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="result"></tbody>
+                            <tbody id="no-search">
                                 @foreach ($provinsi as $p)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
@@ -117,5 +118,67 @@
 
         </div>
     </div>
+
+    <script>
+        const search = document.querySelector('form[action="{{ route('lokasi.index') }}"]');
+        const result = document.getElementById('result');
+        const noSearch = document.getElementById('no-search');
+
+        search.addEventListener('input', function(event) {
+            event.preventDefault();
+            liveSearch();
+        });
+
+        function liveSearch() {
+            const searchData = new FormData(search);
+            const searchInput = searchData.get('search');
+
+            if(searchInput.length > 0) {
+                fetch(`/lokasi/table/search?search=${searchInput}`, {
+                    method: 'GET',
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => response.text())
+                .then(data => {
+                    displayLiveSearchResults(JSON.parse(data));
+                })
+                .catch(error => console.log(error));
+                noSearch.classList.add('hidden');
+            } else {
+                result.innerHTML = '';
+                noSearch.classList.remove('hidden');
+            }
+        }
+
+        function displayLiveSearchResults(data){
+            if(!Array.isArray(data) || !data.length) {
+                result.innerHTML = `
+                <tr>
+                <div class="p-6 font-semibold text-center text-rose-500">
+                    {{ __('Data Provinsi tidak ada.') }}
+                </div>
+                </tr>
+                `;
+                return;
+            }
+
+            result.innerHTML = data.map(item => {
+                return `
+                <tr
+                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row"
+                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                ${item.nama}
+                </th>
+                <td class="px-6 py-4 text-right">
+                <x-sky-button href="/lokasi/table/${item.id}">{{ __('Detail') }}</x-sky-button>
+                </td>
+                </tr>
+                `;
+            }).join('');
+        }
+    </script>
 
 </x-app-layout>
