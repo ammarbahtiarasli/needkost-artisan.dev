@@ -1,5 +1,8 @@
 <x-guest-layout>
     <x-slot name="header">
+        <h2 class="pt-16 font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
+            {{ __('Pusat Bantuan') }}
+        </h2>
     </x-slot>
 
     <div class="container py-6 mx-auto">

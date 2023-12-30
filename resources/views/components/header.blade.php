@@ -1,5 +1,5 @@
 <div
-        class="bg-white dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
+        class="bg-white py-6 pt-12 dark:bg-gray-900 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern.svg')] dark:bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/hero-pattern-dark.svg')]">
         <div class="px-4 py-8 mx-auto text-center lg:py-20">
             <a href="{{ route('kosts.index') }}"
                 class="inline-flex items-center justify-between px-1 py-1 text-sm transition rounded-full text-sky-700 bg-sky-100 pe-4 mb-7 dark:bg-sky-900 dark:text-sky-300 hover:bg-gray-300/80 dark:hover:bg-sky-800">

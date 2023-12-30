@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-slot name="header">
-        <h2 class="font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
+        <h2 class="pt-16 font-semibold leading-tight text-gray-800 text-md dark:text-gray-200">
             {{ __('Riwayat Sewa') }}
         </h2>
     </x-slot>
