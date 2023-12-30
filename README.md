@@ -42,6 +42,14 @@ Setelah itu, jalankan perintah berikut pada terminal.
 ```bash
 php artisan migrate
 ```
+
+Setelah itu, install depedencies external karena projek ini menggunakan api luar payment gateway midtrans dan api login socialite.
+```bash
+composer require midtrans/midtrans-php
+
+composer require laravel/socialite
+```
+
 Setelah itu, jalankan `php artisan serve` untuk memulai server laravel nya.
 dan jalankan juga `npm run dev` untuk rendering bagian front-end nya.
 
