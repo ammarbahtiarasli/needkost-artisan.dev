@@ -81,6 +81,7 @@ class DashboardKostController extends Controller
 
         $id = Kost::max('id') + 1;
 
+
         // Filter Berdasarkan Harga
         $harga = substr($request->get('harga_perbulan'), 4, 20);
 
@@ -108,10 +109,12 @@ class DashboardKostController extends Controller
         }
 
         if ($request->hasFile('photo')) {
-            Photo::create([
-                'kost_id' => $kostBaru->id,
-                'photo' => $request->file('photo')->store('photo/kost', 'public'),
-            ]);
+            foreach($request->file('photo') as $photo) {
+                Photo::create([
+                    'kost_id' => $kostBaru->id,
+                    'photo' => $photo->store('photo/kost', 'public'),
+                ]);
+            }
         }
 
         return to_route('kost.index')->with('success', 'Kamar Kost berhasil ditambahkan');

@@ -2,7 +2,8 @@
     class="fixed top-0 w-full bg-gray-100 bg-center sm:flex sm:justify-center sm:items-center bg-dots-darker dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
 </div>
 
-<nav x-data="{ open: false }" class="fixed top-0 z-10 w-full border-b border-gray-100 bg-white/70 backdrop-blur-md dark:bg-gray-800/80 dark:border-gray-700">
+<nav x-data="{ open: false }"
+    class="fixed top-0 z-10 w-full border-b border-gray-100 bg-white/70 backdrop-blur-md dark:bg-gray-800/80 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -77,9 +78,7 @@
                                 </form>
                             </x-slot>
                         </x-dropdown>
-                    @endauth
-                @else
-                    @auth
+                    @else
                         <div class="py-6 text-right sm:top-0 sm:right-0">
                             <a href="{{ route('login') }}"
                                 class="inline-flex items-center justify-center px-4 text-sm font-medium transition-colors rounded-md bg-sky-200 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-gray-200-foreground hover:bg-sky-200/80 h-9">Masuk</a>
@@ -154,16 +153,16 @@
                             </x-responsive-nav-link>
                         </form>
                     </div>
+                @else
+                    <div class="p-6 text-right sm:top-0 sm:right-0">
+                        <a href="{{ route('login') }}"
+                            class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Masuk</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}"
+                                class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Daftar</a>
+                        @endif
+                    </div>
                 @endauth
-            @else
-                <div class="p-6 text-right sm:top-0 sm:right-0">
-                    <a href="{{ route('login') }}"
-                        class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Masuk</a>
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}"
-                            class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Daftar</a>
-                    @endif
-                </div>
             @endif
         </div>
     </div>

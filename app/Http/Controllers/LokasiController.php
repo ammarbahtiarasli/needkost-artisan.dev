@@ -63,7 +63,14 @@ class LokasiController extends Controller
 
     public function kota($kota)
     {
-        return view('lokasi.kota', compact('kota'));
+        $kot = strtoupper($kota);
+        $kot = Kota::where('nama', 'like', '%' . $kot . '%')->get();
+
+        foreach($kot as $k) {
+            $kosts = Kost::where('kota_id', $k->id)->get();
+        }
+
+        return view('lokasi.kota', compact('kota', 'kosts'));
     }
 
     public function provinsis()

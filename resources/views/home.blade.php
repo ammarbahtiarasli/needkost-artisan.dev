@@ -12,8 +12,8 @@
 
     @if (session()->has('success'))
         <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden transition bg-green-200 shadow-sm dark:bg-emerald-400/80 sm:rounded-lg">
-                <div class="p-6 text-gray-900 dark:text-white">
+            <div class="overflow-hidden transition shadow-sm bg-gradient-to-r from-sky-700 to-sky-500 sm:rounded-lg">
+                <div class="p-6 text-gray-100 dark:text-white">
                     {{ __(session('success')) }}
                 </div>
             </div>
@@ -131,7 +131,7 @@
                 @foreach ($kotas as $kota)
                     <a href="/lokasi/kota/{{ $kota }}"
                         class="w-full h-16 mt-8 overflow-hidden transition bg-center bg-cover bg-[url('https://images.pexels.com/photos/2893670/pexels-photo-2893670.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1')] rounded-lg sm:h-32 hover:shadow-md md:mx-4 md:mt-0 md:w-1/4">
-                        <div class="flex items-center justify-center h-full bg-sky-800/60">
+                        <div class="flex items-center justify-center h-full bg-gradient-to-r from-sky-700/60 to-sky-500/60">
                             <div class="max-w-xl px-10">
                                 <h2 class="text-xl font-semibold text-white sm:text-2xl">Kost di
                                     {{ $kota }}</h2>
