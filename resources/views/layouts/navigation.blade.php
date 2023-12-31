@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('kost.index')" :active="request()->routeIs('kost.index', 'kost.create', 'kost.show', 'kost.edit')">
                         {{ __('Kamar Kost') }}
                     </x-nav-link>
+                    <x-nav-link disabled>
+                        {{ __('Fasilitas') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('lokasi.index')" :active="request()->routeIs('lokasi.index', 'lokasi.show')">
                         {{ __('Lokasi') }}
                     </x-nav-link>
@@ -95,6 +98,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('lokasi.index')" :active="request()->routeIs('lokasi.index', 'lokasi.show')">
                 {{ __('Lokasi') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link disabled>
+                {{ __('Fasilitas') }}
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.index', 'user.show')">
                 {{ __('Pengguna') }}
