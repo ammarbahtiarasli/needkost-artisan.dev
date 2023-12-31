@@ -45,12 +45,10 @@
             </div>
 
             @if (Auth::user()->role->nama === 'Admin')
-                <div
-                class="p-6 text-gray-900 bg-white border rounded-lg shadow-sm dark:text-gray-200 dark:border-0 dark:bg-gray-800">
-                <h4 class="font-mono text-xl">{{ $users }}</h4><small
-                class="block mt-4 text-sm text-muted-foreground">Pengguna</small>
+                <div class="p-6 text-gray-900 bg-white border rounded-lg shadow-sm dark:text-gray-200 dark:border-0 dark:bg-gray-800">
+                <h4 class="font-mono text-xl">{{ count($users) }}</h4>
+                <small class="block mt-4 text-sm text-muted-foreground">Pengguna</small>
                 <x-detail-long-button :href="route('user.index')">Detail</x-detail-long-button>
-            </div>
             @endif
         </div>
     </div>
