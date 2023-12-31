@@ -24,7 +24,7 @@
     <div class="bg-white" x-data="topBtn">
         <button @click="scrolltoTop" id="topButton"
             class="fixed z-10 hidden text-2xl text-gray-100 transition opacity-80 bottom-5 right-5">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="duration-300 hover:mt-3 w-12 h-12 p-2.5 bg-sky-800/80 backdrop-blur-md dark:bg-sky-400/80 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-500">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="duration-300 hover:mt-3 w-12 h-12 p-2.5 bg-sky-800/80 backdrop-blur-md dark:bg-sky-400/80 rounded-xl bg-gradient-to-r from-sky-500 to-sky-700">
                 <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm.53 5.47a.75.75 0 0 0-1.06 0l-3 3a.75.75 0 1 0 1.06 1.06l1.72-1.72v5.69a.75.75 0 0 0 1.5 0v-5.69l1.72 1.72a.75.75 0 1 0 1.06-1.06l-3-3Z" clip-rule="evenodd" />
               </svg>
         </button>

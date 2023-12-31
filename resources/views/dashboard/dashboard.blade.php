@@ -74,7 +74,7 @@
         </div>
     </div>
     <div class="px-4 pb-12 mx-auto md:mb-0 md:pb-12 sm:px-6 md:px-4 lg:max-w-6xl xl:max-w-7xl lg:px-8">
-        <div class="overflow-hidden bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+        <div class="overflow-x-auto bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
             <div class="flex p-6 text-gray-900 dark:text-gray-100">
                 <div class="container">
                     <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Kamar kost yang
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
-                <thead class="overflow-x-auto text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
                         <th scope="col" class="px-6 py-3">
                             Nama Kost
@@ -127,4 +127,5 @@
             </table>
         </div>
     </div>
+    <x-support></x-support>
 </x-app-layout>
