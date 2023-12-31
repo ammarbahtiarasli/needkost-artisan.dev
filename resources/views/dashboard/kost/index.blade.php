@@ -31,7 +31,7 @@
                     <div class="container flex justify-end w-1/2">
                         <form method="GET" action="{{ route('kost.index') }}">
                             <label for="default-search"
-                                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                                class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Cari</label>
                             <div class="relative items-end justify-end">
                                 <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                                     <svg class="w-4 h-2.4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -279,7 +279,7 @@
                 @endif
 
                 {{-- pagination --}}
-                <div class="p-12">
+                <div class="p-8">
                     {{ $kosts->links() }}
                 </div>
             </div>

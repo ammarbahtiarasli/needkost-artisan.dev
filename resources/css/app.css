@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+    /* Customize the scrollbar with your own CSS here */
+    width: 8px;
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-track {
+    /* Customize the scrollbar track with your own CSS here */
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+
+    /* Customize the scrollbar thumb with your own CSS here */
+    background: #bae6fd;
+    border-radius: 20px;
+}

@@ -12,7 +12,7 @@
 
     @if (session()->has('success'))
         <div class="pt-6 mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden transition shadow-sm bg-gradient-to-r from-sky-700 to-sky-500 sm:rounded-lg">
+            <div class="overflow-hidden transition shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-100 dark:text-white">
                     {{ __(session('success')) }}
                 </div>
@@ -22,10 +22,10 @@
 
     <div class="pt-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between overflow-hidden align-middle bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+            <div class="flex items-center justify-between overflow-hidden align-middle shadow-sm bg-gradient-to-r from-sky-700 to-sky-200 dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 mx-3 text-gray-900 md:mx-0 dark:text-gray-100">
-                    <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Daftarkan Kost anda di NeedKost</h3>
-                    <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Disurvey langsung oleh Needkost. Lokasi terverifikasi, bangunan kos lolos seleksi.</p>
+                    <h3 class="text-xl font-semibold leading-6 tracking-tighter text-white dark:text-gray-200">Daftarkan Kost anda di NeedKost</h3>
+                    <p class="mt-1.5 text-sm text-muted-foreground text-gray-100 dark:text-gray-300">Disurvey langsung oleh Needkost. Lokasi terverifikasi, bangunan kos lolos seleksi.</p>
                 </div>
                 <div class="hidden p-6 text-gray-900 md:block dark:text-gray-100">
                     <x-sky-button>Pelajari lebih lanjut</x-sky-button>

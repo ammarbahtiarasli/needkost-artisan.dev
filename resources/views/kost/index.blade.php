@@ -25,18 +25,18 @@
     <div class="pt-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div
-                class="flex items-center justify-between overflow-hidden align-middle bg-white shadow-sm dark:bg-gray-800 sm:rounded-lg">
+                class="flex items-center justify-between overflow-hidden align-middle shadow-sm bg-gradient-to-r from-sky-700 to-sky-200 dark:bg-gray-800 sm:rounded-lg">
                 <div class="p-6 mx-3 text-gray-900 md:mx-0 dark:text-gray-100">
-                    <h3 class="text-xl font-semibold leading-6 tracking-tighter dark:text-gray-200">Coba cara baru bayar
+                    <h3 class="text-xl font-semibold leading-6 tracking-tighter text-white dark:text-gray-200">Coba cara baru bayar
                         kos!</h3>
-                    <p class="mt-1.5 text-sm text-muted-foreground dark:text-gray-300">Biar bayar kos lebih gampang dan
+                    <p class="mt-1.5 text-sm text-muted-foreground text-gray-100 dark:text-gray-300">Biar bayar kos lebih gampang dan
                         aman, coba sistem pembayaran khusus buat anak kos.</p>
                 </div>
                 <div class="hidden p-6 text-gray-900 md:block dark:text-gray-100">
                     <div class="w-full">
                         <div class="flex flex-wrap items-center justify-end">
                             <a href="#"
-                                class="mx-4 w-[120px] py-4 opacity-60 grayscale dark:grayscale-0 dark:opacity-100 transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
+                                class="mx-4 w-[120px] py-4 opacity-100 dark:grayscale-0 dark:opacity-100 transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
                                 <img src="https://seeklogo.com/images/M/midtrans-logo-1D17614A16-seeklogo.com.png"
                                     alt="Midtrans" />
                             </a>

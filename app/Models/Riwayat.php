@@ -15,11 +15,11 @@ class Riwayat extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 
     public function kost()
     {
-        return $this->belongsTo(Kost::class);
+        return $this->belongsTo(Kost::class, 'kost_id');
     }
 }
