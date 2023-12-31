@@ -61,8 +61,47 @@
                 <h1
                     class="mt-6 text-xl font-extrabold leading-none tracking-tight text-gray-900 sm:text-xl md:text-2xl lg:text-2xl dark:text-white">
                     Paling sering dicari</h1>
+                <ol class="relative border-gray-200 border-s dark:border-gray-700">
+                    <li class="mb-10 ms-6">
+                        <div
+                            class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                            <div class="items-center justify-between mb-3 sm:flex">
+                                <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">Sering ditanyakan di <a href="#"
+                                        class="font-semibold text-gray-900 dark:text-white hover:underline">NeedKost</a></div>
+                            </div>
+                            <div
+                                class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
+                                Kalo mau jadi partner pemilik kamar kost gimana ya caranya, apakah tinggal login saja ?.</div>
+                        </div>
+                    </li>
+                    <li class="mb-10 ms-6">
+                        <div
+                            class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                            <div class="items-center justify-between mb-3 sm:flex">
+                                <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">Sering ditanyakan di <a href="#"
+                                        class="font-semibold text-gray-900 dark:text-white hover:underline">NeedKost</a></div>
+                            </div>
+                            <div
+                                class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
+                                Kalo sudah sewa tapi gak jadi ditempatin apakah bisa di batalkan?.
+                            </div>
+                        </div>
+                    </li>
+                    <li class="mb-10 ms-6">
+                        <div
+                            class="p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-700 dark:border-gray-600">
+                            <div class="items-center justify-between mb-3 sm:flex">
+                                <div class="text-sm font-normal text-gray-500 lex dark:text-gray-300">Sering ditanyakan di <a href="#"
+                                        class="font-semibold text-gray-900 dark:text-white hover:underline">NeedKost</a></div>
+                            </div>
+                            <div
+                                class="p-3 text-xs italic font-normal text-gray-500 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-600 dark:border-gray-500 dark:text-gray-300">
+                                Login pake google kadang bisa kadang engga.
+                            </div>
+                        </div>
+                    </li>
+                </ol>
             </div>
-
         </div>
     </div>
 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nomor_invoice');
             $table->foreignId('user_id');
             $table->foreignId('kost_id');
+            $table->date('tanggal_mulai');
             $table->integer('durasi');
             $table->integer('harga_total');
             $table->enum('status', ['pending', 'success', 'failed']);

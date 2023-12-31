@@ -122,6 +122,7 @@ class KostController extends Controller
             'nomor_invoice' => $sewa['nomor_invoice'],
             'user_id' => $sewa['user_id'],
             'kost_id' => $sewa['kost_id'],
+            'tanggal_mulai' => $request->tanggalSewa,
             'durasi' => $sewa['durasi'],
             'harga_total' => $sewa['harga_total'],
             'status' => $sewa['status'],

@@ -25,7 +25,7 @@
     <div class="pt-8">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div
-                class="flex items-center justify-between overflow-hidden align-middle shadow-sm bg-gradient-to-r from-sky-700 to-sky-200 dark:bg-gray-800 sm:rounded-lg">
+                class="flex items-center justify-between overflow-hidden align-middle shadow-sm bg-gradient-to-r from-sky-700 to-sky-200 dark:bg-gradient-to-r dark:to-sky-900 sm:rounded-lg">
                 <div class="p-6 mx-3 text-gray-900 md:mx-0 dark:text-gray-100">
                     <h3 class="text-xl font-semibold leading-6 tracking-tighter text-white dark:text-gray-200">Coba cara baru bayar
                         kos!</h3>
