@@ -17,6 +17,7 @@ class DashboardController extends Controller
         $kota = count(Kota::all());
         $user = count(User::all());
         $kosts = Kost::all();
+        $users = User::whereNot('id', auth()->user()->id)->get();
 
         if (Auth::user()->role->nama == 'Pemilik') {
             $kost = count(Kost::where('user_id', auth()->user()->id)->get());
@@ -24,7 +25,7 @@ class DashboardController extends Controller
 
         return view('dashboard.dashboard', [
             'kosts' => $kosts,
-            'users' => count(User::all()),
+            'users' => $users,
             'kotas' => count(Kota::all()),
         ]);
     }
