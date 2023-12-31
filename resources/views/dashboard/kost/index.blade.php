@@ -48,6 +48,7 @@
                     </div>
                 </div>
 
+                {{-- Admin --}}
                 @if (Auth::user()->role->nama === 'Admin')
                     @if ($kosts->count() > 0)
                         <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -82,11 +83,11 @@
                                         <th class="hidden p-4 md:table-cell">
                                             @if ($kost->photo()->exists())
                                                 <img src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}"
-                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32 aspect-video"
                                                     alt="image">
                                             @else
                                                 <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
-                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32 aspect-video"
                                                     alt="image">
                                             @endif
                                         </th>
@@ -162,6 +163,7 @@
                         </div>
                     @endif
                 @else
+                {{-- Pemilik --}}
                     @if ($kosts->count() > 0)
                         <table class="min-w-full text-sm text-left text-gray-500 dark:text-gray-400">
                             <thead
@@ -173,10 +175,10 @@
                                     <th scope="col" class="px-6 py-3">
                                         Nama Kost
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                         Harga perbulan
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <th scope="col" class="hidden px-6 py-3 md:table-cell">
                                         Kamar yang tersedia
                                     </th>
                                     <th scope="col" class="px-6 py-3">
@@ -188,18 +190,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-
                                 @foreach ($kosts as $kost)
                                     <tr
                                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                         <th class="p-4">
                                             @if ($kost->photo()->exists())
                                                 <img src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}"
-                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32 aspect-video"
                                                     alt="image">
                                             @else
                                                 <img src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
-                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32"
+                                                    class="w-16 max-w-full max-h-full rounded-lg md:w-32 aspect-video"
                                                     alt="image">
                                             @endif
                                         </th>
@@ -207,10 +208,10 @@
                                             class="px-6 py-4 font-medium text-gray-800 whitespace-nowrap dark:text-gray-200">
                                             {{ $kost->nama }}
                                         </th>
-                                        <td class="px-6 py-4">
+                                        <td class="hidden px-6 py-4 md:table-cell">
                                             Rp {{ number_format($kost->harga_per_bulan, 0, ',', '.') }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="hidden px-6 py-4 md:table-cell">
                                             {{ $kost->kamar_tersedia . ' Kamar' }}
                                         </td>
                                         <td class="px-6 py-4">

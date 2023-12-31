@@ -35,9 +35,9 @@
     </div>
 
     <!-- Page Content -->
-    <main class=" bg-grascale-y-100 dark:bg-gray-900">
+    <main class="bg-grascale-y-100 dark:bg-gray-900">
         <div class="container py-6 mx-auto">
-            <div class="flex justify-center px-4 mx-auto gap-x-4 sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
+            <div class="grid justify-center grid-cols-1 px-4 mx-auto md:flex gap-x-4 sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
                 <div class="w-full p-6 bg-white rounded-lg dark:bg-gray-800">
                     <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {{ __('Informasi Pembayaran') }}
@@ -62,7 +62,7 @@
                         </div>
                     </dl>
                 </div>
-                <div class="w-full p-6 bg-white rounded-lg dark:bg-gray-800 ">
+                <div class="w-full p-6 mt-6 bg-white rounded-lg md:mt-0 dark:bg-gray-800">
                     <h2 class="mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {{ __('') }}
                     </h2>

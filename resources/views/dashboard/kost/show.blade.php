@@ -19,8 +19,18 @@
                 </div>
                 <div class="flex justify-center mx-auto sm:px-6 md:px-4 lg:px-8 lg:max-w-6xl xl:max-w-7xl">
                     <div class="w-full mx-6 mb-6 md:mx-0">
-                        <img class="object-cover max-w-full mb-6 rounded-lg ratio-16/9"
-                            src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
+                        <div class="grid grid-cols-1 gap-4 mb-6 md:grid-cols-4 sm:grid-cols-2 md:w-full">
+                            @foreach ($kost->photo()->get() as $photo)
+                                @if ($photo->exists())
+                                    <img class="object-cover w-full h-full rounded-lg aspect-video"
+                                        src="{{ asset('storage/' . $photo->photo) }}" alt="">
+                                @else
+                                    <img class="object-cover w-full h-full rounded-lg aspect-video"
+                                        src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg"
+                                        alt="">
+                                @endif
+                            @endforeach
+                        </div>
                         <span
                             class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">{{ $kost->gender->nama }}</span>
                         <dl
@@ -41,16 +51,17 @@
                             </div>
                             <div class="flex flex-col py-3">
                                 <dt class="mb-1 text-gray-400 md:text-lg dark:text-gray-400">Deskripsi</dt>
-                                <p class="text-sm md:text-normal md:font-semibold dark:text-gray-200">{{ $kost->deskripsi }}</p>
+                                <p class="text-sm md:text-normal md:font-semibold dark:text-gray-200">
+                                    {{ $kost->deskripsi }}</p>
                             </div>
                             <div class="flex flex-col pt-3 mb-2">
                                 <dt class="mb-1 text-gray-500 md:text-lg dark:text-gray-400">Fasilitas</dt>
                                 <dd class="text-lg font-semibold dark:text-gray-200">
                                     @foreach ($kost->fasilitas()->get() as $kos)
-                                    {{ $kos->nama }}
-                                    @if (!$loop->last)
-                                    ,
-                                    @endif
+                                        {{ $kos->nama }}
+                                        @if (!$loop->last)
+                                            ,
+                                        @endif
                                     @endforeach
                                 </dd>
                             </div>
@@ -78,7 +89,8 @@
                                 </div>
                             </div>
                         </dl>
-                        <x-primary-a :href="route('kost.index')" class="hidden mt-6 md:inline-block">Kembali ke daftar kamar</x-primary-a>
+                        <x-primary-a :href="route('kost.index')" class="hidden mt-6 md:inline-block">Kembali ke daftar
+                            kamar</x-primary-a>
                     </div>
                 </div>
             </div>

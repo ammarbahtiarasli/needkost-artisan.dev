@@ -64,10 +64,10 @@
                                                 <td class="px-6 py-4">
                                                     @if(((int) date('m') - (int) date('m', strtotime($riwayat->created_at))) > $riwayat->durasi)
                                                     <span
-                                                    class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Selesai</span>
+                                                    class="bg-emerald-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-emerald-700 dark:text-gray-300">Selesai</span>
                                                     @elseif ($riwayat->created_at <= now())
                                                     <span
-                                                    class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Sedang berlangsung</span>
+                                                    class="bg-sky-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-sky-700 dark:text-gray-300">Berlangsung</span>
                                                     @elseif($riwayat->created_at >= now())
                                                     <span
                                                     class="bg-slate-200/80 text-slate-700 text-sm font-medium px-2.5 py-1 rounded-full dark:bg-slate-700 dark:text-gray-300">Menunggu waktu mulai</span>

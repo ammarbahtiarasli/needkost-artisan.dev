@@ -11,34 +11,21 @@
                 <div class="grid grid-cols-1 gap-4 md:w-1/2">
                     <div>
                         @if ($kost->photo()->exists())
-                            <img class="h-full rounded-lg aspect-[16/9] object-cover"
+                            <img class="h-96 w-full rounded-lg aspect-[16/9] object-cover"
                                 src="{{ asset('storage/' .$kost->photo()->get()->first()->photo) }}" alt="">
                         @else
-                            <img class="h-auto max-w-full rounded-lg"
+                            <img class="h-96 w-full rounded-lg aspect-[16/9] object-cover"
                                 src="https://images.pexels.com/photos/439227/pexels-photo-439227.jpeg" alt="">
                         @endif
                     </div>
-                    <div class="grid grid-cols-4 gap-4">
+                    <div class="grid grid-cols-3 gap-3">
+                        @foreach ($kost->photo()->get()->skip(1) as $photo)
                         <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                            <img class="h-auto max-w-full rounded-lg aspect-[16/9] object-cover"
+                                src="{{  asset('storage/' .$photo->photo) }}"
                                 alt="foto kamar">
                         </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="foto kamar">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="foto kamar">
-                        </div>
-                        <div>
-                            <img class="h-auto max-w-full rounded-lg"
-                                src="https://images.pexels.com/photos/2079234/pexels-photo-2079234.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                alt="foto kamar">
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="grid grid-cols-1 mt-6 md:mt-0 md:w-1/2 md:ms-6">
@@ -78,9 +65,9 @@
                                             <option value="12">1 Tahun</option>
                                         </x-select>
                                     </div>
-                                    <x-secondary-button class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
+                                    <x-secondary-a class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80"
                                         href="https://wa.me/{{ '+62' . substr($kost->user->no_hp, 1, 13) }}"
-                                        target="_blank">Chat Pemilik</x-secondary-button>
+                                        target="_blank">Chat Pemilik</x-secondary-a>
                                     <x-primary-button
                                         class="flex justify-center w-full h-10 p-3 mt-3 bg-sky-800/80">Ajukan
                                         Sewa</x-primary-button>
@@ -122,15 +109,11 @@
                     <div>
                         <div class="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Dikelola oleh :</div>
                         <a class="flex group" href="#" target="_blank" rel="noopener noreferrer">
-                            <div class="flex-shrink-0 mr-4">
-                                <img class="w-12 h-12 duration-300 rounded-full ring-1 group-hover:ring-foreground transitions ring-foreground/10"
-                                    src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg"
-                                    alt="foto" loading="lazy" style="opacity: 1;">
-                            </div>
+
                             <div>
                                 <h4 class="text-lg font-medium dark:text-gray-200 text-foreground">
                                     {{ $kost->user->nama }}</h4>
-                                <p class="dark:text-gray-200 text-normal text-muted-foreground">{{ $kost->nama }}</p>
+                                <p class="dark:text-gray-200 text-normal text-muted-foreground">Kost : {{ $kost->nama }}</p>
                             </div>
                         </a>
                     </div>
@@ -164,8 +147,8 @@
                                 sekitar :
                             </h2>
                             <p class="dark:text-gray-200">{{ $kost->alamat }}</p>
-                            <div class="flex min-w-full">
-                                <iframe class="w-full mt-3 mb-1 rounded-lg h-96"
+                            <div class="flex w-full">
+                                <iframe class="w-full md:w-[72rem] mt-3 mb-1 rounded-lg h-96"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.57555736110766!2d107.59630983172879!3d-6.865589080023437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e7e7401e386d%3A0x1e382a1614103597!2sCo3%20Residence!5e0!3m2!1sid!2sid!4v1702299908132!5m2!1sid!2sid"
                                     loading="lazy"></iframe>
                             </div>

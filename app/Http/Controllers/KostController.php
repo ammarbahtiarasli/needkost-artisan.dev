@@ -17,7 +17,7 @@ class KostController extends Controller
      */
     public function index()
     {
-        $kosts = Kost::paginate(6);
+        $kosts = Kost::latest()->paginate(12);
         return view('kost.index', compact('kosts'));
     }
 

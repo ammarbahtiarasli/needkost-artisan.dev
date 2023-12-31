@@ -31,7 +31,7 @@
                         class="block w-full p-4 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg ps-10 focus:ring-sky-500 focus:border-sky-500 dark:bg-gray-800 dark:border-gray-700 dark:placeholder-gray-400 dark:text-white dark:focus:ring-sky-500 dark:focus:border-sky-500"
                         placeholder="Cari Lokasi ..." required autocomplete="off">
                     <button type="submit"
-                        class="text-white absolute end-2.5 bottom-2.5 bg-sky-800/80 hover:bg-sky-700/80 transition focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-800">Cari</button>
+                        class="text-white absolute end-2.5 bottom-2.5 hover:bg-sky-700/80 transition focus:ring-4 focus:outline-none focus:ring-sky-300 font-medium rounded-lg text-sm px-4 py-2 dark:hover:bg-sky-700 dark:focus:ring-sky-800 bg-gradient-to-r from-sky-600/80 to-sky-400/80">Cari</button>
                 </div>
             </form>
         </div>
